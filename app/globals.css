@@ -2,26 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+/* :root {
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+} */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+/* dark:bg-gray-900
+dark:bg-gray-900
+dark:bg-slate-900
+dark:text-teal-500
+bg-teal-500 */
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+	html {
+		@apply scroll-smooth;
+	}
+	body {
+		@apply bg-['#ecf0f3'] text-[#1f2937] tracking-wide scroll-smooth;
+	}
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply font-bold;
+	}
+	h1 {
+		@apply text-4xl sm:text-5xl md:text-6xl;
+	}
+	h2 {
+		@apply text-3xl sm:text-4xl;
+	}
+	li {
+		@apply cursor-pointer;
+	}
+	button {
+		@apply shadow-xl shadow-gray-400 rounded-full uppercase bg-gradient-to-tr from-[#5651e5] to-[#709dff];
+	}
+	.logo {
+		@apply flex items-center justify-center w-min h-10 text-black border-[2px] border-solid border-black p-1 cursor-pointer;
+	}
+	.logo-text {
+		@apply text-xl font-semibold;
+	}
+	.logo-span {
+		@apply text-white z-[1] bg-black capitalize;
+	}
 }
