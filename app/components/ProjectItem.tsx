@@ -1,12 +1,27 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import allProps from "@/app/components/data/Properties.json";
 
-const ProjectItem = ({ title, bgImg, ProjectUrl, technologies }) => {
+interface ProjectItemProps {
+	title: string;
+	bgImg: string;
+	ProjectUrl: string;
+	technologies: string;
+}
+
+const ProjectItem = ({
+	title,
+	bgImg,
+	ProjectUrl,
+	technologies,
+}: ProjectItemProps) => {
 	return (
 		<div className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl p-4 group hover:bg-gradient-to-r from-[#000000db] to-[#00000070]">
 			<Image
 				src={bgImg}
+				width="600"
+				height="600"
 				className="rounded-xl group-hover:opacity-30"
 				alt="product image"
 			/>

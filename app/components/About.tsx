@@ -1,5 +1,5 @@
-import React from "react";
 import Image from "next/image";
+
 const About = () => {
 	return (
 		<section
@@ -13,21 +13,23 @@ const About = () => {
 					<h2 className="py-4">Who I am</h2>
 					<p className="py-2 text-gray-600">I am not your normal developer</p>
 					<p className="py-2 text-gray-600">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit magni
-						voluptatem officiis repudiandae praesentium molestiae voluptate
-						nesciunt, perspiciatis, ab cum odio tempora aperiam molestias
-						doloremque tempore possimus voluptates? Sed eius ut quibusdam quis
-						labore deserunt aperiam maiores eos ipsum sequi commodi consequatur
-						enim nam esse doloribus nihil et, fugiat minus.
+						Aspiring frontend developer with a solid grasp of modern web
+						technologies, including React, Tailwind CSS, and Next.js. Eager to
+						apply my knowledge and build real-world projects to gain hands-on
+						experience. Passionate about creating user-friendly interfaces and
+						continuously enhancing my skills. Excited to contribute my
+						enthusiasm and dedication to collaborative development teams.
 					</p>
 					<p className="py-2 text-gray-600">
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae
-						voluptatum maiores sed magnam nemo voluptates quam minima! Libero
-						expedita neque, ex repellat consequuntur blanditiis voluptate fuga
-						nam pariatur. Quia iure consequatur aliquid corporis officia
-						exercitationem quam nihil, provident voluptate animi! Quibusdam
-						consequuntur distinctio, asperiores officia fugiat perferendis
-						deserunt aperiam suscipit.
+						My dedication to honing my frontend skills and eagerness to apply
+						them in real-world projects is truly commendable. My passion for
+						crafting user-friendly interfaces reflects a deep understanding of
+						the end-users` needs. My drive to continuously enhance my expertise
+						showcases a growth mindset, which is invaluable in the ever-evolving
+						tech industry. My enthusiasm and commitment to collaborative
+						teamwork will undoubtedly make you a valuable asset to any
+						development team. Keep shining and soaring high on my journey to
+						frontend excellence! 🚀✨
 					</p>
 					<p className="py-2 underline cursor-pointer text-gray-600">
 						Check out som of my lates projects

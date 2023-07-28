@@ -1,5 +1,3 @@
-import Image from "next/image";
-import { Icon } from "@iconify/react";
 import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import About from "./components/About";
