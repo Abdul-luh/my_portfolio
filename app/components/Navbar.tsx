@@ -30,7 +30,7 @@ const Navbar = () => {
 			}}
 			className="fixed w-full h-20 shadow-xl z-[100] px-5 ">
 			<div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
-				{/* <Image src={} width={} height={} alt=""/> */}
+				{/* LOGO */}
 				<div className="logo">
 					<Link href={"/"}>
 						<h4 className="logo-text">
@@ -40,11 +40,7 @@ const Navbar = () => {
 					</Link>
 				</div>
 				<div>
-					{/* <Icon icon="ep:menu" /> */}
 					<ul className="hidden md:flex">
-						{/* <Link href="/#hero">
-							<li className="ml-10 text-sm uppercase hover:border-b">Home</li>
-						</Link> */}
 						<Link
 							style={{
 								color: `${linkColor}`,

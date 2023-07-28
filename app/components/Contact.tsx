@@ -14,7 +14,7 @@ const Contact = () => {
 				<p className="text-xl tracking-widest uppercase text-[#5651e5]">
 					Contact
 				</p>
-				<h2>Get In Touch</h2>
+				<h2 className="py-4">Get In Touch</h2>
 
 				<div className="grid md:grid-cols-5 gap-8">
 					{/* LEFT  */}
@@ -105,7 +105,7 @@ const Contact = () => {
 										className="border-2 rounded-lg p-3 border-gray-300"
 										name=""
 										id=""
-										rows="10"></textarea>
+										rows={10}></textarea>
 								</div>
 								<button className="w-full p-4 text-gray-100 mt-4">
 									Send Message
