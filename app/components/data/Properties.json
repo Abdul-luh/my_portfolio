@@ -15,14 +15,15 @@
 	},
 	{
 		"id": 2,
-		"projName": "Porject02",
-		"projHead": "Some Other head text",
+		"projName": "Segam Mobile Service",
+		"projHead": "HTML | CSS | TAILWIND |JS ",
 		"projImg": "/../public/assets/images/img01.jpg",
 		"projDescr": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptate deleniti totam ea id, vitae dolorem voluptatibus perferendis excepturi? Quidem tempora ducimus ipsam aliquam doloribus optio nam neque quaerat, soluta voluptas reprehenderit et hic deleniti eveniet quibusdam labore dicta fugit possimus. Laboriosam, id consectetur saepe expedita aut non impedit dolore?",
 		"projTech": [
-			{ "id": 1, "techName": "html" },
+			{ "id": 1, "techName": "htnl" },
 			{ "id": 2, "techName": "css" },
-			{ "id": 3, "techName": "javascript" }
+			{ "id": 3, "techName": "TAILWIND" },
+			{ "id": 4, "techName": "TYPESCRIPT" }
 		],
 		"demoLink": "/",
 		"repoLink": "/"
