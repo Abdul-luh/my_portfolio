@@ -3,7 +3,7 @@ import skills from "./data/skill.json";
 
 const Skills = () => {
 	interface MySkills {
-		id: Number;
+		id: number;
 		img: string;
 		skill: string;
 	}
