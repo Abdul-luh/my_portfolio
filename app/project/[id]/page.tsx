@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
 import project01 from "../../../public/images/img01.jpg";
-// import project01 from "../../../public/img01.jpg";
 import allProps from "@/app/components/data/Properties.json";
 import { RiRadioButtonFill } from "react-icons/ri";
 
