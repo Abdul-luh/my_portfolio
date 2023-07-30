@@ -30,8 +30,8 @@ const page = ({ params }: any) => {
 				if (params.id == project.id)
 					return (
 						<div key={project.id} className="w-full overflow-x-hidden">
-							<div className="w-screen h-[30vh] lg:h-[40vh] relative overflow-y-hidden">
-								<div className="absolute top-0 left-0 w-full h-[30vh] lg:h-[40vh] bg-black/80 z-10 overflow-y-hidden" />
+							<div className="w-screen h-[40vh] lg:h-[50vh] relative overflow-y-hidden">
+								<div className="absolute top-0 left-0 w-full h-[40vh] lg:h-[50vh] bg-black/80 z-10 overflow-y-hidden" />
 								<Image
 									className="absolute z-[-1] object-cover"
 									src={project01}
