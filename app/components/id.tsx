@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import project01 from "../../public/assets/images/img01.jpg";
+import project01 from "../../public/img01.jpg";
 import { RiRadioButtonFill } from "react-icons/ri";
 
 const id = () => {

@@ -23,7 +23,7 @@ html {
 		@apply scroll-smooth;
 	}
 	body {
-		@apply bg-['#ecf0f3'] text-[#1f2937] tracking-wide scroll-smooth;
+		@apply bg-[#ecf0f3] text-[#1f2937] tracking-wide scroll-smooth;
 	}
 	h1,
 	h2,

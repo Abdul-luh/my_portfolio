@@ -13,10 +13,11 @@ const Navbar = () => {
 	const pathname = usePathname();
 
 	useEffect(() => {
-		if (pathname !== "/") {
+		if (!(pathname === "/" || "/projects-page")) {
 			setNavBg("transparent");
 			setLinkColor("#f8f8f8");
 		}
+		console.log(pathname);
 	}, [pathname]);
 
 	const handleNav = () => {

@@ -1,62 +1,62 @@
 [
 	{
 		"id": 1,
-		"img": "/../public/assets/images/html.png",
+		"img": "/../public/html.png",
 		"skill": "html"
 	},
 	{
 		"id": 2,
-		"img": "/../public/assets/images/css3.png",
+		"img": "/../public/css3.png",
 		"skill": "css"
 	},
 	{
 		"id": 3,
-		"img": "/../public/assets/images/javascript.png",
+		"img": "/../public/javascript.png",
 		"skill": "javascript"
 	},
 	{
 		"id": 4,
-		"img": "/../public/assets/images/react.png",
+		"img": "/../public/react.png",
 		"skill": "reactjs"
 	},
 	{
 		"id": 5,
-		"img": "/../public/assets/images/tailwind.png",
+		"img": "/../public/tailwind.png",
 		"skill": "tailwind"
 	},
 	{
 		"id": 6,
-		"img": "/../public/assets/images/sass.png",
+		"img": "/../public/sass.png",
 		"skill": "sass"
 	},
 	{
 		"id": 7,
-		"img": "/../public/assets/images/git.png",
+		"img": "/../public/git.png",
 		"skill": "git"
 	},
 	{
 		"id": 8,
-		"img": "/../public/assets/images/github.png",
+		"img": "/../public/github.png",
 		"skill": "github"
 	},
 	{
 		"id": 9,
-		"img": "/../public/assets/images/typescript.png",
+		"img": "/../public/typescript.png",
 		"skill": "typescript"
 	},
 	{
 		"id": 10,
-		"img": "/../public/assets/images/next-js.png",
+		"img": "/../public/next-js.png",
 		"skill": "nextjs"
 	},
 	{
 		"id": 11,
-		"img": "/../public/assets/images/react-testing-library.png",
+		"img": "/../public/react-testing-library.png",
 		"skill": "react-testing-library"
 	},
 	{
 		"id": 12,
-		"img": "/../public/assets/images/mysql.png",
+		"img": "/../public/mysql.png",
 		"skill": "mysql"
 	}
 ]
