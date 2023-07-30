@@ -3,7 +3,7 @@
 		"id": 1,
 		"projName": "Porject01",
 		"projHead": "Some head text",
-		"projImg": "/../public/img01.jpg",
+		"projImg": "/../public/images/img01.jpg",
 		"projDescr": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		"projTech": [
 			{ "id": 1, "techName": "REACT" },
@@ -17,7 +17,7 @@
 		"id": 2,
 		"projName": "Segam Mobile Service",
 		"projHead": "HTML | CSS | TAILWIND |JS ",
-		"projImg": "/../public/segam.png",
+		"projImg": "/../public/images/segam.png",
 		"projDescr": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptate deleniti totam ea id, vitae dolorem voluptatibus perferendis excepturi? Quidem tempora ducimus ipsam aliquam doloribus optio nam neque quaerat, soluta voluptas reprehenderit et hic deleniti eveniet quibusdam labore dicta fugit possimus. Laboriosam, id consectetur saepe expedita aut non impedit dolore?",
 		"projTech": [
 			{ "id": 1, "techName": "html" },
@@ -32,7 +32,7 @@
 		"id": 3,
 		"projName": "Porject03",
 		"projHead": "Another head text",
-		"projImg": "/../public/img01.jpg",
+		"projImg": "/../public/images/img01.jpg",
 		"projDescr": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		"projTech": [
 			{ "id": 1, "techName": "Node" },
@@ -46,7 +46,7 @@
 		"id": 3,
 		"projName": "FULL-STACK BLOG",
 		"projHead": "react | tailwind | NODE",
-		"projImg": "/../public/img01.jpg",
+		"projImg": "/../public/images/img01.jpg",
 		"projDescr": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		"projTech": [
 			{ "id": 1, "techName": "REACT" },
@@ -62,7 +62,7 @@
 		"id": 4,
 		"projName": "simple webpage",
 		"projHead": "react | tailwind",
-		"projImg": "/../public/img01.jpg",
+		"projImg": "/../public/images/img01.jpg",
 		"projDescr": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		"projTech": [
 			{ "id": 1, "techName": "Node" },
@@ -76,7 +76,7 @@
 		"id": 5,
 		"projName": "simple webpage",
 		"projHead": "react | tailwind",
-		"projImg": "/../public/img01.jpg",
+		"projImg": "/../public/images/img01.jpg",
 		"projDescr": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		"projTech": [
 			{ "id": 1, "techName": "Node" },
@@ -90,7 +90,7 @@
 		"id": 6,
 		"projName": "simple webpage",
 		"projHead": "react | tailwind",
-		"projImg": "/../public/img01.jpg",
+		"projImg": "/../public/images/img01.jpg",
 		"projDescr": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		"projTech": [
 			{ "id": 1, "techName": "Node" },
@@ -104,7 +104,7 @@
 		"id": 7,
 		"projName": "simple webpage",
 		"projHead": "react | tailwind",
-		"projImg": "/../public/img01.jpg",
+		"projImg": "/../public/images/img01.jpg",
 		"projDescr": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		"projTech": [
 			{ "id": 1, "techName": "Node" },
@@ -118,7 +118,7 @@
 		"id": 8,
 		"projName": "simple webpage",
 		"projHead": "react | tailwind",
-		"projImg": "/../public/img01.jpg",
+		"projImg": "/../public/images/img01.jpg",
 		"projDescr": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		"projTech": [
 			{ "id": 1, "techName": "Node" },
@@ -132,7 +132,7 @@
 		"id": 9,
 		"projName": "simple webpage",
 		"projHead": "react | tailwind",
-		"projImg": "/../public/img01.jpg",
+		"projImg": "/../public/images/img01.jpg",
 		"projDescr": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		"projTech": [
 			{ "id": 1, "techName": "Node" },
