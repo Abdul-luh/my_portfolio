@@ -25,7 +25,7 @@ const ProjectItem = ({
 				className="rounded-xl group-hover:opacity-30"
 				alt="product image"
 			/>
-			<div className="hidden group-hover:block absolute top-[50%] left-[50%] text-white translate-x-[-50%] translate-y-[-50%] ease-in duration-300">
+			<div className="hidden group-hover:block absolute top-[50%] left-[50%] text-white translate-x-[-50%] translate-y-[-50%]">
 				<h3 className="text-2xl lg:text-xl tracking-widest text-center">
 					{title}
 				</h3>
