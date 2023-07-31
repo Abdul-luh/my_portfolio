@@ -1,10 +1,6 @@
-"use client";
-import React, { useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-// import project01 from "../../public/assets/images/img01.jpg";
+import { StaticImageData } from "next/image";
 import ProjectItem from "../components/ProjectItem";
-import allProps from "@/app/components/data/Properties.json";
+import allProps from "@/app/components/data/Properties";
 import Navbar from "../components/Navbar";
 
 const Page = () => {
@@ -12,16 +8,8 @@ const Page = () => {
 		id: number;
 		projName: string;
 		projHead: string;
-		projImg: string;
+		projImg: StaticImageData;
 		projDescr: string;
-		projTech: Technology[];
-		demoLink: string;
-		repoLink: string;
-	}
-
-	interface Technology {
-		id: number;
-		techName: string;
 	}
 
 	return (

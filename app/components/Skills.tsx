@@ -1,12 +1,14 @@
 import Image from "next/image";
-import skills from "./data/skill.json";
+import skills from "./data/skill";
+import { StaticImageData } from "next/image";
+
+interface MySkills {
+	id: number;
+	img: StaticImageData;
+	skill: string;
+}
 
 const Skills = () => {
-	interface MySkills {
-		id: number;
-		img: string;
-		skill: string;
-	}
 	return (
 		<section id="skills" className="w-full lg:h-screen p-4">
 			<div className="max-w-[1240px] mx-auto h-full flex flex-col justify-center items-center">

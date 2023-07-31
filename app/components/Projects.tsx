@@ -1,34 +1,18 @@
-"use client";
-import React, { useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
-// import project01 from "../../public/assets/images/img01.jpg";
+import { StaticImageData } from "next/image";
 import ProjectItem from "./ProjectItem";
-import allProps from "@/app/components/data/Properties.json";
+import allProps from "@/app/components/data/Properties";
+
+interface Project {
+	id: number;
+	projName: string;
+	projHead: string;
+	projImg: StaticImageData;
+	projDescr: string;
+}
 
 const Projects = () => {
-	interface Project {
-		id: number;
-		projName: string;
-		projHead: string;
-		projImg: string;
-		projDescr: string;
-		projTech: Technology[];
-		demoLink: string;
-		repoLink: string;
-	}
-
-	interface Technology {
-		id: number;
-		techName: string;
-	}
-
 	const topfour = allProps.slice(0, 4);
-
-	useEffect(() => {
-		console.log(allProps);
-		console.log(topfour);
-	});
 
 	return (
 		<section id="projects" className="w-full">

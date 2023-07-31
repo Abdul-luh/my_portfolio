@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
-import project01 from "../../../public/images/img01.jpg";
-import allProps from "@/app/components/data/Properties.json";
+import { StaticImageData } from "next/image";
+import allProps from "@/app/components/data/Properties";
 import { RiRadioButtonFill } from "react-icons/ri";
 
 const page = ({ params }: any) => {
@@ -10,6 +10,7 @@ const page = ({ params }: any) => {
 		id: number;
 		projName: string;
 		projHead: string;
+		projImg: StaticImageData;
 		projDescr: string;
 		projTech: Technology[];
 		demoLink: string;
@@ -34,7 +35,7 @@ const page = ({ params }: any) => {
 								<div className="absolute top-0 left-0 w-full h-[40vh] lg:h-[50vh] bg-black/80 z-10 overflow-y-hidden" />
 								<Image
 									className="absolute z-[-1] object-cover"
-									src={project01}
+									src={project.projImg}
 									alt="img"
 								/>
 								<div className="absolute top-[70%] max-w-[1000px] w-full left-[50%] -translate-x-1/2 -translate-y-1/2 text-white z-10 p-2">
