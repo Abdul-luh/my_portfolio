@@ -1,21 +1,23 @@
 import projImg01 from "../../../public/images/img01.jpg";
 import segam from "../../../public/images/segam.png";
+import acme from "../../../public/images/acme.png";
+import newsHompage from "../../../public/images/news-homepage.png";
+import calculator from "../../../public/images/calculator.png";
 
 const allProps = [
 	{
 		id: 1,
-		projName: "Porject01",
-		projHead: "Some head text",
-		projImg: projImg01,
+		projName: "ACME",
+		projHead: "react | tailwind ",
+		projImg: acme,
 		projDescr:
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [
 			{ id: 1, techName: "REACT" },
 			{ id: 2, techName: "TAILWIND" },
-			{ id: 3, techName: "TYPESCRIPT" },
 		],
-		demoLink: "/",
-		repoLink: "/",
+		demoLink: "https://incandescent-naiad-f30e25.netlify.app/",
+		repoLink: "https://github.com/Abdul-luh/Tailwind-project/",
 	},
 	{
 		id: 2,
@@ -35,8 +37,8 @@ const allProps = [
 	},
 	{
 		id: 3,
-		projName: "Porject03",
-		projHead: "Another head text",
+		projName: "Simple Responsive Website",
+		projHead: "html | css",
 		projImg: projImg01,
 		projDescr:
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
@@ -45,14 +47,14 @@ const allProps = [
 			{ id: 2, techName: "TAILWIND" },
 			{ id: 3, techName: "TYPESCRIPT" },
 		],
-		demoLink: "/",
-		repoLink: "/",
+		demoLink: "https://abdul-luh.github.io/Simple_resposive_website/",
+		repoLink: "https://github.com/Abdul-luh/Simple_resposive_website",
 	},
 	{
-		id: 3,
-		projName: "FULL-STACK BLOG",
-		projHead: "react | tailwind | NODE",
-		projImg: projImg01,
+		id: 4,
+		projName: "News Hompage main",
+		projHead: "html | css ",
+		projImg: newsHompage,
 		projDescr:
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [
@@ -62,23 +64,8 @@ const allProps = [
 			{ id: 2, techName: "MYSQL" },
 			{ id: 3, techName: "EXPRESS" },
 		],
-		demoLink: "/",
-		repoLink: "/",
-	},
-	{
-		id: 4,
-		projName: "simple webpage",
-		projHead: "react | tailwind",
-		projImg: projImg01,
-		projDescr:
-			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
-		projTech: [
-			{ id: 1, techName: "Node" },
-			{ id: 2, techName: "TAILWIND" },
-			{ id: 3, techName: "TYPESCRIPT" },
-		],
-		demoLink: "/",
-		repoLink: "/",
+		demoLink: "https://abdul-luh.github.io/news-homepage-main/",
+		repoLink: "https://github.com/Abdul-luh/news-homepage-main",
 	},
 	{
 		id: 5,
@@ -112,9 +99,9 @@ const allProps = [
 	},
 	{
 		id: 7,
-		projName: "simple webpage",
-		projHead: "react | tailwind",
-		projImg: projImg01,
+		projName: "calculator",
+		projHead: "html | css | js",
+		projImg: calculator,
 		projDescr:
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [
@@ -122,8 +109,8 @@ const allProps = [
 			{ id: 2, techName: "TAILWIND" },
 			{ id: 3, techName: "TYPESCRIPT" },
 		],
-		demoLink: "/",
-		repoLink: "/",
+		demoLink: "https://abdul-luh.github.io/Calculator-app/",
+		repoLink: "https://github.com/Abdul-luh/Calculator-app",
 	},
 	{
 		id: 8,
