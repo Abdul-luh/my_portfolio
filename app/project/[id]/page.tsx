@@ -80,7 +80,9 @@ const page = ({ params }: any) => {
 									</div>
 								</div>
 								<Link href="/">
-									<p className="cursor-pointer underline uppercase">back</p>
+									<p className="cursor-pointer py-4 underline uppercase">
+										back
+									</p>
 								</Link>
 							</div>
 						</div>

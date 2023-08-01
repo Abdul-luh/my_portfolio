@@ -111,7 +111,7 @@ const allProps = [
 		id: 0,
 		projName: "Alarm Clock",
 		projHead: "html | css | js",
-		projImg: calculator,
+		projImg: alarmClock,
 		projDescr:
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [

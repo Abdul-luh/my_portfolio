@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import img01peg from "../../public/images/img01.jpeg";
+import portfolioSampMobile from "../../public/images/portfolio-sample-mobile.png";
 
 const About = () => {
 	return (
@@ -33,12 +35,14 @@ const About = () => {
 						frontend excellence! 🚀✨
 					</p>
 					<p className="py-2 underline cursor-pointer text-gray-600">
-						Check out som of my lates projects
+						<Link href="/projects-page">
+							Check out some of my lates projects
+						</Link>
 					</p>
 				</div>
 				<div className="p-2 w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center hover:scale-105 ease-in duration-300">
 					<Image
-						src={img01peg}
+						src={portfolioSampMobile}
 						// width="500"
 						// height="500"
 						className="rounded-xl"
