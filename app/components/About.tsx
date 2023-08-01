@@ -41,13 +41,15 @@ const About = () => {
 					</p>
 				</div>
 				<div className="p-2 w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center hover:scale-105 ease-in duration-300">
-					<Image
-						src={portfolioSampMobile}
-						// width="500"
-						// height="500"
-						className="rounded-xl"
-						alt="image"
-					/>
+					<Link href="https://abdul-luh.github.io/portfolio_001/">
+						<Image
+							src={portfolioSampMobile}
+							// width="500"
+							// height="500"
+							className="rounded-xl"
+							alt="image"
+						/>
+					</Link>
 				</div>
 			</div>
 		</section>
