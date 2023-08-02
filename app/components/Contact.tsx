@@ -49,12 +49,12 @@ const Contact = () => {
 										</Link>
 									</div>
 									<div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
-										<Link href="abdulluhodulate@gmail.com">
+										<Link href="mailto:abdulluhodulate@gmail.com">
 											<AiOutlineMail />
 										</Link>
 									</div>
 									<div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
-										<Link href="+2347033824496">
+										<Link href="tel:+2347033824496">
 											<BsFillPersonLinesFill />
 										</Link>
 									</div>

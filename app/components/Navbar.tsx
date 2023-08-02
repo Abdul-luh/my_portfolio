@@ -155,12 +155,12 @@ const Navbar = () => {
 									</Link>
 								</div>
 								<div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
-									<Link href="abdulluhodulate@gmail.com">
+									<Link href="mailto:abdulluhodulate@gmail.com">
 										<AiOutlineMail />
 									</Link>
 								</div>
 								<div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
-									<Link href="+2347044824496">
+									<Link href="tel:+2347044824496">
 										<BsFillPersonLinesFill />
 									</Link>
 								</div>

@@ -6,6 +6,7 @@ import calculator from "../../../public/images/calculator.png";
 import todoList from "../../../public/images/todo-list.png";
 import alarmClock from "../../../public/images/alarm-clock.png";
 import portfolio01 from "../../../public/images/portfolio-sample.png";
+import acmeSolutions from "../../../public/images/acme-solutions.png";
 
 let lastAssignedId = 0;
 
@@ -47,21 +48,6 @@ const allProps = [
 	},
 	{
 		id: 0,
-		projName: "PortFolio sites",
-		projHead: "html | css",
-		projImg: projImg01,
-		projDescr:
-			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
-		projTech: [
-			{ id: 1, techName: "Node" },
-			{ id: 2, techName: "TAILWIND" },
-			{ id: 3, techName: "TYPESCRIPT" },
-		],
-		demoLink: "https://abdul-luh.github.io/Simple_resposive_website/",
-		repoLink: "https://github.com/Abdul-luh/Simple_resposive_website",
-	},
-	{
-		id: 0,
 		projName: "News Hompage main",
 		projHead: "html | css ",
 		projImg: newsHompage,
@@ -70,9 +56,6 @@ const allProps = [
 		projTech: [
 			{ id: 1, techName: "REACT" },
 			{ id: 2, techName: "TAILWIND" },
-			{ id: 2, techName: "JWT" },
-			{ id: 2, techName: "MYSQL" },
-			{ id: 3, techName: "EXPRESS" },
 		],
 		demoLink: "https://abdul-luh.github.io/news-homepage-main/",
 		repoLink: "https://github.com/Abdul-luh/news-homepage-main",
@@ -91,6 +74,21 @@ const allProps = [
 		],
 		demoLink: "https://abdul-luh.github.io/portfolio_001/",
 		repoLink: "https://github.com/Abdul-luh/portfolio_001",
+	},
+	{
+		id: 0,
+		projName: "acme solutions",
+		projHead: "html | css | responsiveness",
+		projImg: acmeSolutions,
+		projDescr:
+			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
+		projTech: [
+			{ id: 1, techName: "Node" },
+			{ id: 2, techName: "TAILWIND" },
+			{ id: 3, techName: "TYPESCRIPT" },
+		],
+		demoLink: "https://abdul-luh.github.io/Simple_resposive_website/",
+		repoLink: "https://github.com/Abdul-luh/Simple_resposive_website",
 	},
 	{
 		id: 0,
