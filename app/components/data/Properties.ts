@@ -18,7 +18,7 @@ function getNextId() {
 const allProps = [
 	{
 		id: 0,
-		projName: "ACME",
+		projName: "ACME Rockets",
 		projHead: "react | tailwind ",
 		projImg: acme,
 		projDescr:
@@ -27,7 +27,7 @@ const allProps = [
 			{ id: 1, techName: "REACT" },
 			{ id: 2, techName: "TAILWIND" },
 		],
-		demoLink: "https://incandescent-naiad-f30e25.netlify.app/",
+		demoLink: "https://acme-rockets-abdullah.netlify.app/",
 		repoLink: "https://github.com/Abdul-luh/Tailwind-project/",
 	},
 	{
