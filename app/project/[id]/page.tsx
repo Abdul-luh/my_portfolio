@@ -34,7 +34,7 @@ const page = ({ params }: any) => {
 							<div className="w-screen h-[40vh] lg:h-[50vh] relative overflow-y-hidden">
 								<div className="absolute top-0 left-0 w-full h-[40vh] lg:h-[50vh] bg-black/80 z-10 overflow-y-hidden" />
 								<Image
-									className="absolute z-[-1] object-cover"
+									className="absolute z-[-1] object-cover mt-2"
 									src={project.projImg}
 									alt="img"
 								/>
