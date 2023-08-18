@@ -11,13 +11,13 @@ const Certifucates = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const certificates = [
 		{
-			url: reactjs,
-		},
-		{
 			url: introToHmtl,
 		},
 		{
 			url: introToJs,
+		},
+		{
+			url: reactjs,
 		},
 	];
 
