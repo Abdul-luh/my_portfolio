@@ -1,15 +1,15 @@
-import skill01 from "../../../public/images/html.png";
-import skill02 from "../../../public/images/css3.png";
-import skill03 from "../../../public/images/javascript.png";
-import skill04 from "../../../public/images/react.png";
-import skill05 from "../../../public/images/tailwind.png";
-import skill06 from "../../../public/images/sass.png";
-import skill07 from "../../../public/images/git.png";
-import skill08 from "../../../public/images/github.png";
-import skill09 from "../../../public/images/typescript.png";
-import skill10 from "../../../public/images/next-js.png";
-import skill11 from "../../../public/images/react-testing-library.png";
-import skill12 from "../../../public/images/mysql.png";
+import skill01 from "../../../public/images/skills/html.png";
+import skill02 from "../../../public/images/skills/css3.png";
+import skill03 from "../../../public/images/skills/javascript.png";
+import skill04 from "../../../public/images/skills/react.png";
+import skill05 from "../../../public/images/skills/tailwind.png";
+import skill06 from "../../../public/images/skills/sass.png";
+import skill07 from "../../../public/images/skills/git.png";
+import skill08 from "../../../public/images/skills/github.png";
+import skill09 from "../../../public/images/skills/typescript.png";
+import skill10 from "../../../public/images/skills/next-js.png";
+import skill11 from "../../../public/images/skills/react-testing-library.png";
+import skill12 from "../../../public/images/skills/mysql.png";
 
 const skills = [
 	{
