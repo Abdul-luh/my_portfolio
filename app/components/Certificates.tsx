@@ -46,7 +46,7 @@ const Certifucates = () => {
 			<p className="text-xl tracking-widest uppercase text-[#5651e5]">
 				certificates
 			</p>
-			<h2 className="py-4">what I`ve achieved</h2>
+			<h2 className="capitalize py-4">certifications Earned</h2>
 			<div className="w-full h-full group rounded-2xl sm:px-14 md:px-36">
 				<Image
 					className="cursor-pointer w-full m-auto duration-500 ease-in-out"

@@ -6,6 +6,7 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import InputComponent from "./InputField";
 
 const Contact = () => {
 	return (
@@ -68,51 +69,87 @@ const Contact = () => {
 						<div className="p-4">
 							<form>
 								<div className="grid md:grid-cols-2 gap-4 w-full py-2">
-									<div className="flex flex-col">
-										<label htmlFor="" className="uppercase text-sm py-2">
+									<InputComponent
+										htmlLabelFor="name"
+										inputType="text"
+										htmlLabel="name"
+									/>
+									<InputComponent
+										htmlLabelFor="phoneNumber"
+										inputType="number"
+										htmlLabel="phone number"
+									/>
+									{/* <div className="flex flex-col">
+										<label htmlFor="name" className="uppercase text-sm py-2">
 											Name
 										</label>
 										<input
 											type="text"
+											name="name"
+											id="name"
 											className="border-2 border-gray-300 rounded-lg p-3 flex"
 										/>
-									</div>
-									<div className="flex flex-col">
-										<label htmlFor="" className="uppercase text-sm py-2">
+									</div> */}
+									{/* <div className="flex flex-col">
+										<label
+											htmlFor="phoneNumber"
+											className="uppercase text-sm py-2">
 											Phone Number
 										</label>
 										<input
+											name="phoneNumber"
+											id="phoneNumber"
 											type="number"
 											className="border-2 border-gray-300 rounded-lg p-3 flex"
 										/>
-									</div>
+									</div> */}
 								</div>
-								<div className="flex flex-col py-2">
-									<label htmlFor="" className="uppercase text-sm py-2 flex">
+								<InputComponent
+									htmlLabelFor="email"
+									inputType="email"
+									htmlLabel="Email"
+								/>
+								<InputComponent
+									htmlLabelFor="Subject"
+									inputType="text"
+									htmlLabel="Subject"
+								/>
+								{/* <div className="flex flex-col py-2">
+									<label
+										htmlFor="email"
+										className="uppercase text-sm py-2 flex">
 										Email
 									</label>
 									<input
+										name="email"
+										id="email"
 										type="email"
 										className="border-2 rounded-lg p-3 flex border-gray-300"
 									/>
-								</div>
-								<div className="flex flex-col py-2">
-									<label htmlFor="" className="uppercase text-sm py-2 flex">
+								</div> */}
+								{/* <div className="flex flex-col py-2">
+									<label
+										htmlFor="subject"
+										className="uppercase text-sm py-2 flex">
 										Subject
 									</label>
 									<input
+										name="subject"
+										id="subject"
 										type="text"
 										className="border-2 rounded-lg p-3 flex border-gray-300"
 									/>
-								</div>
+								</div> */}
 								<div className="flex flex-col py-2">
-									<label htmlFor="" className="uppercase text-sm py-2 flex">
-										Subject
+									<label
+										htmlFor="emailBody"
+										className="uppercase text-sm py-2 flex">
+										Message
 									</label>
 									<textarea
 										className="border-2 rounded-lg p-3 border-gray-300"
-										name=""
-										id=""
+										name="emailBody"
+										id="emailBody"
 										rows={10}></textarea>
 								</div>
 								<button className="w-full p-4 text-gray-100 mt-4">

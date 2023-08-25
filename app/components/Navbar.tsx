@@ -90,6 +90,7 @@ const Navbar = () => {
 				className={
 					nav ? "fixed top-0 left-0 w-full h-screen bg-black/70 md:hidden" : ""
 				}>
+				<div onClick={handleNav} className="h-full w-full"></div>
 				<div
 					className={
 						nav
