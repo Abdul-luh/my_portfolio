@@ -27,15 +27,15 @@ const AdminHome = () => {
 							<div
 								className={
 									navdrop
-										? "fixed block min-w-40 -ml-36 p-2 text-center text-lg shadow-xl bg-[#ecf0f3] rounded-xl"
+										? "fixed block min-w-40 -ml-36 p-4 text-center text-lg shadow-xl bg-[#ecf0f3] rounded-xl"
 										: "hidden"
 								}>
-								<p>
+								<p className="py-1">
 									<Link href={"/admin/home/#AllTechnologies"}>
 										All Projects
 									</Link>
 								</p>
-								<p>
+								<p className="py-1">
 									<Link href={"/admin/home/#AllProjects"}>
 										All Technologies
 									</Link>
