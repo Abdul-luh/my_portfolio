@@ -1,6 +1,9 @@
 function InputComponent({ inputType, htmlLabelFor, htmlLabel, setValue }: any) {
 	return (
-		<div className={"flex flex-col"}>
+		<div
+			className={
+				inputType === "checkbox" ? "flex flex-row-reverse" : "flex flex-col"
+			}>
 			<label htmlFor={htmlLabelFor} className="uppercase text-sm py-2">
 				{htmlLabel}
 			</label>
