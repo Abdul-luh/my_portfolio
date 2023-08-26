@@ -49,7 +49,7 @@ export default function AddProject() {
 							id="emailBody"
 							rows={10}></textarea>
 					</div>
-					<div className="grid grid-cols-2 gap-4">
+					<div className="grid md:grid-cols-2 gap-4">
 						{skills.map((skill: MySkills) => {
 							return (
 								<InputComponent
