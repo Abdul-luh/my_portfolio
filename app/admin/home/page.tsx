@@ -2,6 +2,7 @@
 import Navbar from "@/app/components/Navbar";
 import AddProject from "@/app/components/adminComponents/AddProject/AddProject";
 import AllTechnologies from "@/app/components/adminComponents/AllTechnologies/AllTechnologies";
+import Link from "next/link";
 import React, { useState } from "react";
 import { HiMiniBarsArrowDown, HiMiniBarsArrowUp } from "react-icons/hi2";
 
@@ -19,10 +20,17 @@ const AdminHome = () => {
 				<div className="md:col-span-3 w-full">
 					<div className="mx-auto flex relative justify-between items-center px-4">
 						<p className="text-xl tracking-widest uppercase text-[#5651e5]">
-							Skills,
+							Technologies
 						</p>
 						<div onClick={handleNavdrop} className="py-4 text-4xl">
 							{navdrop ? <HiMiniBarsArrowUp /> : <HiMiniBarsArrowDown />}
+							<div className={navdrop ? "fixed right-4 " : "hidden"}>
+								<p>
+									<Link href={"/admin/home/#AllTechnologies"}>
+										All Technology
+									</Link>
+								</p>
+							</div>
 						</div>
 					</div>
 
