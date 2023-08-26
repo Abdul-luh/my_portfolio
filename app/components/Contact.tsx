@@ -73,73 +73,27 @@ const Contact = () => {
 										htmlLabelFor="name"
 										inputType="text"
 										htmlLabel="name"
+										inputValue=""
 									/>
 									<InputComponent
 										htmlLabelFor="phoneNumber"
 										inputType="number"
 										htmlLabel="phone number"
+										inputValue=""
 									/>
-									{/* <div className="flex flex-col">
-										<label htmlFor="name" className="uppercase text-sm py-2">
-											Name
-										</label>
-										<input
-											type="text"
-											name="name"
-											id="name"
-											className="border-2 border-gray-300 rounded-lg p-3 flex"
-										/>
-									</div> */}
-									{/* <div className="flex flex-col">
-										<label
-											htmlFor="phoneNumber"
-											className="uppercase text-sm py-2">
-											Phone Number
-										</label>
-										<input
-											name="phoneNumber"
-											id="phoneNumber"
-											type="number"
-											className="border-2 border-gray-300 rounded-lg p-3 flex"
-										/>
-									</div> */}
 								</div>
 								<InputComponent
 									htmlLabelFor="email"
 									inputType="email"
 									htmlLabel="Email"
+									inputValue=""
 								/>
 								<InputComponent
 									htmlLabelFor="Subject"
 									inputType="text"
 									htmlLabel="Subject"
+									inputValue=""
 								/>
-								{/* <div className="flex flex-col py-2">
-									<label
-										htmlFor="email"
-										className="uppercase text-sm py-2 flex">
-										Email
-									</label>
-									<input
-										name="email"
-										id="email"
-										type="email"
-										className="border-2 rounded-lg p-3 flex border-gray-300"
-									/>
-								</div> */}
-								{/* <div className="flex flex-col py-2">
-									<label
-										htmlFor="subject"
-										className="uppercase text-sm py-2 flex">
-										Subject
-									</label>
-									<input
-										name="subject"
-										id="subject"
-										type="text"
-										className="border-2 rounded-lg p-3 flex border-gray-300"
-									/>
-								</div> */}
 								<div className="flex flex-col py-2">
 									<label
 										htmlFor="emailBody"
