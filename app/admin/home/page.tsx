@@ -23,13 +23,13 @@ const AdminHome = () => {
 						</p>
 						<div onClick={handleNavdrop} className="py-4 text-4xl">
 							{navdrop ? <HiMiniBarsArrowUp /> : <HiMiniBarsArrowDown />}
-						</div> 
+						</div>
 					</div>
 
 					<AllTechnologies />
 				</div>
 				{/* RIGHT SECTION ON THE LEFT  */}
-				<div className="w-full col-span-5 ">
+				<div className="w-full md:col-span-5 ">
 					<div>
 						<div></div>
 					</div>
