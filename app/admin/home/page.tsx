@@ -18,16 +18,26 @@ const AdminHome = () => {
 			<div className="max-w-[1024px] grid pt-20  md:grid-cols-8">
 				{/* ALL PROJECTS ON THE LEFT  */}
 				<div className="md:col-span-3 w-full">
-					<div className="mx-auto flex relative justify-between items-center px-4">
+					<div className="mx-auto flex justify-between items-center px-4">
 						<p className="text-xl tracking-widest uppercase text-[#5651e5]">
 							Technologies
 						</p>
-						<div onClick={handleNavdrop} className="py-4 text-4xl">
+						<div onClick={handleNavdrop} className="py-4 relative text-4xl">
 							{navdrop ? <HiMiniBarsArrowUp /> : <HiMiniBarsArrowDown />}
-							<div className={navdrop ? "fixed right-4 " : "hidden"}>
+							<div
+								className={
+									navdrop
+										? "fixed block min-w-40 -ml-36 p-2 text-center text-lg shadow-xl bg-[#ecf0f3] rounded-xl"
+										: "hidden"
+								}>
 								<p>
 									<Link href={"/admin/home/#AllTechnologies"}>
-										All Technology
+										All Projects
+									</Link>
+								</p>
+								<p>
+									<Link href={"/admin/home/#AllProjects"}>
+										All Technologies
 									</Link>
 								</p>
 							</div>
