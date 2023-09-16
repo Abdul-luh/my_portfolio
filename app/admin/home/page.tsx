@@ -24,9 +24,9 @@ const AdminHome = () => {
 		setCurrentSlide(slides[item]);
 		// isActive: (slides[item].isActive = true),
 	};
-	useEffect(() => {
-		console.log(currentSlide);
-	});
+	// useEffect(() => {
+	// 	console.log(currentSlide);
+	// });
 
 	return (
 		<div className="w-full h-screen">
@@ -34,7 +34,7 @@ const AdminHome = () => {
 			<div className="max-w-[1200px] grid pt-20 m-auto md:grid-cols-8">
 				{/* ALL PROJECTS ON THE LEFT  */}
 				<div className="md:col-span-3 w-full">
-					<div className="mx-auto flex justify-between items-center p-4 ">
+					<div className="mx-auto flex justify-between items-center p-4 gap-4 overflow-x-scroll">
 						<p
 							className={
 								currentSlide.props.id === "AllProjects"
