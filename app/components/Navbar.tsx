@@ -74,6 +74,13 @@ const Navbar = () => {
 								Contact
 							</li>
 						</Link>
+						<Link
+							style={{
+								color: `${linkColor}`,
+							}}
+							href="/admin/home">
+							<li className="ml-10 text-sm uppercase hover:border-b">Admin</li>
+						</Link>
 					</ul>
 					<div
 						style={{
@@ -138,6 +145,11 @@ const Navbar = () => {
 							<Link href="/#contact">
 								<li onClick={handleNav} className="py-4 text-sm">
 									Contact
+								</li>
+							</Link>
+							<Link href="/admin/home">
+								<li onClick={handleNav} className="py-4 text-sm">
+									Admin
 								</li>
 							</Link>
 						</ul>

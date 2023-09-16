@@ -1,9 +1,26 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import InputComponent from "../../InputField";
 import skills from "../../data/skill";
 import { StaticImageData } from "next/image";
 
 export default function AddProject() {
+	const [textInputValue, setTextInputValue] = useState({
+		projectname: "",
+		projectheader: "",
+		repolink: "",
+		demolink: "",
+	});
+	const [textArea, setTextArea] = useState("");
+	const [checkboxValue, setCheckboxValue] = useState(false);
+
+	const handleTextInput = (e: any) => {
+		setTextInputValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+	};
+	const handleCheckBox = (e: any) => {
+		setCheckboxValue((e) => !checkboxValue);
+	};
+
 	interface MySkills {
 		id: number;
 		img: StaticImageData;
@@ -18,26 +35,26 @@ export default function AddProject() {
 							htmlLabelFor="name"
 							inputType="text"
 							htmlLabel="Project Name"
-							inputValue=""
+							inputValue={handleTextInput}
 						/>
 						<InputComponent
 							htmlLabelFor="PojectHeader"
 							inputType="text"
 							htmlLabel="Poject header"
-							inputValue=""
+							inputValue={handleTextInput}
 						/>
 					</div>
 					<InputComponent
 						htmlLabelFor="repoLink"
 						inputType="text"
 						htmlLabel="Reopsitory Link"
-						inputValue=""
+						inputValue={handleTextInput}
 					/>
 					<InputComponent
 						htmlLabelFor="demo"
 						inputType="text"
 						htmlLabel="demo link"
-						inputValue=""
+						inputValue={handleTextInput}
 					/>
 					<div className="flex flex-col py-2">
 						<label htmlFor="emailBody" className="uppercase text-sm py-2 flex">
@@ -49,19 +66,26 @@ export default function AddProject() {
 							id="emailBody"
 							rows={10}></textarea>
 					</div>
-					<div className="grid md:grid-cols-2 gap-4">
+					<div className="grid md:grid-cols-2 gap-4 px-2">
 						{skills.map((skill: MySkills) => {
 							return (
 								<InputComponent
 									key={skill.id}
-									htmlLabelFor="demo"
+									htmlLabelFor={skill.skill}
 									inputType="checkbox"
 									htmlLabel={skill.skill}
-									inputValue={false}
+									inputValue={checkboxValue}
+									setValue={handleCheckBox}
 								/>
 							);
 						})}
 					</div>
+					<InputComponent
+						htmlLabelFor="Uplaod Image"
+						htmlLabel="Upload Image"
+						inputType="file"
+						inputValue=""
+					/>
 					<button className="w-full p-4 text-gray-100 mt-4">
 						Send Message
 					</button>

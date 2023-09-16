@@ -1,25 +1,18 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import reactjs from "../../public/images/certificates/Reactjs-Certification_page-0001.jpg";
-import introToHmtl from "../../public/images/certificates/Introduction to HTML_certificate.jpg";
-import introToJs from "../../public/images/certificates/Introduction to JavaScript_certificate.jpg";
+import certificates from "./data/Certificates";
+import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 
+interface Cert {
+	url: StaticImageData;
+	name: string;
+}
+
 const Certifucates = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
-	const certificates = [
-		{
-			url: introToHmtl,
-		},
-		{
-			url: introToJs,
-		},
-		{
-			url: reactjs,
-		},
-	];
 
 	const prevCert = () => {
 		const isFirst = currentIndex === 0;
@@ -68,7 +61,7 @@ const Certifucates = () => {
 
 				{/* DOTS  */}
 				<div className="flex top-4 items-center justify-center py-2">
-					{certificates.map((cert, certIndex) => (
+					{certificates.map((cert: Cert, certIndex: number) => (
 						<div
 							onClick={() => setCurrentIndex(certIndex)}
 							className="text-2xl p-2 cursor-pointer"
