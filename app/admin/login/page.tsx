@@ -34,12 +34,13 @@ export default function Login() {
 					htmlLabelFor="email"
 					inputType="email"
 					htmlLabel="email"
-					// inputValue={email}
+					inputValue={"email"}
 					setValue={handleChange}
 				/>
 				<InputComponent
 					htmlLabelFor="password"
 					inputType="password"
+					inputValue={"password"}
 					htmlLabel="password"
 					setValue={handleChange}
 				/>

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import img02 from "../../public/images/work-by-window.jpg";
@@ -9,6 +10,16 @@ import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import InputComponent from "./InputField";
 
 const Contact = () => {
+	const [textInputValue, setTextInputValue] = useState({
+		name: "",
+		phoneNumber: "",
+		email: "",
+		subject: "",
+	});
+	const handleTextInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setTextInputValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+	};
+
 	return (
 		<section id="contact" className="w-full lg:h-screen">
 			<div className="max-w-[1000px] m-auto px-2 py-16 w-full">
@@ -73,26 +84,30 @@ const Contact = () => {
 										htmlLabelFor="name"
 										inputType="text"
 										htmlLabel="name"
-										inputValue=""
+										inputValue={textInputValue}
+										setValue={handleTextInput}
 									/>
 									<InputComponent
 										htmlLabelFor="phoneNumber"
 										inputType="number"
 										htmlLabel="phone number"
-										inputValue=""
+										inputValue={textInputValue}
+										setValue={handleTextInput}
 									/>
 								</div>
 								<InputComponent
 									htmlLabelFor="email"
 									inputType="email"
 									htmlLabel="Email"
-									inputValue=""
+									inputValue={textInputValue}
+									setValue={handleTextInput}
 								/>
 								<InputComponent
 									htmlLabelFor="Subject"
 									inputType="text"
 									htmlLabel="Subject"
-									inputValue=""
+									inputValue={textInputValue}
+									setValue={handleTextInput}
 								/>
 								<div className="flex flex-col py-2">
 									<label
