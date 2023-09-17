@@ -1,10 +1,23 @@
+"use client";
+import React, { useState } from "react";
+import skills from "./data/skill";
+
+const inputs = [];
+interface InputProps {
+	inputType: string;
+	htmlLabelFor: string;
+	htmlLabel: string;
+	inputValue: any;
+	setValue: any;
+}
+
 function InputComponent({
 	inputType,
 	htmlLabelFor,
 	htmlLabel,
 	inputValue,
 	setValue,
-}: any) {
+}: InputProps) {
 	return (
 		<div
 			className={
@@ -27,7 +40,9 @@ function InputComponent({
 				name={htmlLabelFor}
 				value={inputValue}
 				onChange={setValue}
-				checked={inputType === "checkbox" ? inputValue : false}
+				checked={
+					inputType === "checkbox" ? inputValue === htmlLabel : inputValue
+				}
 				className={
 					inputType === "file"
 						? "hidden"

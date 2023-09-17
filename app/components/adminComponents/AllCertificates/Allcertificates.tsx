@@ -9,7 +9,7 @@ interface Cert {
 
 const AllTechnologies = () => {
 	return (
-		<section id="AllTechnologies" className={"w-full  p-4"}>
+		<section id="AllCertificates" className={"w-full  p-4"}>
 			{/* <p className="text-xl tracking-widest uppercase text-[#5651e5]">
 				Certificates
 			</p> */}

@@ -34,7 +34,7 @@ const AdminHome = () => {
 			<div className="max-w-[1200px] grid pt-20 m-auto md:grid-cols-8">
 				{/* ALL PROJECTS ON THE LEFT  */}
 				<div className="md:col-span-3 w-full">
-					<div className="mx-auto flex justify-between items-center p-4 gap-4 overflow-x-scroll">
+					<div className="mx-auto flex justify-between items-center p-4 gap-4 lg:overflow-x-scroll">
 						<p
 							className={
 								currentSlide.props.id === "AllProjects"

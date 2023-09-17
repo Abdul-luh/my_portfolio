@@ -7,18 +7,18 @@ import { StaticImageData } from "next/image";
 export default function AddProject() {
 	const [textInputValue, setTextInputValue] = useState({
 		projectname: "",
-		projectheader: "",
-		repolink: "",
-		demolink: "",
+		PojectHeader: "",
+		repoLink: "",
+		demoLink: "",
 	});
 	const [textArea, setTextArea] = useState("");
-	const [checkboxValue, setCheckboxValue] = useState(false);
+	const [checkboxValue, setCheckboxValue] = useState("");
 
-	const handleTextInput = (e: any) => {
+	const handleTextInput = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTextInputValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 	};
-	const handleCheckBox = (e: any) => {
-		setCheckboxValue((e) => !checkboxValue);
+	const handleCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setCheckboxValue(e.target.value);
 	};
 
 	interface MySkills {
@@ -32,29 +32,33 @@ export default function AddProject() {
 				<form>
 					<div className="grid md:grid-cols-2 gap-4 w-full py-2">
 						<InputComponent
-							htmlLabelFor="name"
+							htmlLabelFor="projectName"
 							inputType="text"
 							htmlLabel="Project Name"
-							inputValue={handleTextInput}
+							inputValue={textInputValue.projectname}
+							setValue={handleTextInput}
 						/>
 						<InputComponent
 							htmlLabelFor="PojectHeader"
 							inputType="text"
 							htmlLabel="Poject header"
-							inputValue={handleTextInput}
+							inputValue={textInputValue.PojectHeader}
+							setValue={handleTextInput}
 						/>
 					</div>
 					<InputComponent
 						htmlLabelFor="repoLink"
 						inputType="text"
 						htmlLabel="Reopsitory Link"
-						inputValue={handleTextInput}
+						inputValue={textInputValue.repoLink}
+						setValue={handleTextInput}
 					/>
 					<InputComponent
-						htmlLabelFor="demo"
+						htmlLabelFor="demoLink"
 						inputType="text"
 						htmlLabel="demo link"
-						inputValue={handleTextInput}
+						inputValue={textInputValue.demoLink}
+						setValue={handleTextInput}
 					/>
 					<div className="flex flex-col py-2">
 						<label htmlFor="emailBody" className="uppercase text-sm py-2 flex">
@@ -84,7 +88,8 @@ export default function AddProject() {
 						htmlLabelFor="Uplaod Image"
 						htmlLabel="Upload Image"
 						inputType="file"
-						inputValue=""
+						inputValue={textInputValue}
+						setValue={handleTextInput}
 					/>
 					<button className="w-full p-4 text-gray-100 mt-4">
 						Send Message
