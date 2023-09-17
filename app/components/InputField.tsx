@@ -38,7 +38,7 @@ function InputComponent({
 				id={htmlLabelFor}
 				type={inputType}
 				name={htmlLabelFor}
-				value={inputValue}
+				value={inputType === "text" ? null : inputValue}
 				onChange={setValue}
 				checked={
 					inputType === "checkbox" ? inputValue === htmlLabel : inputValue

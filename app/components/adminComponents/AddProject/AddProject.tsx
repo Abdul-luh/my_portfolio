@@ -11,6 +11,7 @@ export default function AddProject() {
 		repoLink: "",
 		demoLink: "",
 	});
+	const [displayImage, setDisplayImage] = useState(null);
 	const [textArea, setTextArea] = useState("");
 	const [checkboxValue, setCheckboxValue] = useState("");
 
@@ -35,14 +36,14 @@ export default function AddProject() {
 							htmlLabelFor="projectName"
 							inputType="text"
 							htmlLabel="Project Name"
-							inputValue={textInputValue.projectname}
+							inputValue={textInputValue}
 							setValue={handleTextInput}
 						/>
 						<InputComponent
 							htmlLabelFor="PojectHeader"
 							inputType="text"
 							htmlLabel="Poject header"
-							inputValue={textInputValue.PojectHeader}
+							inputValue={textInputValue}
 							setValue={handleTextInput}
 						/>
 					</div>
@@ -50,14 +51,14 @@ export default function AddProject() {
 						htmlLabelFor="repoLink"
 						inputType="text"
 						htmlLabel="Reopsitory Link"
-						inputValue={textInputValue.repoLink}
+						inputValue={textInputValue}
 						setValue={handleTextInput}
 					/>
 					<InputComponent
 						htmlLabelFor="demoLink"
 						inputType="text"
 						htmlLabel="demo link"
-						inputValue={textInputValue.demoLink}
+						inputValue={textInputValue}
 						setValue={handleTextInput}
 					/>
 					<div className="flex flex-col py-2">
@@ -85,10 +86,10 @@ export default function AddProject() {
 						})}
 					</div>
 					<InputComponent
-						htmlLabelFor="Uplaod Image"
+						htmlLabelFor="displayImage"
 						htmlLabel="Upload Image"
 						inputType="file"
-						inputValue={textInputValue}
+						inputValue={displayImage}
 						setValue={handleTextInput}
 					/>
 					<button className="w-full p-4 text-gray-100 mt-4">
