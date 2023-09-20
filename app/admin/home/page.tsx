@@ -6,26 +6,35 @@ import AllTechnologies from "@/app/components/adminComponents/AllTechnologies/Al
 import AllCertificates from "@/app/components/adminComponents/AllCertificates/Allcertificates";
 import React, { useState, useEffect } from "react";
 import { HiMiniBarsArrowDown, HiMiniBarsArrowUp } from "react-icons/hi2";
+import AddCertificate from "@/app/components/adminComponents/AddCertificate/AddCertificate";
+import AddTechnology from "@/app/components/adminComponents/AddTecnology/AddTechnology";
 
 const AdminHome = () => {
-	const slides = [
-		AllProjects, //const AllProjects: () => JSX.Elemen,
-		AllTechnologies, //const AllTechnologies: () => JSX.Elemen,
-		AllCertificates, //const AllCertificates: () => JSX.Elemen,
+	const leftSlide = [
+		<AllProjects key={"AllProjects"} />,
+		<AllTechnologies key={"AllTechnologies"} />,
+		<AllCertificates key={"AllCertificates"} />,
 	];
-	const [currentSlide, setCurrentSlide] = useState(slides[0]);
 
-	// ,
-	// isActive: slides[0].isActive = true,
+	const rightSlider = [
+		<AddProject key={"AddProject"} />,
+		<AddTechnology key={"AddTechnology"} />,
+		<AddCertificate key={"AddCertificate"} />,
+	];
 
-	// const [isActive, setIsActive] = useState((slides[0].isActive = false));
+	const [currentLeftSlides, setCurrentLeftSlides] = useState(leftSlide[0]);
+	const [currentRightSlide, setCurrentRightSlide] = useState(rightSlider[0]);
 
-	const handleSlides = (item: number) => {
-		setCurrentSlide(slides[item]);
-		// isActive: (slides[item].isActive = true),
+	const handleLeftSlides = (item: number) => {
+		return setCurrentLeftSlides(leftSlide[item]);
 	};
+
+	const handleRightSlides = (item: number) => {
+		return setCurrentRightSlide(rightSlider[item]);
+	};
+
 	// useEffect(() => {
-	// 	console.log(currentSlide);
+	// 	console.log(currentLeftSlides);
 	// });
 
 	return (
@@ -37,29 +46,29 @@ const AdminHome = () => {
 					<div className="mx-auto flex justify-between items-center p-4 gap-4 lg:overflow-x-scroll">
 						<p
 							className={
-								currentSlide.props.id === "AllProjects"
+								currentLeftSlides.key === "AllProjects"
 									? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
 									: "py-1 cursor-pointer"
 							}
-							onClick={() => handleSlides(0)}>
+							onClick={() => handleLeftSlides(0)}>
 							All Projects
 						</p>
 						<p
 							className={
-								currentSlide.props.id === "AllTechnologies"
+								currentLeftSlides.key === "AllTechnologies"
 									? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
 									: "py-1 cursor-pointer"
 							}
-							onClick={() => handleSlides(1)}>
+							onClick={() => handleLeftSlides(1)}>
 							All Technologies
 						</p>
 						<p
 							className={
-								currentSlide.props.id === "AllCertificates"
+								currentLeftSlides.key === "AllCertificates"
 									? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
 									: "py-1 cursor-pointer"
 							}
-							onClick={() => handleSlides(2)}>
+							onClick={() => handleLeftSlides(2)}>
 							All Certificates
 						</p>
 						{/* <div onClick={handleNavdrop} className="py-4 relative text-4xl">
@@ -70,23 +79,52 @@ const AdminHome = () => {
 										? "fixed block min-w-40 -ml-36 p-4 text-center text-lg shadow-xl bg-[#ecf0f3] rounded-xl"
 										: "hidden"
 								}>
-								<p className="py-1" onClick={() => handleSlides(0)}>
+								<p className="py-1" onClick={() => handleLeftSlides(0)}>
 									All Projects
 								</p>
-								<p className="py-1" onClick={() => handleSlides(1)}>
+								<p className="py-1" onClick={() => handleLeftSlides(1)}>
 									All Technologies
 								</p>
 							</div>
 						</div> */}
 					</div>
-					{currentSlide}
+					{currentLeftSlides}
 				</div>
-				{/* RIGHT SECTION ON THE LEFT  */}
+
+				{/* RIGHT SECTION  */}
 				<div className="w-full md:col-span-5 ">
 					<div>
-						<div></div>
+						<div className="mx-auto flex justify-between items-center p-4 gap-4 max-w-[450px]">
+							<p
+								className={
+									currentRightSlide.key === "AddProject"
+										? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
+										: "py-1 cursor-pointer"
+								}
+								onClick={() => handleRightSlides(0)}>
+								Add Projects
+							</p>
+							<p
+								className={
+									currentRightSlide.key === "AddTechnology"
+										? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
+										: "py-1 cursor-pointer"
+								}
+								onClick={() => handleRightSlides(1)}>
+								Add Technologies
+							</p>
+							<p
+								className={
+									currentRightSlide.key === "AddCertificate"
+										? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
+										: "py-1 cursor-pointer"
+								}
+								onClick={() => handleRightSlides(2)}>
+								Add Certificates
+							</p>
+						</div>
 					</div>
-					<AddProject />
+					{currentRightSlide}
 				</div>
 			</div>
 		</div>

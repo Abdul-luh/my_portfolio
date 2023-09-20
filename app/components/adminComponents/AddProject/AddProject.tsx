@@ -16,10 +16,13 @@ export default function AddProject() {
 	const [checkboxValue, setCheckboxValue] = useState("");
 
 	const handleTextInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setTextInputValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+		setTextInputValue((prev) => ({
+			...prev,
+			[e.target.name]: e.target.value,
+		}));
 	};
 	const handleCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setCheckboxValue(e.target.value);
+		setCheckboxValue(e.target.name);
 	};
 
 	interface MySkills {
@@ -28,7 +31,9 @@ export default function AddProject() {
 		skill: string;
 	}
 	return (
-		<div className="md:col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
+		<div
+			id="AddProject"
+			className="md:col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
 			<div className="p-4">
 				<form>
 					<div className="grid md:grid-cols-2 gap-4 w-full py-2">

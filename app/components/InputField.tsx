@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import skills from "./data/skill";
 
-const inputs = [];
 interface InputProps {
 	inputType: string;
 	htmlLabelFor: string;
