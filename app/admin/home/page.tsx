@@ -42,8 +42,10 @@ const AdminHome = () => {
 			<Navbar />
 			<div className="max-w-[1200px] grid pt-20 m-auto md:grid-cols-8">
 				{/* ALL PROJECTS ON THE LEFT  */}
-				<div className="md:col-span-3 w-full">
-					<div className="mx-auto flex justify-between items-center p-4 gap-4 lg:overflow-x-scroll">
+				<div
+					className="md:col-span-3 w-full max-h-screen overflow-y-scroll
+				">
+					<div className="mx-auto flex justify-between items-center max-w-2xl p-4 gap-4 lg:overflow-x-scroll text-center">
 						<p
 							className={
 								currentLeftSlides.key === "AllProjects"
@@ -92,38 +94,39 @@ const AdminHome = () => {
 				</div>
 
 				{/* RIGHT SECTION  */}
-				<div className="w-full md:col-span-5 ">
-					<div>
-						<div className="mx-auto flex justify-between items-center p-4 gap-4 max-w-[450px]">
-							<p
-								className={
-									currentRightSlide.key === "AddProject"
-										? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
-										: "py-1 cursor-pointer"
-								}
-								onClick={() => handleRightSlides(0)}>
-								Add Projects
-							</p>
-							<p
-								className={
-									currentRightSlide.key === "AddTechnology"
-										? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
-										: "py-1 cursor-pointer"
-								}
-								onClick={() => handleRightSlides(1)}>
-								Add Technologies
-							</p>
-							<p
-								className={
-									currentRightSlide.key === "AddCertificate"
-										? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
-										: "py-1 cursor-pointer"
-								}
-								onClick={() => handleRightSlides(2)}>
-								Add Certificates
-							</p>
-						</div>
+				<div
+					className="w-full md:col-span-5 max-h-screen overflow-y-scroll
+				 ">
+					<div className="mx-auto flex justify-between items-center p-4 gap-4 max-w-[450px] text-center">
+						<p
+							className={
+								currentRightSlide.key === "AddProject"
+									? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
+									: "py-1 cursor-pointer"
+							}
+							onClick={() => handleRightSlides(0)}>
+							Add Projects
+						</p>
+						<p
+							className={
+								currentRightSlide.key === "AddTechnology"
+									? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
+									: "py-1 cursor-pointer"
+							}
+							onClick={() => handleRightSlides(1)}>
+							Add Technologies
+						</p>
+						<p
+							className={
+								currentRightSlide.key === "AddCertificate"
+									? "py-1 cursor-pointer font-semibold border-b border-b-[#5651e5]"
+									: "py-1 cursor-pointer"
+							}
+							onClick={() => handleRightSlides(2)}>
+							Add Certificates
+						</p>
 					</div>
+
 					{currentRightSlide}
 				</div>
 			</div>
