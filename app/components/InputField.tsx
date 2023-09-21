@@ -38,10 +38,12 @@ function InputComponent({
 				type={inputType}
 				name={htmlLabelFor}
 				value={inputType === "text" ? null : inputValue}
-				onChange={setValue}
-				checked={
-					inputType === "checkbox" ? inputValue === htmlLabel : inputValue
+				onChange={
+					inputType === "checkbox" ? (e) => setValue(e.target.name) : setValue
 				}
+				// checked={
+				// 	inputType === "checkbox" ? inputValue === htmlLabel : inputValue
+				// }
 				className={
 					inputType === "file"
 						? "hidden"

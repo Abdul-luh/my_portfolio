@@ -85,7 +85,7 @@ export default function AddProject() {
 									inputType="checkbox"
 									htmlLabel={skill.skill}
 									inputValue={checkboxValue}
-									setValue={handleCheckBox}
+									setValue={setCheckboxValue}
 								/>
 							);
 						})}
