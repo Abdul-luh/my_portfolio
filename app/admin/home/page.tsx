@@ -33,18 +33,15 @@ const AdminHome = () => {
 		return setCurrentRightSlide(rightSlider[item]);
 	};
 
-	// useEffect(() => {
-	// 	console.log(currentLeftSlides);
-	// });
-
 	return (
 		<div className="w-full h-screen">
-			<Navbar />
+			{/* <Navbar /> */}
 			<div className="max-w-[1200px] grid pt-20 m-auto md:grid-cols-8">
 				{/* ALL PROJECTS ON THE LEFT  */}
 				<div
-					className="md:col-span-3 w-full max-h-screen overflow-y-scroll
+					className="md:col-span-3 w-full md:max-h-screen md:overflow-y-scroll resize-x
 				">
+					{/* LEFTSIDE NAV  */}
 					<div className="mx-auto flex justify-between items-center max-w-2xl p-4 gap-4 lg:overflow-x-scroll text-center">
 						<p
 							className={
@@ -90,12 +87,14 @@ const AdminHome = () => {
 							</div>
 						</div> */}
 					</div>
+					{/* LEFTSIDE NAV  */}
+
 					{currentLeftSlides}
 				</div>
 
 				{/* RIGHT SECTION  */}
 				<div
-					className="w-full md:col-span-5 max-h-screen overflow-y-scroll
+					className="w-full md:col-span-5 max-h-screen md:overflow-y-scroll
 				 ">
 					<div className="mx-auto flex justify-between items-center p-4 gap-4 max-w-[450px] text-center">
 						<p

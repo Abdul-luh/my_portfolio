@@ -28,7 +28,7 @@ function InputComponent({
 				htmlFor={htmlLabelFor}
 				className={
 					inputType === "file"
-						? "border uppercase text-sm py-2 rounded-lg p-3 focus:outline-[#5651e5] border-gray-300"
+						? "border uppercase text-sm py-2 rounded-lg p-3 w-fit  focus:outline-[#5651e5] border-gray-300"
 						: "uppercase text-sm py-2"
 				}>
 				{htmlLabel}
@@ -37,10 +37,8 @@ function InputComponent({
 				id={htmlLabelFor}
 				type={inputType}
 				name={htmlLabelFor}
-				value={inputType === "text" ? null : inputValue}
-				onChange={
-					inputType === "checkbox" ? (e) => setValue(e.target.name) : setValue
-				}
+				value={inputValue}
+				onChange={setValue}
 				// checked={
 				// 	inputType === "checkbox" ? inputValue === htmlLabel : inputValue
 				// }

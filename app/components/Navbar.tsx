@@ -125,7 +125,7 @@ const Navbar = () => {
 						</p>
 					</div>
 
-					<div className="py-3 flex flex-col justtify-between">
+					<div className="py-3 flex flex-col">
 						<ul className="uppercase">
 							<Link href="/#about">
 								<li onClick={handleNav} className="py-4 text-sm">
@@ -154,7 +154,7 @@ const Navbar = () => {
 							</Link>
 						</ul>
 
-						<div className="">
+						<div className="pt-3">
 							<p className="tracking-widest text-[#5651e5]">let`s Connect</p>
 							<div className="flex justify-between items-center my-4 w-full sm:w-[60%]">
 								<div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
