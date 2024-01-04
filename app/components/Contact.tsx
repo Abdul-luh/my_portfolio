@@ -84,14 +84,14 @@ const Contact = () => {
 										htmlLabelFor="name"
 										inputType="text"
 										htmlLabel="name"
-										inputValue={textInputValue}
+										inputValue={textInputValue.name}
 										setValue={handleTextInput}
 									/>
 									<InputComponent
 										htmlLabelFor="phoneNumber"
 										inputType="number"
 										htmlLabel="phone number"
-										inputValue={textInputValue}
+										inputValue={textInputValue.phoneNumber}
 										setValue={handleTextInput}
 									/>
 								</div>
@@ -99,14 +99,14 @@ const Contact = () => {
 									htmlLabelFor="email"
 									inputType="email"
 									htmlLabel="Email"
-									inputValue={textInputValue}
+									inputValue={textInputValue.email}
 									setValue={handleTextInput}
 								/>
 								<InputComponent
 									htmlLabelFor="Subject"
 									inputType="text"
 									htmlLabel="Subject"
-									inputValue={textInputValue}
+									inputValue={textInputValue.subject}
 									setValue={handleTextInput}
 								/>
 								<div className="flex flex-col py-2">

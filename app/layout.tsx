@@ -1,4 +1,4 @@
-import AdminAuthContextProvider from "./context/AdminAuthContextrPovider";
+import AdminAuthContextProvider from "./context/AdminAuth/AdminAuthContextrPovider";
 import "./globals.css";
 import { Inter } from "next/font/google";
 

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 const res = NextResponse;
+import multer from "multer";
 
 export function middleware(req: NextRequest) {
 	const path = req.nextUrl.pathname;
@@ -7,8 +8,8 @@ export function middleware(req: NextRequest) {
 	const privatePath = path === "/admin/home";
 
 	const token = req.cookies.get("token")?.value || "";
-	// console.log(path);
-	// console.log(token);
+	console.log(path);
+	console.log(token);
 
 	if (!token && privatePath) {
 		return res.redirect(new URL("/admin/login", req.nextUrl));

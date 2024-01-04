@@ -14,7 +14,7 @@ export default function AddProject() {
 	});
 	const [displayImage, setDisplayImage] = useState(null);
 	const [textArea, setTextArea] = useState("");
-	const [image, setImage] = useState<File | "">("");
+	const [image, setImage] = useState<File>(null);
 
 	const [checkboxValue, setCheckboxValue] = useState<
 		{
@@ -53,16 +53,17 @@ export default function AddProject() {
 	const handleAddform = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const checked = checkboxValue.filter((skill) => skill.checked);
+		const formdata = new FormData().append("image", image);
 
 		const newProject = {
 			textInputValue,
 			textArea,
 			checked,
-			image,
+			formdata,
 		};
 		console.log(newProject);
 		try {
-			const response = await axios.post("/api/additem", newProject);
+			const response = await axios.post("/api/addproject", newProject);
 			const result = await response.data;
 			console.log(result);
 		} catch (error: any) {
@@ -155,7 +156,7 @@ export default function AddProject() {
 						htmlLabelFor="displayImage"
 						htmlLabel="Upload Image"
 						inputType="file"
-						inputValue={displayImage}
+						inputValue={image}
 						setValue={handleImage}
 					/>
 					<button

@@ -22,15 +22,13 @@ export default function AdminAuthContextProvider({
 		setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 	};
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		try {
 			const response = await axios.post("/api/login", input);
 			const result = await response.data;
 
 			// console.log(result.authenticated);
-
-			localStorage.setItem("AdminAuth", JSON.stringify(result));
 
 			if (result.authenticated) {
 				console.log(result, "route to '/admin/home/'");
@@ -44,7 +42,7 @@ export default function AdminAuthContextProvider({
 
 	return (
 		<AdminAuthContext.Provider
-			value={{ handleSubmit, input, setInput, handleChange, err, isAuth }}>
+			value={{ handleLoginSubmit, input, setInput, handleChange, err, isAuth }}>
 			{children}
 		</AdminAuthContext.Provider>
 	);

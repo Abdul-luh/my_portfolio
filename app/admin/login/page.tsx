@@ -3,10 +3,11 @@ import InputComponent from "@/app/components/InputField";
 import React, { useContext } from "react";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
-import { AdminAuthContext } from "@/app/context/AdminAuth";
+import { AdminAuthContext } from "@/app/context/AdminAuth/AdminAuth";
 
 export default function Login() {
-	const { handleSubmit, handleChange, input } = useContext(AdminAuthContext);
+	const { handleLoginSubmit, handleChange, input } =
+		useContext(AdminAuthContext);
 	return (
 		<div className="flex relative overflow-x-hidden flex-col uppercase justify-center items-center w-full h-screen">
 			<div className="border-[#5651e5] blur-[1px] opacity-50 border-20 mr-64 w-20 rounded-full h-20 absolute -z-10"></div>
@@ -18,7 +19,7 @@ export default function Login() {
 			<div className="border-[#5651e5] blur-[1px] opacity-50 border-8 ml-48 mt-72 w-64 rounded-full h-64 absolute "></div>
 			<div className="border-[#5651e5] blur-[1px] opacity-50 border-8 ml-64 mb-64 w-36 rounded-full h-36 absolute -z-10"></div>
 			<form
-				onSubmit={handleSubmit}
+				onSubmit={handleLoginSubmit}
 				className="backdrop-blur-sm flex flex-col rounded-2xl px-2 py-4 bg-white/30"
 				action="">
 				<h1 className="text-3xl tracking-widest uppercase text-[#5651e5]">
