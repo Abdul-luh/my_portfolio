@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import InputComponent from "../../InputField";
-import skills from "../../data/skill";
-import { StaticImageData } from "next/image";
+// import skills from "../../data/skill";
+// import { StaticImageData } from "next/image";
 import axios from "axios";
 
 export default function AddTechnology() {
@@ -11,17 +11,15 @@ export default function AddTechnology() {
 	// 	image: "",
 	// });
 	const [techName, setTechname] = useState("");
-	const [techImage, setTechImage] = useState<File | null | string>(null);
+	const [techImage, setTechImage] = useState<File | null>(null);
 
 	const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const files = e.target.files;
 		if (files && files.length > 0) {
 			// Access the first selected file from the input
 			const selectedImage = files[0];
-			console.log(selectedImage);
-			setTechImage(selectedImage.name); // Update the state with the selected image
+			setTechImage(selectedImage); // Update the state with the selected image
 		}
-		console.log(techImage);
 	};
 
 	const handleAddTechSubmitForm = async (
@@ -30,9 +28,19 @@ export default function AddTechnology() {
 		e.preventDefault();
 
 		const formData = new FormData();
+		console.log(techImage);
+		if (techImage !== null) {
+			formData.append("image", techImage);
+			formData.append("text", techName);
+		}
+
+		const body = {
+			techImage,
+			techName,
+		};
 
 		try {
-			const resp = await axios.post("/api/addtechnology", formData);
+			const resp = await axios.post("/api/addnewtechnology", formData);
 			const res = await resp.data;
 			console.log(res);
 		} catch (error: any) {
@@ -60,7 +68,7 @@ export default function AddTechnology() {
 							htmlLabelFor="image"
 							htmlLabel="Upload logo"
 							inputType="file"
-							inputValue={techImage}
+							inputValue={null}
 							setValue={handleImage}
 						/>
 					</div>

@@ -12,9 +12,8 @@ export default function AddProject() {
 		repoLink: "",
 		demoLink: "",
 	});
-	const [displayImage, setDisplayImage] = useState(null);
 	const [textArea, setTextArea] = useState("");
-	const [image, setImage] = useState<File>(null);
+	const [image, setImage] = useState<File | "">("");
 
 	const [checkboxValue, setCheckboxValue] = useState<
 		{
@@ -34,9 +33,12 @@ export default function AddProject() {
 
 	const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const files = e.target.files;
-
-		if (files !== null) {
-			setImage(files[0]);
+		console.log(files);
+		if (files && files.length > 0) {
+			// Access the first selected file from the input
+			const selectedImage = files[0];
+			console.log(selectedImage);
+			setImage(selectedImage); // Update the state with the selected image
 		}
 	};
 
@@ -46,29 +48,33 @@ export default function AddProject() {
 			[e.target.name]: e.target.value,
 		}));
 	};
-	// const handleCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {
-	// 	setCheckboxValue(!e.target.value);
-	// };
 
 	const handleAddform = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const checked = checkboxValue.filter((skill) => skill.checked);
-		const formdata = new FormData().append("image", image);
+		console.log(image);
+		const formdata = new FormData();
+		if (image !== "" || !image) {
+			formdata.append("image", image);
+			console.log(formdata);
 
-		const newProject = {
-			textInputValue,
-			textArea,
-			checked,
-			formdata,
-		};
-		console.log(newProject);
-		try {
-			const response = await axios.post("/api/addproject", newProject);
-			const result = await response.data;
-			console.log(result);
-		} catch (error: any) {
-			console.log(error);
-			// setErr(error.message)
+			const newProject = {
+				textInputValue,
+				textArea,
+				checked,
+				image,
+			};
+			console.log(newProject);
+			try {
+				const response = await axios.post("/api/addproject", newProject);
+				const result = await response.data;
+				console.log(result);
+			} catch (error: any) {
+				console.log(error);
+				// setErr(error.message)
+			}
+		} else {
+			console.log(image, "image is empty init?");
 		}
 	};
 
@@ -156,7 +162,7 @@ export default function AddProject() {
 						htmlLabelFor="displayImage"
 						htmlLabel="Upload Image"
 						inputType="file"
-						inputValue={image}
+						inputValue={null}
 						setValue={handleImage}
 					/>
 					<button
