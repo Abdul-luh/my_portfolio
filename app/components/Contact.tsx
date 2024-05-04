@@ -51,22 +51,26 @@ const Contact = () => {
 								<p className="uppercase pt-8">CONNECT ME WITH</p>
 								<div className="flex justify-between py-4 items-center">
 									<div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
-										<Link href="https://www.linkedin.com/in/abdullah-odulate-a0264024b/">
+										<Link
+											target="_blank"
+											href="https://www.linkedin.com/in/abdullah-odulate-a0264024b/">
 											<FaLinkedinIn />
 										</Link>
 									</div>
 									<div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
-										<Link href="https://github.com/Abdul-luh">
+										<Link target="_blank" href="https://github.com/Abdul-luh">
 											<FaGithub />
 										</Link>
 									</div>
 									<div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
-										<Link href="mailto:abdulluhodulate@gmail.com">
+										<Link
+											target="_blank"
+											href="mailto:abdulluhodulate@gmail.com">
 											<AiOutlineMail />
 										</Link>
 									</div>
 									<div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
-										<Link href="tel:+2347033824496">
+										<Link target="_blank" href="tel:+2347033824496">
 											<BsFillPersonLinesFill />
 										</Link>
 									</div>
