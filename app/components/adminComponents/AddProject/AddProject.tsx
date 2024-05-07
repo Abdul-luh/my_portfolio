@@ -23,7 +23,7 @@ export default function AddProject() {
 	>([]);
 
 	const checkboxfield = skills.map((skill) => ({
-		name: skill.skill,
+		name: skill.skillName,
 		checked: false,
 	}));
 

@@ -11,6 +11,13 @@ const Page = () => {
 		projImg: StaticImageData;
 		projDescr: string;
 	}
+	// console.log(
+	// 	allProps.filter((proj) =>
+	// 		proj.projTech.filter((smth) =>
+	// 			smth.techName.toLowerCase().includes("typescript".toLowerCase())
+	// 		)
+	// 	)
+	// );
 
 	return (
 		<>
@@ -24,6 +31,7 @@ const Page = () => {
 						All Projects
 					</h2>
 					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+						{/* filter if query  = allProps.Projtech.techName  */}
 						{allProps.map((projectProp: Project) => {
 							return (
 								<ProjectItem

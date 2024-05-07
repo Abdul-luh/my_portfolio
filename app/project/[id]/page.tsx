@@ -5,7 +5,7 @@ import { StaticImageData } from "next/image";
 import allProps from "@/app/components/data/Properties";
 import { RiRadioButtonFill } from "react-icons/ri";
 
-const page = ({ params }: any) => {
+const page = ({ params }: { params: { id: string } }) => {
 	interface Project {
 		id: number;
 		projName: string;
@@ -21,6 +21,7 @@ const page = ({ params }: any) => {
 		id: number;
 		techName: string;
 	}
+	// console.log(params)
 
 	return (
 		<>
@@ -28,7 +29,7 @@ const page = ({ params }: any) => {
 
 			{/* MAPPING THROUGH THE PROJECT LIST  */}
 			{allProps.map((project: Project) => {
-				if (params.id == project.id)
+				if (params.id == project.id.toString())
 					return (
 						<div key={project.id} className="w-full overflow-x-hidden">
 							<div className="w-screen h-[40vh] lg:h-[50vh] relative overflow-y-hidden">

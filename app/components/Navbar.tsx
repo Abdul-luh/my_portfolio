@@ -17,7 +17,7 @@ const Navbar = () => {
 			setNavBg("transparent");
 			setLinkColor("#f8f8f8");
 		}
-		console.log(pathname);
+		// console.log(pathname);
 	}, [pathname]);
 
 	const handleNav = () => {

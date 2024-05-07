@@ -15,62 +15,62 @@ const skills = [
 	{
 		id: 1,
 		img: skill01,
-		skill: "html",
+		skillName: "html",
 	},
 	{
 		id: 2,
 		img: skill02,
-		skill: "css",
+		skillName: "css",
 	},
 	{
 		id: 3,
 		img: skill03,
-		skill: "javascript",
+		skillName: "javascript",
 	},
 	{
 		id: 4,
 		img: skill04,
-		skill: "reactjs",
+		skillName: "reactjs",
 	},
 	{
 		id: 5,
 		img: skill05,
-		skill: "tailwind",
+		skillName: "tailwind",
 	},
 	{
 		id: 6,
 		img: skill06,
-		skill: "sass",
+		skillName: "sass",
 	},
 	{
 		id: 7,
 		img: skill07,
-		skill: "git",
+		skillName: "git",
 	},
 	{
 		id: 8,
 		img: skill08,
-		skill: "github",
+		skillName: "github",
 	},
 	{
 		id: 9,
 		img: skill09,
-		skill: "typescript",
+		skillName: "typescript",
 	},
 	{
 		id: 10,
 		img: skill10,
-		skill: "nextjs",
+		skillName: "nextjs",
 	},
 	{
 		id: 11,
 		img: skill11,
-		skill: "react-testing-library",
+		skillName: "react-testing-library",
 	},
 	{
 		id: 12,
 		img: skill12,
-		skill: "mysql",
+		skillName: "mysql",
 	},
 ];
 

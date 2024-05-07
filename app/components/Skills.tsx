@@ -5,7 +5,7 @@ import SkillsCard from "./SkillsCard";
 interface MySkills {
 	id: number;
 	img: StaticImageData;
-	skill: string;
+	skillName: string;
 }
 
 const Skills = () => {
@@ -18,12 +18,13 @@ const Skills = () => {
 				<h2 className="py-4">What I can do</h2>
 
 				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+					{/* When a skill is clicked link to  projects that this skill was used  */}
 					{skills.map((skill: MySkills) => {
 						return (
 							<SkillsCard
 								key={skill.id}
 								imgProp={skill.img}
-								text={skill.skill}
+								text={skill.skillName}
 							/>
 						);
 					})}

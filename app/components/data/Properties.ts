@@ -24,7 +24,7 @@ const allProps = [
 		projDescr:
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [
-			{ id: 1, techName: "REACT" },
+			{ id: 1, techName: "REACTJS" },
 			{ id: 2, techName: "TAILWIND" },
 		],
 		demoLink: "https://acme-rockets-abdullah.netlify.app/",
@@ -54,7 +54,7 @@ const allProps = [
 		projDescr:
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [
-			{ id: 1, techName: "REACT" },
+			{ id: 1, techName: "REACTJS" },
 			{ id: 2, techName: "TAILWIND" },
 		],
 		demoLink: "https://abdul-luh.github.io/news-homepage-main/",
@@ -83,9 +83,11 @@ const allProps = [
 		projDescr:
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [
-			{ id: 1, techName: "Node" },
+			{ id: 1, techName: "Nodejs" },
 			{ id: 2, techName: "TAILWIND" },
-			{ id: 3, techName: "TYPESCRIPT" },
+			{ id: 3, techName: "JAVASCRIPT" },
+			{ id: 4, techName: "TYPESCRIPT" },
+			{ id: 5, techName: "REACTJS" },
 		],
 		demoLink: "https://abdul-luh.github.io/Simple_resposive_website/",
 		repoLink: "https://github.com/Abdul-luh/Simple_resposive_website",
@@ -116,6 +118,7 @@ const allProps = [
 			{ id: 1, techName: "html" },
 			{ id: 2, techName: "TAILWIND" },
 			{ id: 3, techName: "TYPESCRIPT" },
+			{ id: 3, techName: "JAVASCRIPT" },
 		],
 		demoLink: "https://abdul-luh.github.io/AlarmClock/",
 		repoLink: "https://github.com/Abdul-luh/AlarmClock",
@@ -130,7 +133,7 @@ const allProps = [
 		projTech: [
 			{ id: 1, techName: "html" },
 			{ id: 2, techName: "TAILWIND" },
-			{ id: 3, techName: "TYPESCRIPT" },
+			{ id: 3, techName: "Javascript" },
 		],
 		demoLink: "https://abdul-luh.github.io/todo-list-app_project/",
 		repoLink: "https://github.com/Abdul-luh/todo-list-app_project",
@@ -140,5 +143,9 @@ const allProps = [
 allProps.forEach((item) => {
 	item.id = getNextId();
 });
-
+allProps.map((prop) => {
+	for (let i in prop.projTech) {
+		prop.projTech[i].id = Number(i) + 1;
+	}
+});
 export default allProps;

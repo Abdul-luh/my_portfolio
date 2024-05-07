@@ -5,7 +5,7 @@ import Card from "../Card";
 interface MySkills {
 	id: number;
 	img: StaticImageData;
-	skill: string;
+	skillName: string;
 }
 
 const AllTechnologies = () => {
@@ -18,7 +18,7 @@ const AllTechnologies = () => {
 				<div className="grid  gap-8">
 					{skills.map((skill: MySkills) => {
 						return (
-							<Card key={skill.id} imgProp={skill.img} text={skill.skill} />
+							<Card key={skill.id} imgProp={skill.img} text={skill.skillName} />
 						);
 					})}
 				</div>
