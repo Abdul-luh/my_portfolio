@@ -6,26 +6,26 @@ import { rejects } from "assert";
 
 const res = NextResponse;
 
-export const config = {
-	api: {
-		bodyParse: false
-	}
-}
+// export const config = {
+// 	api: {
+// 		bodyParse: false
+// 	}
+// }
 
-const readFile = (req: NextApiRequest) => {
-	const form = formidable()
-	return new Promise((resolve, reject) => {
-		form.parse(req, (err, fields, files) => {
-			if (err) reject
-		})
-	})
+// const readFile = (req: NextApiRequest) => {
+// 	const form = formidable()
+// 	return new Promise((resolve, reject) => {
+// 		form.parse(req, (err, fields, files) => {
+// 			if (err) reject
+// 		})
+// 	})
 
-}
+// }
 
 export async function POST(req: NextRequest) {
-	const form = formidable({
-		
-	})
+	// const form = formidable({
+
+	// })
 	try {
 		console.log(req.method, req.body);
 		const reqBody = await req.json();
