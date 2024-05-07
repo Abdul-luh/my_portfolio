@@ -11,7 +11,6 @@ const res = NextResponse;
 // 		bodyParse: false
 // 	}
 // }
-export const dynamic = "auto";
 
 // const readFile = (req: NextApiRequest) => {
 // 	const form = formidable()

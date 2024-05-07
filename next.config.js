@@ -12,9 +12,9 @@ const nextConfig = {
 		esmExternals: "loose", // <-- add this
 		serverComponentsExternalPackages: ["mongoose"], // <-- and this
 	},
-	api: {
-		bodyParser: false,
-	},
+	// api: {
+	// 	bodyParser: false,
+	// },
 };
 
 module.exports = nextConfig;
