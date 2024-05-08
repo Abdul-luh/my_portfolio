@@ -7,7 +7,7 @@ import { AdminAuthContext } from "@/app/context/AdminAuth/AdminAuth";
 
 export default function Login() {
 	const { handleLoginSubmit, handleChange, input } =
-		useContext(AdminAuthContext);
+		useContext(AdminAuthContext)!;
 	return (
 		<div className="flex relative overflow-x-hidden flex-col uppercase justify-center items-center w-full h-screen">
 			<div className="border-[#5651e5] blur-[1px] opacity-50 border-20 mr-64 w-20 rounded-full h-20 absolute -z-10"></div>
