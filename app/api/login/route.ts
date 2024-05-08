@@ -1,18 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import bcryptjs from "bcryptjs";
 const res = NextResponse;
 
 export async function POST(req: NextRequest) {
 	try {
-		const { email, password } = await req.json();
+		const { email, password }: { email: string; password: string } =
+			await req.json();
 		if (email === "") return res.json({ error: "please pass a valid email" });
 		if (password === "")
 			return res.json({ error: "please pass a valid email" });
 		if (email !== process.env.ADMIN_EMAIL) {
 			return res.json({ error: "email is incorrect" });
 		}
-		if (password !== process.env.ADMIN_PASSWORD) {
-			return res.json({ error: "password is incorrect" });
+
+		const savePassword: string = process.env.ADMIN_PASSWORD!;
+		if (password) {
+			const validatePassword = bcryptjs.compare(password, savePassword);
+			// console.log(validatePassword);
+			if (!validatePassword)
+				return res.json({ error: "password is incorrect" });
 		}
 		const token = jwt.sign(email, process.env.TOKEN_SECRET!);
 		const response = res.json({ authenticated: true });

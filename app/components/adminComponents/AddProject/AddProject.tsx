@@ -32,13 +32,9 @@ export default function AddProject() {
 	}, []);
 
 	const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const files = e.target.files;
-		console.log(files);
-		if (files && files.length > 0) {
-			// Access the first selected file from the input
-			const selectedImage = files[0];
-			console.log(selectedImage);
-			setImage(selectedImage); // Update the state with the selected image
+		const file = e.target.files?.[0];
+		if (file) {
+			setImage(file); // Update the state with the selected image
 		}
 	};
 
