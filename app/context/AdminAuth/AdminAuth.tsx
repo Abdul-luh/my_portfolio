@@ -17,8 +17,8 @@ interface AdminAuthContext_Iface {
 	isAuth: boolean;
 }
 
-export const AdminAuthContext = createContext<AdminAuthContext_Iface | null>(
-	null
-);
+export const AdminAuthContext = createContext<
+	AdminAuthContext_Iface | undefined
+>(undefined);
 
 export default AdminAuthContext;
