@@ -2,7 +2,7 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import { MdUpdate, MdDelete } from "react-icons/md";
 
-export default function Card({ text }: any) {
+export default function Card({ text }: { text: string }) {
 	return (
 		<div>
 			<div className="p-6 shadow-xl hover:scale-105 ease-in duration-300 w-full h-full rounded-xl">

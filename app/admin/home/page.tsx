@@ -96,7 +96,7 @@ const AdminHome = () => {
 				<div
 					className="w-full mt-8 md:col-span-5 max-h-screen md:overflow-y-scroll rounded-xl border border-gray-700
 				 ">
-					<div className="mx-auto flex justify-between items-center p-4 gap-4 max-w-[450px] text-center">
+					<div className="mx-auto flex justify-between items-center p-4 gap-3 max-w-[450px] text-center">
 						<p
 							className={
 								currentRightSlide.key === "AddProject"

@@ -24,27 +24,20 @@ export async function POST(req: NextRequest) {
 		const buffer = Buffer.from(bytes);
 
 		const path = join("./", "public", "images", "skills", image.name);
-		await writeFile(path, buffer);
 
-		console.log(title, image);
 		const body = {
 			title,
-			image: {
-				name: image.name,
-				path: path,
-				size: image.size.toString(),
-				type: image.type,
-			},
+			image: path,
 		};
 		const newTechnology = new Technology(body);
 
 		const savedTech = await newTechnology.save();
 		console.log(savedTech);
+		// await writeFile(path, buffer);
 
 		return res.json(
 			{
 				message: "technology added successfully",
-				body,
 				sucess: true,
 			},
 			{ status: 200 }

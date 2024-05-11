@@ -120,7 +120,7 @@ const Contact = () => {
 										Message
 									</label>
 									<textarea
-										className="border-2 rounded-lg p-3 border-gray-300"
+										className="border-2 rounded-lg p-3 text-black border-gray-300"
 										name="emailBody"
 										id="emailBody"
 										rows={10}></textarea>
