@@ -34,7 +34,7 @@ export default function AddProject() {
 
 	const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
-		console.log(file);
+		// console.log(file);
 		if (file) {
 			setSelectedImg(URL.createObjectURL(file));
 			// console.log(selectedImg);
@@ -140,7 +140,7 @@ export default function AddProject() {
 												? { ...item, checked: !skill.checked }
 												: item
 										);
-										console.log(checked);
+										// console.log(checked);
 										setCheckboxValue(checked);
 									}
 								}}
@@ -169,7 +169,7 @@ export default function AddProject() {
 					<div
 						className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
 						onClick={(e) => setErrMsg("")}>
-						<div className="relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
+						<div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
 							<FaTimes
 								width={25}
 								height={25}
@@ -184,7 +184,7 @@ export default function AddProject() {
 					<div
 						className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
 						onClick={(e) => setMsg("")}>
-						<div className="relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
+						<div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
 							<FaTimes
 								width={25}
 								height={25}
