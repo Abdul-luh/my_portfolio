@@ -36,13 +36,13 @@ const AdminHome = () => {
 	return (
 		<div className="w-full h-screen">
 			{/* <Navbar /> */}
-			<div className="max-w-[1200px] grid pt-20 m-auto md:grid-cols-8">
+			<div className="max-w-[1200px] h-[90%] grid pt-20 m-auto   md:grid-cols-8">
 				{/* ALL PROJECTS ON THE LEFT  */}
 				<div
-					className="md:col-span-3 w-full md:max-h-screen md:overflow-y-scroll resize-x
+					className="md:col-span-3  mt-8 w-full md:max-h-screen md:overflow-y-scroll resize-x rounded-xl border border-gray-700
 				">
 					{/* LEFTSIDE NAV  */}
-					<div className="mx-auto flex justify-between items-center max-w-2xl p-4 gap-4 lg:overflow-x-scroll text-center">
+					<div className="mx-auto flex justify-between items-center max-w-2xl p-4 gap-4 text-center">
 						<p
 							className={
 								currentLeftSlides.key === "AllProjects"
@@ -94,7 +94,7 @@ const AdminHome = () => {
 
 				{/* RIGHT SECTION  */}
 				<div
-					className="w-full md:col-span-5 max-h-screen md:overflow-y-scroll
+					className="w-full mt-8 md:col-span-5 max-h-screen md:overflow-y-scroll rounded-xl border border-gray-700
 				 ">
 					<div className="mx-auto flex justify-between items-center p-4 gap-4 max-w-[450px] text-center">
 						<p

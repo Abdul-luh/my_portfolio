@@ -25,24 +25,24 @@ const Main = () => {
 					</p>
 
 					<div className="flex justify-between items-center py-4 w-[330px] m-auto">
-						<div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 ">
+						<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 ">
 							<Link
 								target="_blank"
 								href="https://www.linkedin.com/in/abdullah-odulate-a0264024b/">
 								<FaLinkedinIn />
 							</Link>
 						</div>
-						<div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 ">
+						<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 ">
 							<Link target="_blank" href="https://github.com/Abdul-luh">
 								<FaGithub />
 							</Link>
 						</div>
-						<div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 ">
+						<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 ">
 							<Link target="_blank" href="mailto:abdulluhodulate@gmail.com">
 								<AiOutlineMail />
 							</Link>
 						</div>
-						<div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 ">
+						<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300 ">
 							<Link target="_blank" href="tel:+2347033824496">
 								<BsFillPersonLinesFill />
 							</Link>

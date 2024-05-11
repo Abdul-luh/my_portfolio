@@ -32,7 +32,7 @@ const page = ({ params }: { params: { id: string } }) => {
 				if (params.id == project.id.toString())
 					return (
 						<div key={project.id} className="w-full overflow-x-hidden">
-							<div className="w-screen h-[40vh] lg:h-[50vh] relative overflow-y-hidden">
+							<div className="w-screen h-[40vh] lg:h-[50vh] mt-14 relative overflow-y-hidden">
 								<div className="absolute top-0 left-0 w-full h-[40vh] lg:h-[50vh] bg-black/80 z-10 overflow-y-hidden" />
 								<Image
 									className="absolute z-[-1] object-cover mt-6"
@@ -45,7 +45,7 @@ const page = ({ params }: { params: { id: string } }) => {
 											? project.projName
 											: "Nothing Here!"}
 									</h2>
-									<h3>React JS / Tailwind / Firebase </h3>
+									<h3> {project.projHead}</h3>
 								</div>
 							</div>
 							<div className="max-w-[1000px] mx-auto p-2 grid md:grid-cols-5 gap-2 pt-8 ">
@@ -61,7 +61,7 @@ const page = ({ params }: { params: { id: string } }) => {
 									</button>
 								</div>
 
-								<div className="col-span-4 md:col-span-1 shadow-xl shadow-gray-400 rounded-xl p-4">
+								<div className="col-span-4 md:col-span-1 shadow-xl dark:shadow-gray-700 shadow-gray-400 rounded-xl p-4">
 									<div className="p-2">
 										<p className="text-center font-bold pb-2">Technologies</p>
 
@@ -71,7 +71,7 @@ const page = ({ params }: { params: { id: string } }) => {
 												<div
 													key={tech.id}
 													className="grid gap-[auto] sm:grid-cols-3 md:grid-cols-1">
-													<p className="text-gray-600 text-center uppercase py-2 flex items-center">
+													<p className="text-gray-600 dark:text-gray-400 text-center uppercase py-2 flex items-center">
 														<RiRadioButtonFill className="mr-1 " />{" "}
 														{tech.techName}
 													</p>
