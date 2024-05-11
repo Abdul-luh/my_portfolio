@@ -5,11 +5,14 @@ import skills from "../../data/skill";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import axios from "axios";
+import { FaTimes } from "react-icons/fa";
 
 export default function AddCertificate() {
 	const [textValue, setTextValue] = useState("");
 	const [image, setImage] = useState<File>();
 	const [selectedImg, setSelectedImg] = useState("");
+	const [errMsg, setErrMsg] = useState("");
+	const [msg, setMsg] = useState("");
 
 	const handleTextInput = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTextValue(e.target.value);
@@ -25,14 +28,21 @@ export default function AddCertificate() {
 	const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formdata = new FormData();
-		if (!image && !textValue) return "Please don't leave an empty field";
+		if (!image && !textValue)
+			return setErrMsg("Please don't leave an empty field");
 		formdata.append("image", image!);
 		formdata.append("text", textValue);
 
 		try {
 			const resp = await axios.post("/api/addcertificate", formdata);
 			const data = await resp.data;
-			console.log(data);
+			if (data.error) {
+				return setErrMsg(data.error);
+			}
+			// console.log(data);
+			if (data.message) {
+				return setMsg(data.message);
+			}
 		} catch (error: any) {
 			console.error(error.message);
 		}
@@ -41,41 +51,68 @@ export default function AddCertificate() {
 		<div
 			id="AddCertificate"
 			className="md:col-span-3 w-full h-auto shadow-xl dark:shadow-gray-700 shadow-gray-400 rounded-xl lg:p-4">
-			<div className="p-4">
-				<form onSubmit={handleSubmit}>
-					<div className="grid md:grid-cols-2 gap-4 w-full py-2">
-						<InputComponent
-							htmlLabelFor="certName"
-							inputType="text"
-							htmlLabel="Certificate Name"
-							inputValue={textValue}
-							setValue={handleTextInput}
-						/>
-						<InputComponent
-							htmlLabelFor="image"
-							htmlLabel="Upload Image"
-							inputType="file"
-							inputValue={null}
-							setValue={handleImage}
-						/>
-					</div>
+			<form onSubmit={handleSubmit} className="p-2">
+				<div className="grid md:grid-cols-2 gap-4 w-full py-2">
+					<InputComponent
+						htmlLabelFor="certName"
+						inputType="text"
+						htmlLabel="Certificate Name"
+						inputValue={textValue}
+						setValue={handleTextInput}
+					/>
+					<InputComponent
+						htmlLabelFor="image"
+						htmlLabel="Upload Image"
+						inputType="file"
+						inputValue={null}
+						setValue={handleImage}
+					/>
+				</div>
 
-					{selectedImg && (
-						<Link href={selectedImg}>
-							<Image
-								src={selectedImg}
-								alt="selected logo"
-								className="mx-auto"
-								width={250}
-								height={250}
+				{selectedImg && (
+					<Link href={selectedImg}>
+						<Image
+							src={selectedImg}
+							alt="selected logo"
+							className="mx-auto rounded-xl"
+							width={250}
+							height={250}
+						/>
+					</Link>
+				)}
+				{errMsg && (
+					<div
+						className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
+						onClick={(e) => setErrMsg("")}>
+						<div className="relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
+							<FaTimes
+								width={25}
+								height={25}
+								className="absolute top-2 right-2"
 							/>
-						</Link>
-					)}
-					<button className="w-full p-4 text-gray-100 mt-4">
-						Add Certificate
-					</button>
-				</form>
-			</div>
+							{errMsg}
+						</div>
+					</div>
+				)}
+
+				{msg && (
+					<div
+						className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
+						onClick={(e) => setMsg("")}>
+						<div className="relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
+							<FaTimes
+								width={25}
+								height={25}
+								className="absolute top-2 right-2"
+							/>
+							{msg}
+						</div>
+					</div>
+				)}
+				<button className="w-full p-4 text-gray-100 mt-4">
+					Add Certificate
+				</button>
+			</form>
 		</div>
 	);
 }

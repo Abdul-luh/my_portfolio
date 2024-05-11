@@ -2,7 +2,12 @@
 import { writeFile } from "fs/promises";
 import { NextRequest, NextResponse } from "next/server";
 import { join } from "path";
-import { arrayBuffer } from "stream/consumers";
+import { Connect } from "@/dbConfig/dbconfig";
+import Projects from "@/model/projectModel";
+import Technology from "@/model/techModel";
+
+Connect();
+
 const res = NextResponse;
 
 export async function POST(req: NextRequest) {
@@ -11,26 +16,48 @@ export async function POST(req: NextRequest) {
 		// console.log(reqBody);
 		const image: File = data.get("image") as unknown as File;
 		const texts: string | null = data.get("newProject") as unknown as string;
-		const newProject = JSON.parse(texts);
+		const body = JSON.parse(texts);
 
 		const bytes = await image.arrayBuffer();
 		const buffer = Buffer.from(bytes);
 
 		const path = join("./", "public", image.name);
+		body.image = path;
+
+		// console.log(body);
+
+		const { textInputValue, textArea: description, checked, image: img } = body;
+
+		const {
+			projectName: title,
+			ProjectHeader: header,
+			repoLink,
+			demoLink,
+		} = textInputValue; // Fix typo in PojectHeader
+
+		// Convert checked technologies into an array of technology objects
+		const technologies = checked.map((technology: { name: string }) => ({
+			techName: technology.name,
+		}));
+
+		const newProject = new Projects({
+			title,
+			header,
+			image: img,
+			description,
+			demoLink,
+			repoLink,
+			technologies,
+		});
+
+		const savedProject = await newProject.save();
+		console.log(savedProject);
+
 		await writeFile(path, buffer);
 
-		newProject.image = {
-			name: image.name,
-			path: path,
-			type: image.type,
-			lastModified: image.lastModified,
-		};
-
-		// const msg = ;
 		return res.json(
 			{
 				message: "project added successfully",
-				newProject,
 				sucess: true,
 			},
 			{ status: 200 }

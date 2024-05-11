@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
 		}
 		const token = jwt.sign(email, process.env.TOKEN_SECRET!);
 		const response = res.json({ authenticated: true });
-		response.cookies.set("token", token, { maxAge: 60 * 60 });
+		response.cookies.set("token", token, { maxAge: 60 * 60 * 12 });
 		// return res.json({ authenticated: true });
 
 		return response;

@@ -17,12 +17,7 @@ export async function POST(req: NextRequest) {
 	const path = join("./", "public", "images", "certificates", image.name);
 	const body = {
 		title: textValue,
-		image: {
-			name: image.name,
-			path: path,
-			size: image.size.toString(),
-			type: image.type,
-		},
+		image: path,
 	};
 	try {
 		const newCert = new Certificate(body);
@@ -32,7 +27,6 @@ export async function POST(req: NextRequest) {
 		return res.json(
 			{
 				message: "certificate upload successful",
-				body,
 				success: true,
 			},
 			{ status: 200 }

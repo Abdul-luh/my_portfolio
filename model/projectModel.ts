@@ -1,32 +1,36 @@
 import mongoose from "mongoose";
 
+const technologySchema = new mongoose.Schema({
+	techName: { type: String, required: true },
+});
+
 const ProjectSchema = new mongoose.Schema({
 	title: {
 		type: String,
-		required: [true, "please provide a title"],
+		required: true,
 	},
 	header: {
 		type: String,
-		required: [true, "please provide a header text"],
+		required: true,
 	},
 	image: {
 		type: String,
-		required: [true, "please provide a header text"],
+		required: true,
 	},
 	decription: {
 		type: String,
-		required: [true, "please provide a header text"],
+		required: true,
 	},
-	technologies: {
-		techName: [{ type: String }],
-		required: [true, "please provide a header text"],
-	},
+	technologies: [technologySchema],
 	demoLink: {
 		type: String,
-		required: [true, "please provide a header text"],
+		required: true,
 	},
 	repoLink: {
 		type: String,
-		required: [true, "please provide a header text"],
+		required: true,
 	},
 });
+const Projects =
+	mongoose.models.projects || mongoose.model("projects", ProjectSchema);
+export default Projects;

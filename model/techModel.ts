@@ -7,9 +7,6 @@ const technologySchema = new mongoose.Schema({
 		unique: true,
 	},
 	image: {
-		name: String,
-		path: String,
-		size: String,
 		type: String,
 		required: true,
 	},
