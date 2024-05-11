@@ -31,7 +31,7 @@ export default function AdminAuthContextProvider({
 			// console.log(result.authenticated);
 
 			if (result.authenticated) {
-				console.log(result, "route to '/admin/home/'");
+				// console.log(result, "route to '/admin/home/'");
 				route.push("/admin/home/");
 			}
 		} catch (error: any) {

@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import InputComponent from "../../InputField";
 import skills from "../../data/skill";
 import { StaticImageData } from "next/image";
+import Image from "next/image";
 import axios from "axios";
+// import smth from "@/../../../../../Pictures/"
 
 export default function AddProject() {
 	const [textInputValue, setTextInputValue] = useState({
@@ -13,27 +15,36 @@ export default function AddProject() {
 		demoLink: "",
 	});
 	const [textArea, setTextArea] = useState("");
-	const [image, setImage] = useState<File | "">("");
+	const [image, setImage] = useState<File>();
+	const [selectedImg, setSelectedImg] = useState("");
 
 	const [checkboxValue, setCheckboxValue] = useState<
 		{
 			name: string;
 			checked: boolean;
 		}[]
-	>([]);
+	>(
+		skills.map((skill) => ({
+			name: skill.skillName,
+			checked: false,
+		}))
+	);
 
-	const checkboxfield = skills.map((skill) => ({
-		name: skill.skillName,
-		checked: false,
-	}));
+	// const checkboxfield = skills.map((skill) => ({
+	// 	name: skill.skillName,
+	// 	checked: false,
+	// }));
 
-	useEffect(() => {
-		setCheckboxValue(checkboxfield);
-	}, []);
+	// useEffect(() => {
+	// 	setCheckboxValue(checkboxfield);
+	// }, []);
 
 	const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
+		console.log(file);
 		if (file) {
+			setSelectedImg(URL.createObjectURL(file));
+			console.log(selectedImg);
 			setImage(file); // Update the state with the selected image
 		}
 	};
@@ -50,19 +61,17 @@ export default function AddProject() {
 		const checked = checkboxValue.filter((skill) => skill.checked);
 		console.log(image);
 		const formdata = new FormData();
-		if (image !== "" || !image) {
+		if (image) {
 			formdata.append("image", image);
-			console.log(formdata);
-
 			const newProject = {
 				textInputValue,
 				textArea,
 				checked,
-				image,
 			};
 			console.log(newProject);
+			formdata.append("newProject", JSON.stringify(newProject));
 			try {
-				const response = await axios.post("/api/addproject", newProject);
+				const response = await axios.post("/api/addproject", formdata);
 				const result = await response.data;
 				console.log(result);
 			} catch (error: any) {
@@ -138,13 +147,10 @@ export default function AddProject() {
 									inputValue={skill.checked}
 									setValue={(e: React.ChangeEvent<HTMLInputElement>) => {
 										if (skill.name === e.target.name) {
-											const checked = checkboxValue.map((smth) =>
-												smth.name === e.target.name
-													? {
-															name: skill.name,
-															checked: skill.checked ? false : true,
-													  }
-													: smth
+											const checked = checkboxValue.map((item) =>
+												item.name === e.target.name
+													? { ...item, checked: !skill.checked }
+													: item
 											);
 											console.log(checked);
 											setCheckboxValue(checked);
@@ -161,6 +167,16 @@ export default function AddProject() {
 						inputValue={null}
 						setValue={handleImage}
 					/>
+					{selectedImg && (
+						<Image
+							src={selectedImg}
+							// placeholder="blur"
+							className="rounded-xl border-2 border-gray-400"
+							alt="image preview"
+							width={500}
+							height={500}
+						/>
+					)}
 					<button
 						type="submit"
 						className="w-full p-4 mt-4 bg-gradient-to-tr from-[#5651e5] to-[#709dff]">

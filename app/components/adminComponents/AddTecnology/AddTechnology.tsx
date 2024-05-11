@@ -14,12 +14,10 @@ export default function AddTechnology() {
 	const [techImage, setTechImage] = useState<File | null>(null);
 
 	const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const files = e.target.files;
-		if (files && files.length > 0) {
-			// Access the first selected file from the input
-			const selectedImage = files[0];
-			setTechImage(selectedImage); // Update the state with the selected image
-		}
+		const file = e.target.files?.[0];
+		if (!file) return;
+
+		setTechImage(file); // Update the state with the selected image
 	};
 
 	const handleAddTechSubmitForm = async (
@@ -29,15 +27,10 @@ export default function AddTechnology() {
 
 		const formData = new FormData();
 		console.log(techImage);
-		if (techImage !== null) {
+		if (techImage && techName) {
 			formData.append("image", techImage);
 			formData.append("text", techName);
 		}
-
-		const body = {
-			techImage,
-			techName,
-		};
 
 		try {
 			const resp = await axios.post("/api/addnewtechnology", formData);
