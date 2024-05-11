@@ -53,6 +53,8 @@ export async function POST(req: NextRequest) {
 		const savedProject = await newProject.save();
 		console.log(savedProject);
 
+		if (savedProject.error) return res.json({ error: savedProject.error });
+
 		await writeFile(path, buffer);
 
 		return res.json(

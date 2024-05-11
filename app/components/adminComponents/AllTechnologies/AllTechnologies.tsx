@@ -18,7 +18,8 @@ const AllTechnologies = () => {
 				<div className="grid  gap-8">
 					{skills.map((skill: MySkills) => {
 						return (
-							<Card key={skill.id} imgProp={skill.img} text={skill.skillName} />
+							// <Card key={skill.id} imgProp={skill.img} text={skill.skillName} />
+							<Card key={skill.id} text={skill.skillName} />
 						);
 					})}
 				</div>
