@@ -5,11 +5,11 @@
 :root {
 	--bg-light: #ecf0f3;
 	--text-light: #1f2937;
-	--text-sub-light: rgb(55 65 81);
+	/* --text-sub-light: rgb(55 65 81); */
 
 	--bg-dark: #252b2f;
 	--text-dark: #e1e2e4;
-	--text-sub-dark: rgb(209 213 219);
+	/* --text-sub-dark: rgb(209 213 219); */
 }
 
 /* dark:bg-gray-900

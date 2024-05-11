@@ -27,9 +27,8 @@ function InputComponent({
 			<label
 				htmlFor={htmlLabelFor}
 				className={
-					inputType === "file"
-						? "border uppercase text-sm py-2 rounded-lg p-3 w-full my-4  focus:outline-[#5651e5] border-gray-300"
-						: "uppercase text-sm py-2"
+					// border uppercase text-sm py-2 rounded-lg p-3 w-full my-4  focus:outline-[#5651e5] border-gray-300
+					"uppercase text-sm py-2"
 				}>
 				{htmlLabel}
 			</label>
@@ -44,7 +43,7 @@ function InputComponent({
 				// }
 				className={
 					inputType === "file"
-						? ""
+						? "border-2 text-black border-gray-300 focus:outline-[#5651e5] rounded-lg p-3 flex"
 						: "border-2 text-black border-gray-300 focus:outline-[#5651e5] rounded-lg p-3 flex"
 				}
 			/>

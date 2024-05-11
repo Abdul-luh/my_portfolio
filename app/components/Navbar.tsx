@@ -105,7 +105,7 @@ const Navbar = () => {
 					className={
 						nav
 							? "fixed top-0 left-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen dark:bg-[var(--bg-dark)] bg-[var(--bg-light)] p-10 ease-in duration-500 md:hidden"
-							: "fixed md:hidden top-0 left-[-100%] w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
+							: "fixed md:hidden top-0 left-[-100%] w-[75%] sm:w-[60%] md:w-[45%] h-screen  dark:bg-[var(--bg-dark)] bg-[var(--bg-light)]  p-10 ease-in duration-500"
 					}>
 					<div className="flex justify-between w-full items-center">
 						<div className="logo">
@@ -118,7 +118,7 @@ const Navbar = () => {
 						</div>
 						<div
 							onClick={handleNav}
-							className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer">
+							className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-3 cursor-pointer">
 							<AiOutlineClose />
 						</div>
 					</div>

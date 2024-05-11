@@ -26,6 +26,9 @@ const allProps = [
 		projTech: [
 			{ id: 1, techName: "REACTJS" },
 			{ id: 2, techName: "TAILWIND" },
+			{ id: 2, techName: "css" },
+			{ id: 2, techName: "javascript" },
+			{ id: 2, techName: "html" },
 		],
 		demoLink: "https://acme-rockets-abdullah.netlify.app/",
 		repoLink: "https://github.com/Abdul-luh/Tailwind-project/",
@@ -55,6 +58,9 @@ const allProps = [
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [
 			{ id: 1, techName: "REACTJS" },
+			{ id: 1, techName: "javascript" },
+			{ id: 2, techName: "html" },
+			{ id: 2, techName: "css" },
 			{ id: 2, techName: "TAILWIND" },
 		],
 		demoLink: "https://abdul-luh.github.io/news-homepage-main/",
@@ -84,6 +90,7 @@ const allProps = [
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [
 			{ id: 1, techName: "Nodejs" },
+			{ id: 2, techName: "css" },
 			{ id: 2, techName: "TAILWIND" },
 			{ id: 3, techName: "JAVASCRIPT" },
 			{ id: 4, techName: "TYPESCRIPT" },
@@ -101,6 +108,7 @@ const allProps = [
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [
 			{ id: 1, techName: "Node" },
+			{ id: 2, techName: "css" },
 			{ id: 2, techName: "TAILWIND" },
 			{ id: 3, techName: "TYPESCRIPT" },
 		],
@@ -116,6 +124,7 @@ const allProps = [
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [
 			{ id: 1, techName: "html" },
+			{ id: 2, techName: "css" },
 			{ id: 2, techName: "TAILWIND" },
 			{ id: 3, techName: "TYPESCRIPT" },
 			{ id: 3, techName: "JAVASCRIPT" },
@@ -132,6 +141,7 @@ const allProps = [
 			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
 		projTech: [
 			{ id: 1, techName: "html" },
+			{ id: 2, techName: "css" },
 			{ id: 2, techName: "TAILWIND" },
 			{ id: 3, techName: "Javascript" },
 		],

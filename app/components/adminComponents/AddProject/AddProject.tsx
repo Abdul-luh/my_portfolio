@@ -91,7 +91,7 @@ export default function AddProject() {
 	return (
 		<div
 			id="AddProject"
-			className="md:col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
+			className="md:col-span-3 w-full h-auto shadow-xl dark:shadow-gray-700 shadow-gray-400 rounded-xl lg:p-4">
 			<div className="p-4">
 				<form onSubmit={handleAddform}>
 					<div className="grid md:grid-cols-2 gap-4 w-full py-2">
