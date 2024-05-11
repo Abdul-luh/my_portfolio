@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 const res = NextResponse;
-import multer from "multer";
 
 export function middleware(req: NextRequest) {
 	const path = req.nextUrl.pathname;
-	const publicPath = path === "/admin?login";
+	// const publicPath = path === "/admin?login";
 	const privatePath = path === "/admin/home";
 
 	const token = req.cookies.get("token")?.value || "";
