@@ -104,7 +104,7 @@ const Navbar = () => {
 				<div
 					className={
 						nav
-							? "fixed top-0 left-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500 md:hidden"
+							? "fixed top-0 left-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen dark:bg-[var(--bg-dark)] bg-[var(--bg-light)] p-10 ease-in duration-500 md:hidden"
 							: "fixed md:hidden top-0 left-[-100%] w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
 					}>
 					<div className="flex justify-between w-full items-center">
@@ -160,22 +160,22 @@ const Navbar = () => {
 						<div className="pt-3">
 							<p className="tracking-widest text-[#5651e5]">let`s Connect</p>
 							<div className="flex justify-between items-center my-4 w-full sm:w-[60%]">
-								<div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
+								<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
 									<Link href="https://www.linkedin.com/in/abdullah-odulate-a0264024b/">
 										<FaLinkedinIn />
 									</Link>
 								</div>
-								<div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
+								<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
 									<Link href="https://github.com/Abdul-luh">
 										<FaGithub />
 									</Link>
 								</div>
-								<div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
+								<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
 									<Link href="mailto:abdulluhodulate@gmail.com">
 										<AiOutlineMail />
 									</Link>
 								</div>
-								<div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
+								<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 ">
 									<Link href="tel:+2347044824496">
 										<BsFillPersonLinesFill />
 									</Link>
