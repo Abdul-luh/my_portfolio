@@ -35,7 +35,7 @@ const Projects = () => {
 					})}
 				</div>
 
-				<div className="w-full flex justify-center items-center my-4">
+				<div className="w-full flex justify-center items-center my-6">
 					<Link href={"/projects-page"}>
 						<button className="py-4 px-6 text-[#5651e5] hover:text-white rounded-xl bg-none hover:bg-[#5651e5]">
 							view more . . .

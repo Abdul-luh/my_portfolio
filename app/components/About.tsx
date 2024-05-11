@@ -14,8 +14,10 @@ const About = () => {
 						About
 					</p>
 					<h2 className="py-4">Who I am</h2>
-					<p className="py-2 text-gray-600">I am not your normal developer</p>
-					<p className="py-2 text-gray-600">
+					<p className="py-2  dark:text-gray-400 text-gray-600">
+						I am not your normal developer
+					</p>
+					<p className="py-2  dark:text-gray-400 text-gray-600">
 						Aspiring frontend developer with a solid grasp of modern web
 						technologies, including React, Tailwind CSS, and Next.js. Eager to
 						apply my knowledge and build real-world projects to gain hands-on
@@ -23,7 +25,7 @@ const About = () => {
 						continuously enhancing my skills. Excited to contribute my
 						enthusiasm and dedication to collaborative development teams.
 					</p>
-					<p className="py-2 text-gray-600">
+					<p className="py-2 dark:text-gray-400 text-gray-600">
 						My dedication to honing my frontend skills and eagerness to apply
 						them in real-world projects is truly commendable. My passion for
 						crafting user-friendly interfaces reflects a deep understanding of
@@ -34,13 +36,13 @@ const About = () => {
 						development team. Keep shining and soaring high on my journey to
 						frontend excellence! 🚀✨
 					</p>
-					<p className="py-2 underline cursor-pointer text-gray-600">
+					<p className="py-2 underline cursor-pointer dark:text-gray-400 text-gray-600">
 						<Link href="/projects-page">
 							Check out some of my lates projects
 						</Link>
 					</p>
 				</div>
-				<div className="p-2 w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center hover:scale-105 ease-in duration-300">
+				<div className="p-2 w-full h-auto m-auto shadow-xl shadow-gray-400 dark:shadow-gray-700 rounded-xl flex items-center justify-center hover:scale-105 ease-in duration-300">
 					<Link href="https://abdul-luh.github.io/portfolio_001/">
 						<Image
 							src={portfolioSampMobile}

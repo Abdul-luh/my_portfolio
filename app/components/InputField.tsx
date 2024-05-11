@@ -44,8 +44,8 @@ function InputComponent({
 				// }
 				className={
 					inputType === "file"
-						? "hidden"
-						: "border-2 border-gray-300 focus:outline-[#5651e5] rounded-lg p-3 flex"
+						? ""
+						: "border-2 text-black border-gray-300 focus:outline-[#5651e5] rounded-lg p-3 flex"
 				}
 			/>
 		</div>

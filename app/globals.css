@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
-} */
+:root {
+	--bg-light: #ecf0f3;
+	--text-light: #1f2937;
+	--text-sub-light: rgb(55 65 81);
+
+	--bg-dark: #252b2f;
+	--text-dark: #e1e2e4;
+	--text-sub-dark: rgb(209 213 219);
+}
 
 /* dark:bg-gray-900
 dark:bg-gray-900
@@ -23,7 +27,7 @@ html {
 		@apply scroll-smooth;
 	}
 	body {
-		@apply bg-[#ecf0f3] text-[#1f2937] tracking-wide scroll-smooth;
+		@apply bg-[var(--bg-light)] text-[var(--text-light)] dark:bg-[var(--bg-dark)] dark:text-[var(--text-dark)] tracking-wide scroll-smooth;
 	}
 	h1,
 	h2,
@@ -41,7 +45,7 @@ html {
 		@apply cursor-pointer;
 	}
 	button {
-		@apply shadow-xl text-white shadow-gray-400 rounded-full uppercase bg-gradient-to-tr from-[#5651e5] to-[#709dff];
+		@apply shadow-xl text-white shadow-gray-400 dark:shadow-gray-700 rounded-full uppercase bg-gradient-to-tr from-[#5651e5] to-[#709dff];
 	}
 	.logo {
 		@apply flex items-center justify-center bg-slate-50/20 backdrop-blur w-min h-10 text-black border-[2px] border-solid border-black p-1 cursor-pointer;

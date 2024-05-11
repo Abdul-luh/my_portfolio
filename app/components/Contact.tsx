@@ -30,7 +30,7 @@ const Contact = () => {
 
 				<div className="grid md:grid-cols-5 gap-8">
 					{/* LEFT  */}
-					<div className="col-span-3 md:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4">
+					<div className="col-span-3 md:col-span-2 w-full h-full shadow-xl  dark:shadow-gray-700 shadow-gray-400 rounded-xl p-4">
 						<div className="lg:p-4 h-full">
 							<div>
 								<Image
@@ -50,26 +50,26 @@ const Contact = () => {
 							<div>
 								<p className="uppercase pt-8">CONNECT ME WITH</p>
 								<div className="flex justify-between py-4 items-center">
-									<div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
+									<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
 										<Link
 											target="_blank"
 											href="https://www.linkedin.com/in/abdullah-odulate-a0264024b/">
 											<FaLinkedinIn />
 										</Link>
 									</div>
-									<div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
+									<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
 										<Link target="_blank" href="https://github.com/Abdul-luh">
 											<FaGithub />
 										</Link>
 									</div>
-									<div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
+									<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
 										<Link
 											target="_blank"
 											href="mailto:abdulluhodulate@gmail.com">
 											<AiOutlineMail />
 										</Link>
 									</div>
-									<div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
+									<div className="rounded-full shadow-lg dark:shadow-gray-700 shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 ">
 										<Link target="_blank" href="tel:+2347033824496">
 											<BsFillPersonLinesFill />
 										</Link>
@@ -80,7 +80,7 @@ const Contact = () => {
 					</div>
 					{/* RIGHT  */}
 
-					<div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
+					<div className="col-span-3 w-full h-auto shadow-xl dark:shadow-gray-700 shadow-gray-400 rounded-xl lg:p-4">
 						<div className="p-4">
 							<form>
 								<div className="grid md:grid-cols-2 gap-4 w-full py-2">
@@ -107,7 +107,7 @@ const Contact = () => {
 									setValue={handleTextInput}
 								/>
 								<InputComponent
-									htmlLabelFor="Subject"
+									htmlLabelFor="subject"
 									inputType="text"
 									htmlLabel="Subject"
 									inputValue={textInputValue.subject}
@@ -134,7 +134,7 @@ const Contact = () => {
 				</div>
 				<div className="flex justify-center items-center py-12">
 					<Link href="#hero">
-						<div className="rounded-full shadow-xl shadow-gray-400 cursor-pointer hover:scalw-105 ease-in duration-300 p-6 ">
+						<div className="rounded-full shadow-xl shadow-gray-400 dark:shadow-gray-700 cursor-pointer hover:scalw-105 ease-in duration-300 p-6 ">
 							<HiOutlineChevronDoubleUp size={30} className="text-[#5651e5]" />
 						</div>
 					</Link>

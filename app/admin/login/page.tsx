@@ -20,7 +20,7 @@ export default function Login() {
 			<div className="border-[#5651e5] blur-[1px] opacity-50 border-8 ml-64 mb-64 w-36 rounded-full h-36 absolute -z-10"></div>
 			<form
 				onSubmit={handleLoginSubmit}
-				className="backdrop-blur-sm flex flex-col rounded-2xl px-2 py-4 bg-white/30"
+				className="backdrop-blur-sm flex flex-col rounded-2xl p-4 bg-white/30 "
 				action="">
 				<h1 className="text-3xl tracking-widest uppercase text-[#5651e5]">
 					Login
@@ -41,7 +41,7 @@ export default function Login() {
 				/>
 				<button
 					type="submit"
-					className="p-2 my-2 text-[#5651e5] hover:bg-[#5651e5] hover:text-white">
+					className="p-2 my-2 font-semibold text-[#5651e5] hover:bg-[#5651e5] hover:text-white dark:text-white ">
 					submit
 				</button>
 				<div className="bg-white rounded-full flex items-center p-4 mt-2 hover:w-36 w-12 h-12 relative cursor-pointer text-[#5651e5] group duration-200">

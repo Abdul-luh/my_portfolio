@@ -18,7 +18,7 @@ const ProjectItem = ({
 	technologies,
 }: ProjectItemProps) => {
 	return (
-		<div className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl p-4 group hover:bg-gradient-to-r from-[#000000db] to-[#00000070]">
+		<div className="relative flex items-center justify-center h-auto w-full shadow-xl dark:shadow-gray-700 shadow-gray-400 rounded-xl p-4 group hover:bg-gradient-to-r from-[#000000db] to-[#00000070]">
 			<Image
 				src={bgImg}
 				className="rounded-xl group-hover:opacity-30"

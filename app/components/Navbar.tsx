@@ -8,14 +8,20 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
 	const [nav, setNav] = useState(false);
-	const [navbg, setNavBg] = useState("#ecf0f3");
-	const [linkColor, setLinkColor] = useState("#333");
+	const [navbg, setNavBg] = useState({
+		dark: "var(--bg-dark)",
+		light: "var(--bg-light)",
+	});
+	const [linkColor, setLinkColor] = useState({
+		dark: "#eee",
+		light: "#333",
+	});
 	const pathname = usePathname();
 
 	useEffect(() => {
-		if (!(pathname === "/" || "/projects-page")) {
-			setNavBg("transparent");
-			setLinkColor("#f8f8f8");
+		if (pathname !== "/" && pathname !== "/projects-page") {
+			setNavBg((w) => ({ ...w, light: "transparent" }));
+			setLinkColor((w) => ({ ...w, light: "#f8f8f8" }));
 		}
 		// console.log(pathname);
 	}, [pathname]);
@@ -26,10 +32,7 @@ const Navbar = () => {
 
 	return (
 		<nav
-			style={{
-				background: `${navbg}`,
-			}}
-			className="fixed w-full h-20 shadow-xl z-[100] px-5 ">
+			className={`bg-[${navbg.light}] dark:bg-[${navbg.dark}] fixed w-full h-20 shadow-xl z-[100] px-5`}>
 			<div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
 				{/* LOGO */}
 				<div className="logo">
@@ -60,7 +63,7 @@ const Navbar = () => {
 							style={{
 								color: `${linkColor}`,
 							}}
-							href="/#projects">
+							href="/projects-page">
 							<li className="ml-10 text-sm uppercase hover:border-b">
 								Projects
 							</li>
@@ -137,7 +140,7 @@ const Navbar = () => {
 									Skills
 								</li>
 							</Link>
-							<Link href="/#projects">
+							<Link href="/projects-page">
 								<li onClick={handleNav} className="py-4 text-sm">
 									Projects
 								</li>
