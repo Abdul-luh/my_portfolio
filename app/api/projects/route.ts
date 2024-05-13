@@ -5,6 +5,7 @@ import { join } from "path";
 import { Connect } from "@/dbConfig/dbconfig";
 import Projects from "@/model/projectModel";
 import Technology from "@/model/techModel";
+import { NextApiRequest } from "next";
 
 Connect();
 
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest) {
 			ProjectHeader: header,
 			repoLink,
 			demoLink,
-		} = textInputValue; // Fix typo in PojectHeader
+		} = textInputValue;
 
 		// Convert checked technologies into an array of technology objects
 		const technologies = checked.map((technology: { name: string }) => ({
@@ -66,6 +67,14 @@ export async function POST(req: NextRequest) {
 		);
 	} catch (error: any) {
 		console.log(error);
-		return res.json({ error: error.message });
+		return res.json({ error: error.message }, { status: 500 });
+	}
+}
+
+export async function GET(req: NextRequest) {
+	try {
+	} catch (error: any) {
+		console.log(error);
+		return res.json({ error: error.message }, { status: 500 });
 	}
 }

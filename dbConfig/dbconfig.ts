@@ -14,10 +14,10 @@ export async function Connect() {
 			console.log(
 				"MongoDB connection error, Please check the connection again" + err
 			);
-			process.exit();
+			// process.exit();
 		});
 	} catch (error: any) {
 		console.log(error);
-		console.log("SOMETHING WENT WRONG FROM THE DATABASE COLLECTION");
+		console.log("SOMETHING WENT WRONG FROM THE DATABASE CONNECTION");
 	}
 }

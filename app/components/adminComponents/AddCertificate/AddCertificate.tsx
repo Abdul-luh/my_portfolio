@@ -82,7 +82,7 @@ export default function AddCertificate() {
 				)}
 				{errMsg && (
 					<div
-						className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
+						className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
 						onClick={(e) => setErrMsg("")}>
 						<div className="relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
 							<FaTimes
@@ -97,7 +97,7 @@ export default function AddCertificate() {
 
 				{msg && (
 					<div
-						className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
+						className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
 						onClick={(e) => setMsg("")}>
 						<div className="relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
 							<FaTimes

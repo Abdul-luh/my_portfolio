@@ -6,12 +6,11 @@ import { StaticImageData } from "next/image";
 import Image from "next/image";
 import axios from "axios";
 import { FaTimes } from "react-icons/fa";
-// import smth from "@/../../../../../Pictures/"
 
 export default function AddProject() {
 	const [textInputValue, setTextInputValue] = useState({
 		projectName: "",
-		PojectHeader: "",
+		ProjectHeader: "",
 		repoLink: "",
 		demoLink: "",
 	});
@@ -64,7 +63,7 @@ export default function AddProject() {
 			console.log(newProject);
 			formdata.append("newProject", JSON.stringify(newProject));
 			try {
-				const response = await axios.post("/api/addproject", formdata);
+				const response = await axios.post("/api/projects", formdata);
 				const data = await response.data;
 				data.error ? setErrMsg(data.error) : setMsg(data.message);
 				// console.log(data);
@@ -91,10 +90,10 @@ export default function AddProject() {
 						setValue={handleTextInput}
 					/>
 					<InputComponent
-						htmlLabelFor="PojectHeader"
+						htmlLabelFor="ProjectHeader"
 						inputType="text"
-						htmlLabel="Poject header"
-						inputValue={textInputValue.PojectHeader}
+						htmlLabel="Project header"
+						inputValue={textInputValue.ProjectHeader}
 						setValue={handleTextInput}
 					/>
 				</div>
@@ -169,7 +168,7 @@ export default function AddProject() {
 					<div
 						className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
 						onClick={(e) => setErrMsg("")}>
-						<div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
+						<div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl text-red-700 font-bold">
 							<FaTimes
 								width={25}
 								height={25}

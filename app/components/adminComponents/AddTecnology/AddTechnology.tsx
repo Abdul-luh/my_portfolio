@@ -34,13 +34,18 @@ export default function AddTechnology() {
 		formData.append("text", techName);
 
 		try {
-			const res = await axios.post("/api/addnewtechnology", formData);
+			const res = await axios.post("/api/technologies", formData);
 			const data = await res.data;
 			if (data.error) {
 				setErrMsg(data.error);
 			}
 			// console.log(data);
-			if (data.message) return setMsg(data.message);
+			if (data.message) {
+				setMsg(data.message);
+				setImage(null);
+				setTechname("");
+				setSelectedImg("");
+			}
 		} catch (error: any) {
 			console.error("Error:", error.message);
 			setErrMsg(error.message);
@@ -84,9 +89,9 @@ export default function AddTechnology() {
 
 				{errMsg && (
 					<div
-						className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
+						className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
 						onClick={(e) => setErrMsg("")}>
-						<div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
+						<div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl text-red-700 ">
 							<FaTimes
 								width={25}
 								height={25}
@@ -99,9 +104,9 @@ export default function AddTechnology() {
 
 				{msg && (
 					<div
-						className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
+						className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
 						onClick={(e) => setMsg("")}>
-						<div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
+						<div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl  ">
 							<FaTimes
 								width={25}
 								height={25}
