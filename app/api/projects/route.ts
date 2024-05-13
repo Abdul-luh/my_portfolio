@@ -78,13 +78,3 @@ export async function GET(req: NextRequest) {
 		return res.json({ error: error.message }, { status: 500 });
 	}
 }
-
-export async function DELETE(req: NextApiRequest) {
-	try {
-		const { id } = req.query;
-		console.log(id);
-	} catch (error: any) {
-		console.log(error);
-		return res.json({ error: error.message }, { status: 500 });
-	}
-}
