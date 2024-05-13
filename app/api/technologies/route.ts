@@ -3,6 +3,7 @@ import { join } from "path";
 import { writeFile } from "fs/promises";
 import { Connect } from "@/dbConfig/dbconfig";
 import Technology from "@/model/techModel";
+import { NextApiRequest } from "next";
 
 // export const config = {
 // 	api: {
@@ -44,6 +45,22 @@ export async function POST(req: NextRequest) {
 		);
 	} catch (error: any) {
 		console.log(error);
+		return res.json({ error: error.message });
+	}
+}
+
+export async function GET(req: NextRequest) {
+	try {
+		const technologies = await Technology.find({});
+		console.log(technologies);
+
+		return res.json({
+			success: true,
+			technologies,
+			message: "",
+		});
+	} catch (error: any) {
+		console.error(error);
 		return res.json({ error: error.message });
 	}
 }
