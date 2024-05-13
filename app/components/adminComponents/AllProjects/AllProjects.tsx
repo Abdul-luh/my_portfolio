@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import allProps from "../../data/Properties";
 import { StaticImageData } from "next/image";
 import Card from "../Card";
-import { usePathname } from "next/navigation";
+import axios from "axios";
 
 interface Project {
 	id: number;
@@ -11,14 +11,30 @@ interface Project {
 }
 
 const AllProjects = () => {
-	const path = usePathname();
+	const handleDelete = async (id: string) => {
+		try {
+			const res = await axios.delete(`/api/technologies/${id}`);
+			// const updatteTechnologies =
+			const data = await res.data;
+			console.log(data);
+		} catch (error: any) {
+			console.error(error);
+		}
+	};
 
 	return (
 		<section id="AllProjects" className={"w-full  p-4"}>
 			<div className="max-w-[1240px] mx-auto h-full flex flex-col justify-center items-center">
 				<div className="grid  gap-8">
 					{allProps.map((ProjectProp: Project) => {
-						return <Card key={ProjectProp.id} text={ProjectProp.projName} />;
+						return (
+							<Card
+								key={ProjectProp.id}
+								id={ProjectProp.id.toString()}
+								handleDelete={handleDelete}
+								text={ProjectProp.projName}
+							/>
+						);
 					})}
 				</div>
 			</div>
