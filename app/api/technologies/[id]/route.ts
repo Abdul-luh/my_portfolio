@@ -25,7 +25,7 @@ export async function DELETE(req: NextApiRequest, { params }: paramType) {
 	}
 }
 
-export async function UPDATE(req: NextRequest, { params }: paramType) {
+export async function PUT(req: NextRequest, { params }: paramType) {
 	try {
 		const { id } = params;
 		if (!id) return res.json({ message: "empty id" });
