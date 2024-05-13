@@ -1,6 +1,5 @@
 import { Connect } from "@/dbConfig/dbconfig";
 import Technology from "@/model/techModel";
-import { NextApiRequest } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
 // Connect();
@@ -8,7 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 type paramType = { params: { id: string } };
 
 const res = NextResponse;
-export async function DELETE(req: NextApiRequest, { params }: paramType) {
+export async function DELETE(req: NextRequest, { params }: paramType) {
 	try {
 		const { id } = params;
 		console.log(id);
