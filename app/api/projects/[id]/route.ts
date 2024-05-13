@@ -1,10 +1,9 @@
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 type paramsType = { params: { id: string } };
 
 const res = NextResponse;
-export async function DELETE(req: NextApiRequest, { params }: paramsType) {
+export async function DELETE(req: NextRequest, { params }: paramsType) {
 	try {
 		const { id } = params;
 		console.log(id);
