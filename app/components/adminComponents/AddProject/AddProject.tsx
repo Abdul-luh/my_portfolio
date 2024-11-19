@@ -1,9 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import InputComponent from "../../InputField";
+import InputComponent from "../../general/InputField";
 import skills from "../../data/skill";
-import { StaticImageData } from "next/image";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import axios from "axios";
 import { FaTimes } from "react-icons/fa";
 

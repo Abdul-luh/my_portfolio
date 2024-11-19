@@ -11,13 +11,12 @@ export async function Connect() {
 		});
 
 		connection.on("error", (err) => {
-			console.log(
-				"MongoDB connection error, Please check the connection again" + err
-			);
+			console.log("No Internet Connection \n" + err);
 			// process.exit();
 		});
 	} catch (error: any) {
+		console.log("Network Error");
 		console.log(error);
-		console.log("SOMETHING WENT WRONG FROM THE DATABASE CONNECTION");
 	}
 }
+// SOMETHING WENT WRONG FROM THE DATABASE CONNECTION

@@ -1,5 +1,5 @@
 "use client";
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/app/components/general/Navbar";
 import AddProject from "@/app/components/adminComponents/AddProject/AddProject";
 import AllProjects from "@/app/components/adminComponents/AllProjects/AllProjects";
 import AllTechnologies from "@/app/components/adminComponents/AllTechnologies/AllTechnologies";

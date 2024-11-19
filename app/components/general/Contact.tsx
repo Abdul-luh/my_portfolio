@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import img02 from "../../public/images/work-by-window.jpg";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
@@ -34,7 +33,9 @@ const Contact = () => {
 						<div className="lg:p-4 h-full">
 							<div>
 								<Image
-									src={img02}
+									src={"/images/work-by-window.jpg"}
+									width={500}
+									height={500}
 									className="hover:scale-105 ease-in duration-300 rounded-xl"
 									alt=""
 								/>

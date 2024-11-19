@@ -8,7 +8,7 @@ export default function SkillsCard({
 	imgProp,
 }: {
 	text: string;
-	imgProp: StaticImageData;
+	imgProp: StaticImageData | string;
 }) {
 	return (
 		<div>

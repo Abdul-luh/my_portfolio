@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import certificates from "./data/Certificates";
+import certificates from "../data/Certificates";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";

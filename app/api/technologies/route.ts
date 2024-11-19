@@ -3,8 +3,8 @@ import { join } from "path";
 import { writeFile } from "fs/promises";
 import { Connect } from "@/dbConfig/dbconfig";
 import Technology from "@/model/techModel";
-import { NextApiRequest } from "next";
-
+import mongoose from "mongoose";
+import { routeCatchErrorHandler } from "@/app/utils/routeErrorHandler";
 // export const config = {
 // 	api: {
 // 		bodyParse: false
@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
 
 		const savedTech = await newTechnology.save();
 		console.log(savedTech);
-		// await writeFile(path, buffer);
+		await writeFile(path, buffer);
 
 		return res.json(
 			{
@@ -44,23 +44,18 @@ export async function POST(req: NextRequest) {
 			{ status: 200 }
 		);
 	} catch (error: any) {
-		console.log(error);
-		return res.json({ error: error.message });
+		routeCatchErrorHandler(error, res);
 	}
 }
 
 export async function GET(req: NextRequest) {
 	try {
 		const technologies = await Technology.find({});
-		console.log(technologies);
-
-		return res.json({
-			success: true,
-			technologies,
-			message: "",
-		});
+		if (technologies.length > 0) {
+			return res.json({ success: true, technologies }, { status: 200 });
+		}
+		return res.json({ technologies: [] }, { status: 204 }); // 204 No Content
 	} catch (error: any) {
-		console.error(error);
-		return res.json({ error: error.message });
+		routeCatchErrorHandler(error, res);
 	}
 }

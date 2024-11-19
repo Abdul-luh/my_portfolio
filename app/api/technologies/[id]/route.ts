@@ -1,3 +1,4 @@
+import { routeCatchErrorHandler } from "@/app/utils/routeErrorHandler";
 import { Connect } from "@/dbConfig/dbconfig";
 import Technology from "@/model/techModel";
 import { NextRequest, NextResponse } from "next/server";
@@ -19,8 +20,7 @@ export async function DELETE(req: NextRequest, { params }: paramType) {
 			sucess: true,
 		});
 	} catch (error: any) {
-		console.log(error);
-		return res.json({ error: error.message });
+		routeCatchErrorHandler(error, res)
 	}
 }
 
@@ -40,7 +40,6 @@ export async function PUT(req: NextRequest, { params }: paramType) {
 			sucess: true,
 		});
 	} catch (error: any) {
-		console.log(error);
-		return res.json({ error: error.message });
+		routeCatchErrorHandler(error, res)
 	}
 }

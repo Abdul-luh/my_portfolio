@@ -1,5 +1,5 @@
 "use client";
-import InputComponent from "@/app/components/InputField";
+import InputComponent from "@/app/components/general/InputField";
 import React, { useContext } from "react";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";

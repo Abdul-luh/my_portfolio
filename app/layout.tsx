@@ -1,6 +1,7 @@
 import AdminAuthContextProvider from "./context/AdminAuth/AdminAuthContextrPovider";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { ReduxProvider } from "./redux/reduxProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<AdminAuthContextProvider>{children}</AdminAuthContextProvider>
+				<ReduxProvider>
+					<AdminAuthContextProvider>{children}</AdminAuthContextProvider>
+				</ReduxProvider>
 			</body>
 		</html>
 	);

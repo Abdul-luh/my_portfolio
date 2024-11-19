@@ -1,7 +1,7 @@
 import { StaticImageData } from "next/image";
-import ProjectItem from "@/app/components/ProjectItem";
+import ProjectItem from "@/app/components/general/ProjectItem";
 import allProps from "@/app/components/data/Properties";
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/app/components/general/Navbar";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 

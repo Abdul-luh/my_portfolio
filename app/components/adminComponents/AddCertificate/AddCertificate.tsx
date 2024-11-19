@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import InputComponent from "../../InputField";
+import InputComponent from "../../general/InputField";
 import skills from "../../data/skill";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
@@ -34,7 +34,7 @@ export default function AddCertificate() {
 		formdata.append("text", textValue);
 
 		try {
-			const resp = await axios.post("/api/addcertificate", formdata);
+			const resp = await axios.post("/api/certificate", formdata);
 			const data = await resp.data;
 			if (data.error) {
 				return setErrMsg(data.error);

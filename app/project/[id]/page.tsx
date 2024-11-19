@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/app/components/general/Navbar";
 import { StaticImageData } from "next/image";
 import allProps from "@/app/components/data/Properties";
 import { RiRadioButtonFill } from "react-icons/ri";

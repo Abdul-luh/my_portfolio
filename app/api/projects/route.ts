@@ -73,6 +73,16 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
 	try {
+		const projects = await Projects.find({});
+
+		return res.json(
+			{
+				message: "project added successfully",
+				projects,
+				sucess: true,
+			},
+			{ status: 200 }
+		);
 	} catch (error: any) {
 		console.log(error);
 		return res.json({ error: error.message }, { status: 500 });

@@ -1,7 +1,7 @@
 import { StaticImageData } from "next/image";
-import ProjectItem from "../components/ProjectItem";
+import ProjectItem from "../components/general/ProjectItem";
 import allProps from "@/app/components/data/Properties";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/general/Navbar";
 
 const Page = () => {
 	interface Project {

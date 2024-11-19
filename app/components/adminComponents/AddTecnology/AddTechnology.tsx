@@ -1,12 +1,15 @@
 "use client";
 import React, { useState } from "react";
-import InputComponent from "../../InputField";
+import InputComponent from "../../general/InputField";
 // import skills from "../../data/skill";
 // import { StaticImageData } from "next/image";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { FaTimes } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { AppDistpatch } from "@/app/redux/store";
+import { postTechnologies } from "@/app/redux/features/technology";
 
 export default function AddTechnology() {
 	const [techName, setTechname] = useState("");
@@ -14,6 +17,7 @@ export default function AddTechnology() {
 	const [selectedImg, setSelectedImg] = useState("");
 	const [errMsg, setErrMsg] = useState("");
 	const [msg, setMsg] = useState("");
+	const dispatch = useDispatch<AppDistpatch>();
 
 	const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
@@ -36,6 +40,7 @@ export default function AddTechnology() {
 		try {
 			const res = await axios.post("/api/technologies", formData);
 			const data = await res.data;
+			dispatch(postTechnologies(formData));
 			if (data.error) {
 				setErrMsg(data.error);
 			}
