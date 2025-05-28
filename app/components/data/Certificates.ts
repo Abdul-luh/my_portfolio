@@ -3,18 +3,21 @@ import introToHmtl from "@/public/images/certificates/Introduction to HTML_certi
 import introToJs from "@/public/images/certificates/Introduction to JavaScript_certificate.jpg";
 
 const certificates = [
-	{
-		url: introToHmtl,
-		name: "introduction to HTML",
-	},
-	{
-		url: introToJs,
-		name: "introduction to JavaScrip",
-	},
-	{
-		url: reactjs,
-		name: "introduction to HTML",
-	},
+  {
+    id: "html-cert-1",
+    url: introToHmtl,
+    name: "introduction to HTML",
+  },
+  {
+    id: "js-cert-2",
+    url: introToJs,
+    name: "introduction to JavaScrip",
+  },
+  {
+    id: "reactjs-cert-3",
+    url: reactjs,
+    name: "introduction to HTML",
+  },
 ];
 
 export default certificates;

@@ -6,7 +6,7 @@ import AllProjects from "@/app/components/adminComponents/AllProjects/AllProject
 import AllTechnologies from "@/app/components/adminComponents/AllTechnologies/AllTechnologies";
 import AllCertificates from "@/app/components/adminComponents/AllCertificates/Allcertificates";
 import AddProject from "@/app/components/adminComponents/AddProject/AddProject";
-import AddTechnology from "@/app/components/adminComponents/AddTecnology/AddTechnology";
+import AddTechnology from "@/app/components/adminComponents/AddTechology/AddTechnology";
 import AddCertificate from "@/app/components/adminComponents/AddCertificate/AddCertificate";
 
 const AdminHome = () => {

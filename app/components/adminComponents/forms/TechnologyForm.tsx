@@ -1,17 +1,27 @@
 "use client";
 import React, { useState } from "react";
 import InputComponent from "../../InputField";
-// import skills from "../../data/skill";
-// import { StaticImageData } from "next/image";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { FaTimes } from "react-icons/fa";
 
-export default function TechnologyForm() {
-  const [techName, setTechname] = useState("");
+interface TechnologyFormProps {
+  initialTitle?: string;
+  initialImage?: string;
+  onSubmit: (formData: FormData, isEdit?: boolean) => void;
+  isEdit?: boolean;
+}
+
+export default function TechnologyForm({
+  initialTitle,
+  initialImage,
+  onSubmit,
+  isEdit,
+}: TechnologyFormProps) {
+  const [techName, setTechname] = useState(initialTitle || "");
   const [image, setImage] = useState<File | null>(null);
-  const [selectedImg, setSelectedImg] = useState("");
+  const [selectedImg, setSelectedImg] = useState(initialImage || "");
   const [errMsg, setErrMsg] = useState("");
   const [msg, setMsg] = useState("");
 
@@ -83,7 +93,6 @@ export default function TechnologyForm() {
           />
         </Link>
       )}
-
       {errMsg && (
         <div
           className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
@@ -99,7 +108,6 @@ export default function TechnologyForm() {
           </div>
         </div>
       )}
-
       {msg && (
         <div
           className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
@@ -115,8 +123,9 @@ export default function TechnologyForm() {
           </div>
         </div>
       )}
-
-      <button className="w-full p-4 text-gray-100 mt-4">Add Technology</button>
+      <button className="w-full p-4 text-gray-100 mt-4">
+        {isEdit ? "Update Technology" : "Add Technology"}
+      </button>{" "}
     </form>
   );
 }

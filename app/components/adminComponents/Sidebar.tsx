@@ -7,10 +7,10 @@ export default function Sidebar() {
   const { mode, setMode } = useAdminUI();
 
   return (
-    <aside className="w-40 p-4 border-r border-gray-600 text-white pt-40 flex flex-col gap-4 items-center">
+    <aside className="w-40 p-4 border border-gray-600 rounded-2xl text-white pt-4 flex flex-col gap-4 items-center mt-24">
       <p
         className={`mb-4 flex items-center gap-2 cursor-pointer ${
-          mode === "view" ? "text-blue-400 font-semibold" : ""
+          mode === "view" ? "text-[#5651e5] font-semibold" : ""
         }`}
         onClick={() => setMode("view")}
       >

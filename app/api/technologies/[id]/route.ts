@@ -8,40 +8,64 @@ import { NextRequest, NextResponse } from "next/server";
 type paramType = { params: { id: string } };
 
 const res = NextResponse;
+
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const tech = await Technology.findById(params.id);
+    if (!tech) {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
+    return NextResponse.json({ technology: tech });
+  } catch (error) {
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
+}
+
 export async function DELETE(req: NextApiRequest, { params }: paramType) {
-	try {
-		const { id } = params;
-		console.log(id);
-		if (!id) return res.json({ message: "empty id" });
-		const deleteTech = Technology.findByIdAndDelete(id);
-		return res.json({
-			message: "technology deleted successfully",
-			id,
-			sucess: true,
-		});
-	} catch (error: any) {
-		console.log(error);
-		return res.json({ error: error.message });
-	}
+  try {
+    const { id } = params;
+    console.log(id);
+    if (!id) return res.json({ message: "empty id" });
+    const deleteTech = Technology.findByIdAndDelete(id);
+    return res.json({
+      message: "technology deleted successfully",
+      id,
+      sucess: true,
+    });
+  } catch (error: any) {
+    console.log(error);
+    return res.json({ error: error.message });
+  }
 }
 
 export async function PUT(req: NextRequest, { params }: paramType) {
-	try {
-		const { id } = params;
-		if (!id) return res.json({ message: "empty id" });
+  try {
+    const { id } = params;
+    const body = await req.json(); // expects { title: "New Title" }
 
-		const foundTech = Technology.findById(id);
-		if (!foundTech) return res.json({ message: "Technology Not found" });
+    if (!id) return res.json({ message: "empty id" });
 
-		foundTech.updateOne();
+    const updatedTech = await Technology.findByIdAndUpdate(
+      id,
+      { $set: body },
+      { new: true }
+    );
 
-		return res.json({
-			message: "technology deleted successfully",
-			id,
-			sucess: true,
-		});
-	} catch (error: any) {
-		console.log(error);
-		return res.json({ error: error.message });
-	}
+    const foundTech = Technology.findById(id);
+    if (!foundTech) return res.json({ message: "Technology Not found" });
+
+    foundTech.updateOne();
+
+    return res.json({
+      message: "technology deleted successfully",
+      id,
+      sucess: true,
+    });
+  } catch (error: any) {
+    console.log(error);
+    return res.json({ error: error.message });
+  }
 }
