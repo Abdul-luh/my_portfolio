@@ -6,7 +6,9 @@ import { useAdminUI } from "@/app/context/AdminAuth/AdminUIContext";
 import TechnologyForm from "./forms/TechnologyForm";
 import ProjectForm from "./forms/ProjectForm";
 import CertificateForm from "./forms/CertificateForm";
-import ProjectList from "./ProjectList";
+import TechnologyList from "./Add/TechnologyList";
+import CertificateList from "./Add/CertificateList";
+import ProjectList from "./Add/ProjectList";
 
 export default function Tabs() {
   const [tab, setTab] = useState<"Technologies" | "Projects" | "Certificates">(
@@ -16,11 +18,22 @@ export default function Tabs() {
 
   const renderContent = () => {
     if (mode === "view") {
-      return tab === "Projects" ? <ProjectList /> : <div>No data yet</div>;
+      switch (tab) {
+        case "Technologies":
+          return <TechnologyList />;
+        case "Projects":
+          return <ProjectList />;
+        case "Certificates":
+          return <CertificateList />;
+        default:
+          return null;
+      }
     }
+
     if (tab === "Technologies") return <TechnologyForm />;
     if (tab === "Projects") return <ProjectForm />;
     if (tab === "Certificates") return <CertificateForm />;
+    return null;
   };
 
   return (
