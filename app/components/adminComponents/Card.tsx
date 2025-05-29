@@ -6,7 +6,9 @@ export default function Card({
   text,
   id,
   //   image,
-  handleDelete,
+  handleDelete = async (id) => {
+    console.log(id);
+  },
   handleUpdate = async (id) => {
     console.log(id);
   },
@@ -14,7 +16,7 @@ export default function Card({
   text: string;
   id: string;
   //   image: StaticImageData;
-  handleDelete: (id: string) => Promise<void>;
+  handleDelete?: (id: string) => Promise<void>;
   handleUpdate?: (id: string) => Promise<void>;
 }) {
   return (
@@ -36,7 +38,7 @@ export default function Card({
             <MdDelete
               size={30}
               className="hover:text-red-700"
-              onClick={(e) => handleDelete(id)}
+              onClick={(e) => handleDelete?.(id)}
             />
           </div>
         </div>

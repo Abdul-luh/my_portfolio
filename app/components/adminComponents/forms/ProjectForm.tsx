@@ -198,7 +198,7 @@ export default function ProjectForm() {
         type="submit"
         className="w-full p-4 mt-4 bg-gradient-to-tr from-[#5651e5] to-[#709dff]"
       >
-        Send Message
+        Submit
       </button>
     </form>
   );

@@ -19,6 +19,16 @@ const Navbar = () => {
   const pathname = usePathname();
 
   useEffect(() => {
+    fetch("/api/track", {
+      method: "POST",
+      body: JSON.stringify({
+        page: window.location.pathname,
+        screenSize: `${window.innerWidth}x${window.innerHeight}`,
+      }),
+    });
+  }, [pathname]);
+
+  useEffect(() => {
     if (pathname !== "/" && pathname !== "/projects-page") {
       setNavBg((w) => ({ ...w, light: "transparent" }));
       setLinkColor((w) => ({ ...w, light: "#f8f8f8" }));
@@ -86,7 +96,7 @@ const Navbar = () => {
               style={{
                 color: `${linkColor}`,
               }}
-              href="/admin/home/view/projects"
+              href="/admin/home"
             >
               <li className="ml-10 text-sm uppercase hover:border-b">Admin</li>
             </Link>
@@ -160,7 +170,7 @@ const Navbar = () => {
                   Contact
                 </li>
               </Link>
-              <Link href="/admin/home/view/projects">
+              <Link href="/admin/home">
                 <li onClick={handleNav} className="py-4 text-sm">
                   Admin
                 </li>

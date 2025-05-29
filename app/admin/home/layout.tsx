@@ -33,24 +33,26 @@ export default function AdminLayout({
           <div className="w-full h-screen text-white">
             <div className="max-w-[1200px] h-[0%] pt-20 m-auto">
               {/* TAB HEADER */}
-              <div className="mx-auto flex justify-between items-center max-w-2xl p-4 gap-4 text-center">
-                {tabs.map((tab) => {
-                  const href = `${basePath}/${tab.slug}`;
-                  const isActive = pathname === href;
+              {pathname !== "/admin/home" && (
+                <div className="mx-auto flex justify-between items-center max-w-2xl p-4 gap-4 text-center">
+                  {tabs.map((tab) => {
+                    const href = `${basePath}/${tab.slug}`;
+                    const isActive = pathname === href;
 
-                  return (
-                    <Link
-                      key={tab.slug}
-                      href={href}
-                      className={`py-1 border-b-2 ${
-                        isActive ? "border-[#5651e5]" : "border-transparent"
-                      } hover:border-[#5651e5] transition-colors`}
-                    >
-                      {tab.name}
-                    </Link>
-                  );
-                })}
-              </div>
+                    return (
+                      <Link
+                        key={tab.slug}
+                        href={href}
+                        className={`py-1 border-b-2 ${
+                          isActive ? "border-[#5651e5]" : "border-transparent"
+                        } hover:border-[#5651e5] transition-colors`}
+                      >
+                        {tab.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
 
               {/* MAIN CONTENT */}
               {children}
