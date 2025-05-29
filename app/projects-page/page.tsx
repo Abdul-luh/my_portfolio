@@ -5,15 +5,7 @@ import ProjectItem from "../components/ProjectItem";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import { StaticImageData } from "next/image";
-
-interface Project {
-  id: number;
-  projName: string;
-  projHead: string;
-  projImg: string | StaticImageData; // change StaticImageData to string (URL) for fetched data
-  projDescr: string;
-}
-
+import { Project } from "@/utils/interfaces";
 const Page = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(false);
@@ -55,11 +47,11 @@ const Page = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <ProjectItem
-                key={project.id}
-                title={project.projName}
-                bgImg={project.projImg} // make sure projImg is a URL string
-                ProjectUrl={`/project/${project.id}`}
-                technologies={project.projHead}
+                key={project._id}
+                title={project.title}
+                bgImg={project.image} // make sure projImg is a URL string
+                ProjectUrl={`/project/${project._id}`}
+                technologies={project.header}
               />
             ))}
           </div>

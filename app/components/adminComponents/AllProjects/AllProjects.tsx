@@ -4,44 +4,31 @@ import { useEffect, useState } from "react";
 import Card from "../Card";
 import axios from "axios";
 import { useRouter } from "next/navigation"; // for navigation on update
+import { useProjectsFetch } from "@/app/hooks/useProjectsFetch";
 
 interface Project {
   _id: string;
-  projName: string;
+  title: string;
+  header: string;
+  description: string;
+  image: string;
+  repoLink: string;
+  demoLink: string;
+  technologies: { techName: string; _id: string }[];
 }
 
 const AllProjects = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const { projects, loading, error, refetch } = useProjectsFetch();
   const router = useRouter();
-
-  const fetchProjects = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get("/api/projects"); // ✅ Make sure this route exists
-      console.log(response.data); // Debugging line to check response structure
-      setProjects(response.data.projects); // assumes response is { projects: [...] }
-    } catch (err: any) {
-      setError("Failed to fetch projects.");
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchProjects();
-  }, []);
 
   // Delete handler
   const handleDelete = async (id: string) => {
     try {
       await axios.delete(`/api/projects/${id}`);
-      fetchProjects(); // refresh the list after delete
+      refetch(); // refresh the projects list after deletion
     } catch (err) {
       console.error(err);
-      setError("Failed to delete project.");
+      alert("Failed to delete project. Please try again.");
     }
   };
 
@@ -60,7 +47,7 @@ const AllProjects = () => {
             <Card
               key={project._id}
               id={project._id}
-              text={project.projName}
+              text={project.title}
               handleDelete={() => handleDelete(project._id)}
               handleUpdate={handleUpdate}
             />
