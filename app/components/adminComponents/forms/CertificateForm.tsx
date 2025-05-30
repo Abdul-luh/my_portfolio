@@ -1,9 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import InputComponent from "../../InputField";
-import skills from "../../data/skill";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
+import Image from "next/image";
 import axios from "axios";
 import { FaTimes } from "react-icons/fa";
 
@@ -25,69 +23,69 @@ export default function CertificateForm() {
     setImage(file);
   };
 
-  const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!image || !textValue.trim()) {
+      return setErrMsg("Please don't leave any field empty.");
+    }
+
     const formdata = new FormData();
-    if (!image && !textValue)
-      return setErrMsg("Please don't leave an empty field");
-    formdata.append("image", image!);
+    formdata.append("image", image);
     formdata.append("text", textValue);
 
     try {
       const resp = await axios.post("/api/addcertificate", formdata);
-      const data = await resp.data;
-      if (data.error) {
-        return setErrMsg(data.error);
-      }
-      // console.log(data);
+      const data = resp.data;
+
+      if (data.error) return setErrMsg(data.error);
       if (data.message) {
-        return setMsg(data.message);
+        setMsg(data.message);
+        setTextValue("");
+        setImage(undefined);
+        setSelectedImg("");
       }
     } catch (error: any) {
       console.error(error.message);
+      setErrMsg("An error occurred during upload.");
     }
   };
+
   return (
-    <form onSubmit={handleSubmit} className="p-2">
-      <div className="grid md:grid-cols-2 gap-4 w-full py-2">
-        <InputComponent
-          htmlLabelFor="certName"
-          inputType="text"
-          htmlLabel="Certificate Name"
-          inputValue={textValue}
-          setValue={handleTextInput}
-        />
-        <InputComponent
-          htmlLabelFor="image"
-          htmlLabel="Upload Image"
-          inputType="file"
-          inputValue={null}
-          setValue={handleImage}
-        />
-      </div>
+    <form onSubmit={handleSubmit} className="p-4">
+      <InputComponent
+        htmlLabelFor="title"
+        inputType="text"
+        htmlLabel="Certificate Title"
+        inputValue={textValue}
+        setValue={handleTextInput}
+      />
+
+      <InputComponent
+        htmlLabelFor="image"
+        htmlLabel="Upload Certificate"
+        inputType="file"
+        inputValue={null}
+        setValue={handleImage}
+      />
 
       {selectedImg && (
-        <Link href={selectedImg}>
-          <Image
-            src={selectedImg}
-            alt="selected logo"
-            className="mx-auto rounded-xl"
-            width={250}
-            height={250}
-          />
-        </Link>
+        <Image
+          src={selectedImg}
+          alt="Certificate preview"
+          width={500}
+          height={300}
+          className="my-4 mx-auto rounded-lg"
+        />
       )}
+
       {errMsg && (
         <div
-          className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
-          onClick={(e) => setErrMsg("")}
+          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center z-50"
+          onClick={() => setErrMsg("")}
         >
-          <div className="relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
-            <FaTimes
-              width={25}
-              height={25}
-              className="absolute top-2 right-2"
-            />
+          <div className="relative bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md text-red-600 font-bold max-w-md w-full text-center">
+            <FaTimes className="absolute top-2 right-2 cursor-pointer" />
             {errMsg}
           </div>
         </div>
@@ -95,20 +93,22 @@ export default function CertificateForm() {
 
       {msg && (
         <div
-          className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
-          onClick={(e) => setMsg("")}
+          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center z-50"
+          onClick={() => setMsg("")}
         >
-          <div className="relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
-            <FaTimes
-              width={25}
-              height={25}
-              className="absolute top-2 right-2"
-            />
+          <div className="relative bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md text-green-600 font-bold max-w-md w-full text-center">
+            <FaTimes className="absolute top-2 right-2 cursor-pointer" />
             {msg}
           </div>
         </div>
       )}
-      <button className="w-full p-4 text-gray-100 mt-4">Add Certificate</button>
+
+      <button
+        type="submit"
+        className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg mt-4"
+      >
+        Upload Certificate
+      </button>
     </form>
   );
 }

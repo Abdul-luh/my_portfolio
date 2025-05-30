@@ -1,53 +1,52 @@
 "use client";
-import React, { useState } from "react";
-import skills from "./data/skill";
+import React from "react";
 
 interface InputProps {
-	inputType: string;
-	htmlLabelFor: string;
-	htmlLabel: string;
-	inputValue: any;
-	setValue: any;
+  inputType: string;
+  htmlLabelFor: string;
+  htmlLabel: string;
+  inputValue: any;
+  setValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 function InputComponent({
-	inputType,
-	htmlLabelFor,
-	htmlLabel,
-	inputValue,
-	setValue,
+  inputType,
+  htmlLabelFor,
+  htmlLabel,
+  inputValue,
+  setValue,
 }: InputProps) {
-	return (
-		<div
-			className={
-				inputType === "checkbox"
-					? "flex justify-end flex-row-reverse gap-4 text-left"
-					: "flex flex-col"
-			}>
-			<label
-				htmlFor={htmlLabelFor}
-				className={
-					// border uppercase text-sm py-2 rounded-lg p-3 w-full my-4  focus:outline-[#5651e5] border-gray-300
-					"uppercase text-sm py-2"
-				}>
-				{htmlLabel}
-			</label>
-			<input
-				id={htmlLabelFor}
-				type={inputType}
-				name={htmlLabelFor}
-				value={inputValue}
-				onChange={setValue}
-				// checked={
-				// 	inputType === "checkbox" ? inputValue === htmlLabel : inputValue
-				// }
-				className={
-					inputType === "file"
-						? "border-2 text-black border-gray-300 focus:outline-[#5651e5] rounded-lg p-3 flex"
-						: "border-2 text-black border-gray-300 focus:outline-[#5651e5] rounded-lg p-3 flex"
-				}
-			/>
-		</div>
-	);
+  const isFileInput = inputType === "file";
+
+  return (
+    <div
+      className={
+        inputType === "checkbox"
+          ? "flex justify-end flex-row-reverse gap-4 text-left"
+          : "flex flex-col"
+      }
+    >
+      <label htmlFor={htmlLabelFor} className="uppercase text-sm py-2">
+        {htmlLabel}
+      </label>
+
+      <input
+        id={htmlLabelFor}
+        type={inputType}
+        name={htmlLabelFor}
+        onChange={(e) => {
+          if (typeof setValue !== "function") {
+            console.error("setValue is not a function", setValue);
+          }
+          setValue(e);
+        }}
+        {...(isFileInput
+          ? { accept: "image/*" } // for image upload
+          : { value: inputValue })}
+        className="border-2 text-black border-gray-300 focus:outline-[#5651e5] rounded-lg p-3"
+      />
+    </div>
+  );
 }
+
 export default InputComponent;

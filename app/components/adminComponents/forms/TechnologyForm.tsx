@@ -113,13 +113,13 @@ export default function TechnologyForm({
           className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
           onClick={(e) => setMsg("")}
         >
-          <div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl  ">
+          <div className="max-w-[750px] h-24 relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl uppercase text-green-700 font-bold">
             <FaTimes
               width={25}
               height={25}
-              className="absolute top-2 right-2"
+              className="absolute top-2 right-2 text-2xl text-white"
             />
-            {msg}
+            {msg}!
           </div>
         </div>
       )}

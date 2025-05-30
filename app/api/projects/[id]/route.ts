@@ -32,13 +32,46 @@ export async function DELETE(req: NextRequest, { params }: paramsType) {
 }
 
 export async function PUT(req: NextRequest, { params }: paramsType) {
+  await Connect();
   try {
     const { id } = params;
-    const body = await req.json();
 
-    await Connect();
+    const formData = await req.formData(); // ✅ This is correct
+    const rawProject = formData.get("newProject");
 
-    const updatedProject = await Projects.findByIdAndUpdate(id, body, {
+    if (!rawProject || typeof rawProject !== "string") {
+      return NextResponse.json(
+        { error: "Missing or invalid project data." },
+        { status: 400 }
+      );
+    }
+
+    let projectData;
+    try {
+      projectData = JSON.parse(rawProject);
+    } catch (err) {
+      return NextResponse.json(
+        { error: "Malformed JSON in newProject." },
+        { status: 400 }
+      );
+    }
+
+    // Build the update object
+    const updatedFields = {
+      title: projectData.textInputValue.projectName,
+      header: projectData.textInputValue.ProjectHeader,
+      repoLink: projectData.textInputValue.repoLink,
+      demoLink: projectData.textInputValue.demoLink,
+      description: projectData.textArea,
+      technologies: projectData.checked.map((tech: { name: string }) => ({
+        techName: tech.name,
+      })),
+    };
+
+    // Optionally handle image here if you wish to update it
+    // e.g., if (formData.get("image")) { ... }
+
+    const updatedProject = await Projects.findByIdAndUpdate(id, updatedFields, {
       new: true,
       runValidators: true,
     });
@@ -59,6 +92,24 @@ export async function PUT(req: NextRequest, { params }: paramsType) {
     );
   } catch (error: any) {
     console.error(error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
+
+// GET one project by id
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  await Connect();
+  try {
+    const project = await Projects.findById(params.id);
+    if (!project) {
+      return NextResponse.json({ error: "Project not found" }, { status: 404 });
+    }
+
+    return NextResponse.json({ project }, { status: 200 });
+  } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

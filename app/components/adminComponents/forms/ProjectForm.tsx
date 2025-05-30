@@ -5,20 +5,25 @@ import skills from "../../data/skill";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import axios from "axios";
+import { useSearchParams } from "next/navigation";
 import { FaTimes } from "react-icons/fa";
 
 export default function ProjectForm() {
+  const [textArea, setTextArea] = useState("");
+  const [image, setImage] = useState<File>();
+  const [selectedImg, setSelectedImg] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+  const [msg, setMsg] = useState("");
+
+  const searchParams = useSearchParams();
+  const projectId = searchParams.get("id");
+
   const [textInputValue, setTextInputValue] = useState({
     projectName: "",
     ProjectHeader: "",
     repoLink: "",
     demoLink: "",
   });
-  const [textArea, setTextArea] = useState("");
-  const [image, setImage] = useState<File>();
-  const [selectedImg, setSelectedImg] = useState("");
-  const [errMsg, setErrMsg] = useState("");
-  const [msg, setMsg] = useState("");
   const [checkboxValue, setCheckboxValue] = useState<
     {
       name: string;
@@ -30,6 +35,40 @@ export default function ProjectForm() {
       checked: false,
     }))
   );
+
+  useEffect(() => {
+    const fetchProject = async () => {
+      if (!projectId) return;
+
+      try {
+        const res = await axios.get(`/api/projects/${projectId}`);
+        const project = res.data.project;
+
+        setTextInputValue({
+          projectName: project.title,
+          ProjectHeader: project.header,
+          repoLink: project.repoLink,
+          demoLink: project.demoLink,
+        });
+
+        setTextArea(project.description);
+        setSelectedImg(project.image); // Assuming this is a URL
+
+        const updatedCheckboxes = skills.map((skill) => ({
+          name: skill.skillName,
+          checked: project.technologies.some(
+            (tech: { techName: string }) => tech.techName === skill.skillName
+          ),
+        }));
+
+        setCheckboxValue(updatedCheckboxes);
+      } catch (err) {
+        console.error("Failed to load project:", err);
+      }
+    };
+
+    fetchProject();
+  }, [projectId]);
 
   const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -51,28 +90,40 @@ export default function ProjectForm() {
   const handleAddform = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const checked = checkboxValue.filter((skill) => skill.checked);
-    // console.log(image);
+
     const formdata = new FormData();
     if (image) {
       formdata.append("image", image);
-      const newProject = {
-        textInputValue,
-        textArea,
-        checked,
-      };
-      console.log(newProject);
-      formdata.append("newProject", JSON.stringify(newProject));
-      try {
-        const response = await axios.post("/api/projects", formdata);
-        const data = await response.data;
-        data.error ? setErrMsg(data.error) : setMsg(data.message);
-        // console.log(data);
-      } catch (error: any) {
-        console.log(error);
-        setErrMsg(error.message);
-      }
-    } else {
-      setErrMsg("image is empty init?");
+    }
+    if (!image && !projectId) {
+      setErrMsg("Please upload an image.");
+      return;
+    }
+
+    const newProject = {
+      textInputValue: {
+        ...textInputValue,
+        projectName: textInputValue.projectName.trim(),
+        ProjectHeader: textInputValue.ProjectHeader.trim(),
+        repoLink: textInputValue.repoLink.trim(),
+        demoLink: textInputValue.demoLink.trim(),
+      },
+      textArea: textArea.trim(),
+      checked,
+    };
+
+    formdata.append("newProject", JSON.stringify(newProject));
+
+    try {
+      const response = projectId
+        ? await axios.put(`/api/projects/${projectId}`, formdata)
+        : await axios.post("/api/projects", formdata);
+
+      const data = response.data;
+      data.error ? setErrMsg(data.error) : setMsg(data.message);
+    } catch (error: any) {
+      console.log(error);
+      setErrMsg(error.message);
     }
   };
 
@@ -198,7 +249,7 @@ export default function ProjectForm() {
         type="submit"
         className="w-full p-4 mt-4 bg-gradient-to-tr from-[#5651e5] to-[#709dff]"
       >
-        Submit
+        {projectId ? "Update Project" : "Submit"}
       </button>
     </form>
   );
