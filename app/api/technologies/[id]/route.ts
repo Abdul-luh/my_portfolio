@@ -1,71 +1,80 @@
 import { Connect } from "@/dbConfig/dbconfig";
 import Technology from "@/model/techModel";
-import { NextApiRequest } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
-// Connect();
-
-type paramType = { params: { id: string } };
-
-const res = NextResponse;
-
+// GET /api/technologies/[id]
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
+  await Connect();
   try {
-    const tech = await Technology.findById(params.id);
+    const tech = await Technology.findById(context.params.id);
     if (!tech) {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
     return NextResponse.json({ technology: tech });
-  } catch (error) {
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
-export async function DELETE(req: NextApiRequest, { params }: paramType) {
+// DELETE /api/technologies/[id]
+export async function DELETE(
+  req: NextRequest,
+  context: { params: { id: string } }
+) {
+  await Connect();
+  const { id } = context.params;
+
   try {
-    const { id } = params;
-    console.log(id);
-    if (!id) return res.json({ message: "empty id" });
-    const deleteTech = Technology.findByIdAndDelete(id);
-    return res.json({
-      message: "technology deleted successfully",
+    const deletedTech = await Technology.findByIdAndDelete(id);
+    if (!deletedTech) {
+      return NextResponse.json(
+        { message: "Technology not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({
+      message: "Technology deleted successfully",
       id,
-      sucess: true,
+      success: true,
     });
   } catch (error: any) {
-    console.log(error);
-    return res.json({ error: error.message });
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
-export async function PUT(req: NextRequest, { params }: paramType) {
+// PUT /api/technologies/[id]
+export async function PUT(
+  req: NextRequest,
+  context: { params: { id: string } }
+) {
+  await Connect();
+  const { id } = context.params;
+
   try {
-    const { id } = params;
-    const body = await req.json(); // expects { title: "New Title" }
+    const body = await req.json();
 
-    if (!id) return res.json({ message: "empty id" });
+    const updatedTech = await Technology.findByIdAndUpdate(id, body, {
+      new: true,
+      runValidators: true,
+    });
 
-    const updatedTech = await Technology.findByIdAndUpdate(
-      id,
-      { $set: body },
-      { new: true }
-    );
+    if (!updatedTech) {
+      return NextResponse.json(
+        { message: "Technology not found" },
+        { status: 404 }
+      );
+    }
 
-    const foundTech = Technology.findById(id);
-    if (!foundTech) return res.json({ message: "Technology Not found" });
-
-    foundTech.updateOne();
-
-    return res.json({
-      message: "technology deleted successfully",
-      id,
-      sucess: true,
+    return NextResponse.json({
+      message: "Technology updated successfully",
+      technology: updatedTech,
+      success: true,
     });
   } catch (error: any) {
-    console.log(error);
-    return res.json({ error: error.message });
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

@@ -1,14 +1,17 @@
 "use client";
 
-import { useAdminUI } from "@/app/context/AdminAuth/AdminUIContext";
+import AdminAuthContext from "@/app/context/AdminAuth/AdminAuth";
+// import { useAdminUI } from "@/app/context/AdminAuth/AdminUIContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaEye, FaPlus } from "react-icons/fa"; // 👈 Import icons
+import { useContext } from "react";
+import { FaEye, FaPlus, FaSignOutAlt } from "react-icons/fa";
 import { HiHome } from "react-icons/hi";
 
 export default function Sidebar() {
-  const { mode, setMode } = useAdminUI();
+  // const { mode, setMode } = useAdminUI();
   const pathname = usePathname();
+  const { handleLogout } = useContext(AdminAuthContext)!;
 
   return (
     <aside className="md:w-40 w-16 p-4 border border-gray-600 rounded-2xl text-white pt-28 flex flex-col gap-6 items-center">
@@ -43,6 +46,13 @@ export default function Sidebar() {
         <FaPlus size={20} />
         <span className="hidden md:inline">Add</span>
       </Link>
+      <p
+        onClick={handleLogout}
+        className="w-full mt-[55vh] flex items-center gap-2 cursor-pointer text-red-500"
+      >
+        <FaSignOutAlt size={20} />
+        <span className="hidden md:inline">Logout</span>
+      </p>
     </aside>
   );
 }

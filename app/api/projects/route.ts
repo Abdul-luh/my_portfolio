@@ -5,13 +5,16 @@ import { join } from "path";
 import { Connect } from "@/dbConfig/dbconfig";
 import Projects from "@/model/projectModel";
 import { randomUUID } from "crypto"; // for unique filenames
-import { NextApiRequest } from "next";
-
-Connect();
+// import { NextApiRequest } from "next";
 
 const res = NextResponse;
 
 export async function POST(req: NextRequest) {
+  await Connect();
+  // Ensure DB connection is established before processing the request
+  if (!req.body) {
+    return res.json({ error: "No data provided" }, { status: 400 });
+  }
   try {
     const data = await req.formData();
     const image: File = data.get("image") as unknown as File;
@@ -76,6 +79,9 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET(req: NextRequest) {
+  await Connect();
+  // Ensure DB connection is established before processing the request
+
   try {
     const projects = await Projects.find().populate("technologies");
     return res.json({ projects }, { status: 200 });

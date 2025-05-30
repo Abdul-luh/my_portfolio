@@ -1,23 +1,33 @@
 import mongoose from "mongoose";
 
+let isConnected = false; // Prevent re-connection
+
 export async function Connect() {
-	try {
-		await mongoose.connect(process.env.MONGO_URI!);
+  if (isConnected) {
+    return;
+  }
 
-		const connection = mongoose.connection;
+  if (!process.env.MONGO_URI) {
+    console.error("❌ MONGO_URI is not defined in environment variables.");
+    return;
+  }
 
-		connection.on("connected", () => {
-			console.log("MongoDB connected successsfully");
-		});
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      dbName: "portfolio", // optional if you specify it in the URI
+      bufferCommands: false,
+    });
 
-		connection.on("error", (err) => {
-			console.log(
-				"MongoDB connection error, Please check the connection again" + err
-			);
-			// process.exit();
-		});
-	} catch (error: any) {
-		console.log(error);
-		console.log("SOMETHING WENT WRONG FROM THE DATABASE CONNECTION");
-	}
+    isConnected = true;
+
+    mongoose.connection.on("connected", () => {
+      console.log("✅ MongoDB connected successfully");
+    });
+
+    mongoose.connection.on("error", (err) => {
+      console.error("❌ MongoDB connection error:", err);
+    });
+  } catch (error) {
+    console.error("❌ Initial connection error:", error);
+  }
 }

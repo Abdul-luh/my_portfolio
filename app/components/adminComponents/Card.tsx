@@ -5,7 +5,7 @@ import { MdUpdate, MdDelete } from "react-icons/md";
 export default function Card({
   text,
   id,
-  //   image,
+    image,
   handleDelete = async (id) => {
     console.log(id);
   },
@@ -15,7 +15,7 @@ export default function Card({
 }: {
   text: string;
   id: string;
-  //   image: StaticImageData;
+    image?: string | StaticImageData;
   handleDelete?: (id: string) => Promise<void>;
   handleUpdate?: (id: string) => Promise<void>;
 }) {
