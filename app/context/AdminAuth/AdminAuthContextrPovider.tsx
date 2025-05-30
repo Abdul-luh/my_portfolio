@@ -41,9 +41,14 @@ export default function AdminAuthContextProvider({
     }
   };
 
-  const handleLogout = () => {
-    setIsAuth(false); // ✅ Clear auth state
-    route.push("/admin"); // Or your login route
+  const handleLogout = async () => {
+    try {
+      await axios.post("/api/logout"); // Call the logout endpoint
+      setIsAuth(false); // Clear client-side auth state
+      route.push("/"); // Redirect to login or home
+    } catch (error: any) {
+      console.error("Logout failed:", error.message);
+    }
   };
 
   return (
