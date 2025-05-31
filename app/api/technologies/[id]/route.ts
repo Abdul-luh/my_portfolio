@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // GET /api/technologies/[id]
 export async function GET(
-  req: NextRequest,
+  _req: NextRequest,
   context: { params: { id: string } }
 ) {
   await Connect();
@@ -21,7 +21,7 @@ export async function GET(
 
 // DELETE /api/technologies/[id]
 export async function DELETE(
-  req: NextRequest,
+  _req: NextRequest,
   context: { params: { id: string } }
 ) {
   await Connect();

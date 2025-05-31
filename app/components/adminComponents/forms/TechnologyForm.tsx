@@ -16,7 +16,7 @@ interface TechnologyFormProps {
 export default function TechnologyForm({
   initialTitle,
   initialImage,
-  onSubmit,
+  // onSubmit,
   isEdit,
 }: TechnologyFormProps) {
   const [techName, setTechname] = useState(initialTitle || "");
@@ -96,7 +96,7 @@ export default function TechnologyForm({
       {errMsg && (
         <div
           className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
-          onClick={(e) => setErrMsg("")}
+          onClick={() => setErrMsg("")}
         >
           <div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl text-red-700 ">
             <FaTimes
@@ -111,7 +111,7 @@ export default function TechnologyForm({
       {msg && (
         <div
           className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
-          onClick={(e) => setMsg("")}
+          onClick={() => setMsg("")}
         >
           <div className="max-w-[750px] h-24 relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl uppercase text-green-700 font-bold">
             <FaTimes

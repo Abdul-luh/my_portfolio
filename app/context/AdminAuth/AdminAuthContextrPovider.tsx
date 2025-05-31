@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AdminAuthContext } from "./AdminAuth";
 import axios from "axios";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function AdminAuthContextProvider({
   children,
@@ -16,7 +16,6 @@ export default function AdminAuthContextProvider({
   const [isAuth, setIsAuth] = useState(false);
   const [err, setErr] = React.useState(null);
   const route = useRouter();
-  const pathname = usePathname();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));

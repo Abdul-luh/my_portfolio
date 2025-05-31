@@ -16,7 +16,7 @@ interface CertificateFormProps {
 export default function CertificateForm({
   initialTitle,
   initialImage,
-  onSubmit,
+  // onSubmit,
   isEdit,
 }: CertificateFormProps) {
   const [textValue, setTextValue] = useState(initialTitle || "");

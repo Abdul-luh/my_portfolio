@@ -2,8 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
-import allProps from "@/app/components/data/Properties";
-
 interface ProjectItemProps {
   title: string;
   bgImg: string | StaticImageData;

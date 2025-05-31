@@ -34,7 +34,7 @@ export async function PUT(
 
 // Delete certificate by ID
 export async function DELETE(
-  req: NextRequest,
+  _req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   await Connect(); // Ensure DB is connected

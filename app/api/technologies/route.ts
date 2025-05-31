@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
     const technologies = await Technology.find({});
     console.log(technologies);

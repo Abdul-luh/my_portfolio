@@ -33,7 +33,6 @@ export async function POST(req: NextRequest) {
 
     const { textInputValue, textArea: description, checked } = body;
 
-    
     const {
       projectName: title,
       ProjectHeader: header,
@@ -79,7 +78,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   await Connect();
   // Ensure DB connection is established before processing the request
 

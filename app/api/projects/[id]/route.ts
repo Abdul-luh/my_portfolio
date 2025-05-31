@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import Projects from "@/model/projectModel";
 import { Connect } from "@/dbConfig/dbconfig"; // adjust to your DB connection util
+import { randomUUID } from "crypto";
+import { join } from "path";
+import { writeFile } from "fs/promises";
 
 type paramsType = { params: { id: string } };
 
-export async function DELETE(req: NextRequest, { params }: paramsType) {
+export async function DELETE(_req: NextRequest, { params }: paramsType) {
   try {
     const { id } = params;
 
@@ -35,8 +38,7 @@ export async function PUT(req: NextRequest, { params }: paramsType) {
   await Connect();
   try {
     const { id } = params;
-
-    const formData = await req.formData(); // ✅ This is correct
+    const formData = await req.formData();
     const rawProject = formData.get("newProject");
 
     if (!rawProject || typeof rawProject !== "string") {
@@ -56,8 +58,7 @@ export async function PUT(req: NextRequest, { params }: paramsType) {
       );
     }
 
-    // Build the update object
-    const updatedFields = {
+    const updatedFields: any = {
       title: projectData.textInputValue.projectName,
       header: projectData.textInputValue.ProjectHeader,
       repoLink: projectData.textInputValue.repoLink,
@@ -68,8 +69,17 @@ export async function PUT(req: NextRequest, { params }: paramsType) {
       })),
     };
 
-    // Optionally handle image here if you wish to update it
-    // e.g., if (formData.get("image")) { ... }
+    // ✅ Handle image if it's present
+    const image: File | null = formData.get("image") as File | null;
+    if (image && image.size > 0) {
+      const bytes = await image.arrayBuffer();
+      const buffer = Buffer.from(bytes);
+      const uniqueFilename = `${randomUUID()}-${image.name}`;
+      const filePath = join(process.cwd(), "public", "images", uniqueFilename);
+
+      await writeFile(filePath, new Uint8Array(buffer));
+      updatedFields.image = `/${uniqueFilename}`; // Set new image path
+    }
 
     const updatedProject = await Projects.findByIdAndUpdate(id, updatedFields, {
       new: true,
@@ -97,10 +107,7 @@ export async function PUT(req: NextRequest, { params }: paramsType) {
 }
 
 // GET one project by id
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET(_req: NextRequest, { params }: paramsType) {
   await Connect();
   try {
     const project = await Projects.findById(params.id);

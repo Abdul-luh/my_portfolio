@@ -2,7 +2,6 @@
 import React from "react";
 import Navbar from "@/app/components/Navbar";
 import Sidebar from "@/app/components/adminComponents/Sidebar";
-import { AdminUIProvider } from "@/app/context/AdminAuth/AdminUIContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -25,7 +24,7 @@ export default function AdminLayout({
     : "/admin/home/view";
 
   return (
-    <AdminUIProvider>
+    <>
       <Navbar />
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
@@ -60,6 +59,6 @@ export default function AdminLayout({
           </div>
         </main>
       </div>
-    </AdminUIProvider>
+    </>
   );
 }

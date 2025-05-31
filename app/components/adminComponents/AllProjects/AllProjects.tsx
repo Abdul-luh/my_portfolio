@@ -1,21 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Card from "../Card";
 import axios from "axios";
 import { useRouter } from "next/navigation"; // for navigation on update
 import { useProjectsFetch } from "@/app/hooks/useProjectsFetch";
-
-interface Project {
-  _id: string;
-  title: string;
-  header: string;
-  description: string;
-  image: string;
-  repoLink: string;
-  demoLink: string;
-  technologies: { techName: string; _id: string }[];
-}
+import Card from "../Card";
 
 const AllProjects = () => {
   const { projects, loading, error, refetch } = useProjectsFetch();

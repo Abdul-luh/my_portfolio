@@ -1,4 +1,4 @@
-import projImg01 from "../../../public/images/img01.jpg";
+// import projImg01 from "../../../public/images/img01.jpg";
 import segam from "../../../public/images/segam.png";
 import acme from "../../../public/images/acme.png";
 import newsHompage from "../../../public/images/news-homepage.png";
@@ -11,151 +11,151 @@ import acmeSolutions from "../../../public/images/acme-solutions.png";
 let lastAssignedId = 0;
 
 function getNextId() {
-	lastAssignedId += 1;
-	return lastAssignedId;
+  lastAssignedId += 1;
+  return lastAssignedId;
 }
 
 const allProps = [
-	{
-		id: 0,
-		projName: "ACME Rockets",
-		projHead: "react | tailwind ",
-		projImg: acme,
-		projDescr:
-			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
-		projTech: [
-			{ id: 1, techName: "REACTJS" },
-			{ id: 2, techName: "TAILWIND" },
-			{ id: 2, techName: "css" },
-			{ id: 2, techName: "javascript" },
-			{ id: 2, techName: "html" },
-		],
-		demoLink: "https://acme-rockets-abdullah.netlify.app/",
-		repoLink: "https://github.com/Abdul-luh/Tailwind-project/",
-	},
-	{
-		id: 0,
-		projName: "Segam Mobile Service",
-		projHead: "HTML | CSS | TAILWIND |JS ",
-		projImg: segam,
-		projDescr:
-			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptate deleniti totam ea id, vitae dolorem voluptatibus perferendis excepturi? Quidem tempora ducimus ipsam aliquam doloribus optio nam neque quaerat, soluta voluptas reprehenderit et hic deleniti eveniet quibusdam labore dicta fugit possimus. Laboriosam, id consectetur saepe expedita aut non impedit dolore?",
-		projTech: [
-			{ id: 1, techName: "html" },
-			{ id: 2, techName: "css" },
-			{ id: 3, techName: "TAILWIND" },
-			{ id: 4, techName: "TYPESCRIPT" },
-		],
-		demoLink: "https://www.segamservices.com/",
-		repoLink: "https://github.com/Abdul-luh/segam-mobile-service",
-	},
-	{
-		id: 0,
-		projName: "News Hompage main",
-		projHead: "html | css ",
-		projImg: newsHompage,
-		projDescr:
-			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
-		projTech: [
-			{ id: 1, techName: "REACTJS" },
-			{ id: 1, techName: "javascript" },
-			{ id: 2, techName: "html" },
-			{ id: 2, techName: "css" },
-			{ id: 2, techName: "TAILWIND" },
-		],
-		demoLink: "https://abdul-luh.github.io/news-homepage-main/",
-		repoLink: "https://github.com/Abdul-luh/news-homepage-main",
-	},
-	{
-		id: 0,
-		projName: "PortFolio Sample",
-		projHead: "html | css ",
-		projImg: portfolio01,
-		projDescr:
-			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
-		projTech: [
-			{ id: 1, techName: "html" },
-			{ id: 2, techName: "css" },
-			{ id: 3, techName: "javascipt" },
-		],
-		demoLink: "https://abdul-luh.github.io/portfolio_001/",
-		repoLink: "https://github.com/Abdul-luh/portfolio_001",
-	},
-	{
-		id: 0,
-		projName: "acme solutions",
-		projHead: "html | css | responsiveness",
-		projImg: acmeSolutions,
-		projDescr:
-			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
-		projTech: [
-			{ id: 1, techName: "Nodejs" },
-			{ id: 2, techName: "css" },
-			{ id: 2, techName: "TAILWIND" },
-			{ id: 3, techName: "JAVASCRIPT" },
-			{ id: 4, techName: "TYPESCRIPT" },
-			{ id: 5, techName: "REACTJS" },
-		],
-		demoLink: "https://abdul-luh.github.io/Simple_resposive_website/",
-		repoLink: "https://github.com/Abdul-luh/Simple_resposive_website",
-	},
-	{
-		id: 0,
-		projName: "calculator",
-		projHead: "html | css | js",
-		projImg: calculator,
-		projDescr:
-			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
-		projTech: [
-			{ id: 1, techName: "Node" },
-			{ id: 2, techName: "css" },
-			{ id: 2, techName: "TAILWIND" },
-			{ id: 3, techName: "TYPESCRIPT" },
-		],
-		demoLink: "https://abdul-luh.github.io/Calculator-app/",
-		repoLink: "https://github.com/Abdul-luh/Calculator-app",
-	},
-	{
-		id: 0,
-		projName: "Alarm Clock",
-		projHead: "html | css | js",
-		projImg: alarmClock,
-		projDescr:
-			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
-		projTech: [
-			{ id: 1, techName: "html" },
-			{ id: 2, techName: "css" },
-			{ id: 2, techName: "TAILWIND" },
-			{ id: 3, techName: "TYPESCRIPT" },
-			{ id: 3, techName: "JAVASCRIPT" },
-		],
-		demoLink: "https://abdul-luh.github.io/AlarmClock/",
-		repoLink: "https://github.com/Abdul-luh/AlarmClock",
-	},
-	{
-		id: 0,
-		projName: " todo List",
-		projHead: "html | css | js",
-		projImg: todoList,
-		projDescr:
-			"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
-		projTech: [
-			{ id: 1, techName: "html" },
-			{ id: 2, techName: "css" },
-			{ id: 2, techName: "TAILWIND" },
-			{ id: 3, techName: "Javascript" },
-		],
-		demoLink: "https://abdul-luh.github.io/todo-list-app_project/",
-		repoLink: "https://github.com/Abdul-luh/todo-list-app_project",
-	},
+  {
+    id: 0,
+    projName: "ACME Rockets",
+    projHead: "react | tailwind ",
+    projImg: acme,
+    projDescr:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
+    projTech: [
+      { id: 1, techName: "REACTJS" },
+      { id: 2, techName: "TAILWIND" },
+      { id: 2, techName: "css" },
+      { id: 2, techName: "javascript" },
+      { id: 2, techName: "html" },
+    ],
+    demoLink: "https://acme-rockets-abdullah.netlify.app/",
+    repoLink: "https://github.com/Abdul-luh/Tailwind-project/",
+  },
+  {
+    id: 0,
+    projName: "Segam Mobile Service",
+    projHead: "HTML | CSS | TAILWIND |JS ",
+    projImg: segam,
+    projDescr:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium voluptate deleniti totam ea id, vitae dolorem voluptatibus perferendis excepturi? Quidem tempora ducimus ipsam aliquam doloribus optio nam neque quaerat, soluta voluptas reprehenderit et hic deleniti eveniet quibusdam labore dicta fugit possimus. Laboriosam, id consectetur saepe expedita aut non impedit dolore?",
+    projTech: [
+      { id: 1, techName: "html" },
+      { id: 2, techName: "css" },
+      { id: 3, techName: "TAILWIND" },
+      { id: 4, techName: "TYPESCRIPT" },
+    ],
+    demoLink: "https://www.segamservices.com/",
+    repoLink: "https://github.com/Abdul-luh/segam-mobile-service",
+  },
+  {
+    id: 0,
+    projName: "News Hompage main",
+    projHead: "html | css ",
+    projImg: newsHompage,
+    projDescr:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
+    projTech: [
+      { id: 1, techName: "REACTJS" },
+      { id: 1, techName: "javascript" },
+      { id: 2, techName: "html" },
+      { id: 2, techName: "css" },
+      { id: 2, techName: "TAILWIND" },
+    ],
+    demoLink: "https://abdul-luh.github.io/news-homepage-main/",
+    repoLink: "https://github.com/Abdul-luh/news-homepage-main",
+  },
+  {
+    id: 0,
+    projName: "PortFolio Sample",
+    projHead: "html | css ",
+    projImg: portfolio01,
+    projDescr:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
+    projTech: [
+      { id: 1, techName: "html" },
+      { id: 2, techName: "css" },
+      { id: 3, techName: "javascipt" },
+    ],
+    demoLink: "https://abdul-luh.github.io/portfolio_001/",
+    repoLink: "https://github.com/Abdul-luh/portfolio_001",
+  },
+  {
+    id: 0,
+    projName: "acme solutions",
+    projHead: "html | css | responsiveness",
+    projImg: acmeSolutions,
+    projDescr:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
+    projTech: [
+      { id: 1, techName: "Nodejs" },
+      { id: 2, techName: "css" },
+      { id: 2, techName: "TAILWIND" },
+      { id: 3, techName: "JAVASCRIPT" },
+      { id: 4, techName: "TYPESCRIPT" },
+      { id: 5, techName: "REACTJS" },
+    ],
+    demoLink: "https://abdul-luh.github.io/Simple_resposive_website/",
+    repoLink: "https://github.com/Abdul-luh/Simple_resposive_website",
+  },
+  {
+    id: 0,
+    projName: "calculator",
+    projHead: "html | css | js",
+    projImg: calculator,
+    projDescr:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
+    projTech: [
+      { id: 1, techName: "Node" },
+      { id: 2, techName: "css" },
+      { id: 2, techName: "TAILWIND" },
+      { id: 3, techName: "TYPESCRIPT" },
+    ],
+    demoLink: "https://abdul-luh.github.io/Calculator-app/",
+    repoLink: "https://github.com/Abdul-luh/Calculator-app",
+  },
+  {
+    id: 0,
+    projName: "Alarm Clock",
+    projHead: "html | css | js",
+    projImg: alarmClock,
+    projDescr:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
+    projTech: [
+      { id: 1, techName: "html" },
+      { id: 2, techName: "css" },
+      { id: 2, techName: "TAILWIND" },
+      { id: 3, techName: "TYPESCRIPT" },
+      { id: 3, techName: "JAVASCRIPT" },
+    ],
+    demoLink: "https://abdul-luh.github.io/AlarmClock/",
+    repoLink: "https://github.com/Abdul-luh/AlarmClock",
+  },
+  {
+    id: 0,
+    projName: " todo List",
+    projHead: "html | css | js",
+    projImg: todoList,
+    projDescr:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro dolor a optio inventore. Facere eos ipsum voluptates fuga repudiandae eligendi labore! Cum, reiciendis, quidem excepturi totam magnam aut soluta fuga ullam iusto doloremque commodi, qui perferendis inventore quis beatae sapiente iste ut ad vel consequuntur veniam modi. Facere, porro iusto!",
+    projTech: [
+      { id: 1, techName: "html" },
+      { id: 2, techName: "css" },
+      { id: 2, techName: "TAILWIND" },
+      { id: 3, techName: "Javascript" },
+    ],
+    demoLink: "https://abdul-luh.github.io/todo-list-app_project/",
+    repoLink: "https://github.com/Abdul-luh/todo-list-app_project",
+  },
 ];
 
 allProps.forEach((item) => {
-	item.id = getNextId();
+  item.id = getNextId();
 });
 allProps.map((prop) => {
-	for (let i in prop.projTech) {
-		prop.projTech[i].id = Number(i) + 1;
-	}
+  for (let i in prop.projTech) {
+    prop.projTech[i].id = Number(i) + 1;
+  }
 });
 export default allProps;

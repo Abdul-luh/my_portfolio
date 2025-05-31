@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import InputComponent from "../../InputField";
 import skills from "../../data/skill";
-import { StaticImageData } from "next/image";
 import Image from "next/image";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
@@ -72,10 +71,9 @@ export default function ProjectForm() {
 
   const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    // console.log(file);
+
     if (file) {
       setSelectedImg(URL.createObjectURL(file));
-      // console.log(selectedImg);
       setImage(file); // Update the state with the selected image
     }
   };
@@ -180,7 +178,7 @@ export default function ProjectForm() {
               htmlLabelFor={skill.name}
               inputType="checkbox"
               htmlLabel={skill.name}
-              inputValue={skill.checked}
+              inputValue={skill.checked ? "true" : "false"}
               setValue={(e: React.ChangeEvent<HTMLInputElement>) => {
                 if (skill.name === e.target.name) {
                   const checked = checkboxValue.map((item) =>
@@ -200,7 +198,7 @@ export default function ProjectForm() {
         htmlLabelFor="displayImage"
         htmlLabel="Upload Image"
         inputType="file"
-        inputValue={null}
+        inputValue={undefined}
         setValue={handleImage}
       />
       {selectedImg && (
@@ -216,7 +214,7 @@ export default function ProjectForm() {
       {errMsg && (
         <div
           className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
-          onClick={(e) => setErrMsg("")}
+          onClick={() => setErrMsg("")}
         >
           <div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl text-red-700 font-bold">
             <FaTimes
@@ -232,7 +230,7 @@ export default function ProjectForm() {
       {msg && (
         <div
           className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
-          onClick={(e) => setMsg("")}
+          onClick={() => setMsg("")}
         >
           <div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
             <FaTimes

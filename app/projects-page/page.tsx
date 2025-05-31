@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import ProjectItem from "../components/ProjectItem";
 import Navbar from "../components/Navbar";
 import axios from "axios";
-import { StaticImageData } from "next/image";
 import { Project } from "@/utils/interfaces";
 const Page = () => {
   const [projects, setProjects] = useState<Project[]>([]);

@@ -1,23 +1,10 @@
 "use client";
-import { StaticImageData } from "next/image";
 import ProjectItem from "@/app/components/ProjectItem";
-import allProps from "@/app/components/data/Properties";
-import Navbar from "@/app/components/Navbar";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import { useProjectsFetch } from "@/app/hooks/useProjectsFetch";
 import { useEffect, useState } from "react";
-
-interface Project {
-  _id: string;
-  title: string;
-  header: string;
-  description: string;
-  image: string;
-  repoLink: string;
-  demoLink: string;
-  technologies: { techName: string; _id: string }[];
-}
+import { Project } from "@/utils/interfaces";
 
 const Page = ({ params }: { params: { skill: string } }) => {
   const { projects, loading, error } = useProjectsFetch();
