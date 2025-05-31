@@ -1,20 +1,29 @@
 "use client";
 import React, { useState } from "react";
 import InputComponent from "../../InputField";
-import Image from "next/image";
 import axios from "axios";
+import Image from "next/image";
+import Link from "next/link";
 import { FaTimes } from "react-icons/fa";
 
-export default function CertificateForm() {
-  const [textValue, setTextValue] = useState("");
-  const [image, setImage] = useState<File>();
-  const [selectedImg, setSelectedImg] = useState("");
+interface CertificateFormProps {
+  initialTitle?: string;
+  initialImage?: string;
+  onSubmit?: (formData: FormData, isEdit?: boolean) => void;
+  isEdit?: boolean;
+}
+
+export default function CertificateForm({
+  initialTitle,
+  initialImage,
+  onSubmit,
+  isEdit,
+}: CertificateFormProps) {
+  const [textValue, setTextValue] = useState(initialTitle || "");
+  const [image, setImage] = useState<File | null>(null);
+  const [selectedImg, setSelectedImg] = useState(initialImage || "");
   const [errMsg, setErrMsg] = useState("");
   const [msg, setMsg] = useState("");
-
-  const handleTextInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTextValue(e.target.value);
-  };
 
   const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -30,62 +39,72 @@ export default function CertificateForm() {
       return setErrMsg("Please don't leave any field empty.");
     }
 
-    const formdata = new FormData();
-    formdata.append("image", image);
-    formdata.append("text", textValue);
+    const formData = new FormData();
+    formData.append("image", image);
+    formData.append("text", textValue);
 
     try {
-      const resp = await axios.post("/api/addcertificate", formdata);
-      const data = resp.data;
+      const res = await axios.post("/api/certificates", formData);
+      const data = res.data;
+      console.log(data);
 
-      if (data.error) return setErrMsg(data.error);
+      if (data.error) {
+        return setErrMsg(data.error);
+      }
+
       if (data.message) {
         setMsg(data.message);
         setTextValue("");
-        setImage(undefined);
+        setImage(null);
         setSelectedImg("");
       }
     } catch (error: any) {
-      console.error(error.message);
+      console.error("Error:", error.message);
       setErrMsg("An error occurred during upload.");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4">
-      <InputComponent
-        htmlLabelFor="title"
-        inputType="text"
-        htmlLabel="Certificate Title"
-        inputValue={textValue}
-        setValue={handleTextInput}
-      />
+    <form onSubmit={handleSubmit} className="p-2">
+      <div className="grid md:grid-cols-2 gap-4 w-full py-2 items-end">
+        <InputComponent
+          htmlLabelFor="title"
+          inputType="text"
+          htmlLabel="Certificate Title"
+          inputValue={textValue}
+          setValue={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setTextValue(e.target.value)
+          }
+        />
 
-      <InputComponent
-        htmlLabelFor="image"
-        htmlLabel="Upload Certificate"
-        inputType="file"
-        inputValue={null}
-        setValue={handleImage}
-      />
+        <InputComponent
+          htmlLabelFor="image"
+          htmlLabel="Upload Certificate"
+          inputType="file"
+          inputValue={undefined}
+          setValue={handleImage}
+        />
+      </div>
 
       {selectedImg && (
-        <Image
-          src={selectedImg}
-          alt="Certificate preview"
-          width={500}
-          height={300}
-          className="my-4 mx-auto rounded-lg"
-        />
+        <Link href={selectedImg}>
+          <Image
+            src={selectedImg}
+            alt="Certificate preview"
+            width={500}
+            height={300}
+            className="mx-auto rounded-xl"
+          />
+        </Link>
       )}
 
       {errMsg && (
         <div
-          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center z-50"
+          className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
           onClick={() => setErrMsg("")}
         >
-          <div className="relative bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md text-red-600 font-bold max-w-md w-full text-center">
-            <FaTimes className="absolute top-2 right-2 cursor-pointer" />
+          <div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl text-red-700 ">
+            <FaTimes className="absolute top-2 right-2 text-xl cursor-pointer" />
             {errMsg}
           </div>
         </div>
@@ -93,12 +112,12 @@ export default function CertificateForm() {
 
       {msg && (
         <div
-          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center z-50"
+          className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
           onClick={() => setMsg("")}
         >
-          <div className="relative bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md text-green-600 font-bold max-w-md w-full text-center">
-            <FaTimes className="absolute top-2 right-2 cursor-pointer" />
-            {msg}
+          <div className="max-w-[750px] h-24 relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl uppercase text-green-700 font-bold">
+            <FaTimes className="absolute top-2 right-2 text-2xl cursor-pointer text-white" />
+            {msg}!
           </div>
         </div>
       )}
@@ -107,7 +126,7 @@ export default function CertificateForm() {
         type="submit"
         className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg mt-4"
       >
-        Upload Certificate
+        {isEdit ? "Update Certificate" : "Upload Certificate"}
       </button>
     </form>
   );

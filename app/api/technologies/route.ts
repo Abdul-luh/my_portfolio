@@ -9,6 +9,8 @@ Connect();
 const res = NextResponse;
 
 export async function POST(req: NextRequest) {
+  await Connect();
+
   try {
     const data = await req.formData();
     const image: File | null = data.get("image") as unknown as File;
@@ -18,6 +20,8 @@ export async function POST(req: NextRequest) {
     const buffer = Buffer.from(bytes);
 
     const path = join("./", "public", "images", "skills", image.name);
+
+    await writeFile(path, new Uint8Array(buffer));
 
     const body = {
       title,

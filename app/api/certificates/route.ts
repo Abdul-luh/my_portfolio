@@ -2,58 +2,72 @@ import { Connect } from "@/dbConfig/dbconfig";
 import Certificate from "@/model/certificateModel";
 import { NextRequest, NextResponse } from "next/server";
 import { join } from "path";
-import { writeFile } from "fs/promises";
+import { writeFile, mkdir } from "fs/promises";
+import { randomUUID } from "crypto";
 
-const res = NextResponse;
+Connect();
 
 export async function POST(req: NextRequest) {
   await Connect();
 
   try {
-    const data = await req.formData();
-    const image: File = data.get("image") as unknown as File;
-    const textValue: string = data.get("text") as unknown as string;
+    const formData = await req.formData();
+    const image = formData.get("image") as File;
+    const text = formData.get("text") as string;
+
+    if (!image) {
+      return NextResponse.json(
+        { error: "Image is required." },
+        { status: 400 }
+      );
+    }
+
+    if (!text || typeof text !== "string") {
+      // console.log("text is required.");
+      return NextResponse.json({ error: "text is required." }, { status: 400 });
+    }
 
     const bytes = await image.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    const path = join(
-      process.cwd(),
-      "public",
-      "images",
-      "certificates",
-      image.name
-    );
-    await writeFile(path, new Uint8Array(buffer));
+    const buffer = Buffer.from(bytes); // <- no double "await"
 
-    const body = {
-      title: textValue,
-      image: path,
-    };
-    const newCert = new Certificate(body);
-    const savedCert = await newCert.save();
+    // Create upload directory if it doesn't exist
+    const uploadDir = join(process.cwd(), "public", "images", "certificates");
+    await mkdir(uploadDir, { recursive: true });
 
-    console.log(savedCert);
-    return res.json(
+    const uniqueFileName = `${randomUUID()}-${image.name}`;
+    const filePath = join(uploadDir, uniqueFileName);
+    const imageUrl = `/certificates/${uniqueFileName}`;
+
+    // Save image to disk
+    await writeFile(filePath, new Uint8Array(buffer));
+
+    // Save to DB
+    const newCertificate = new Certificate({
+      title: text,
+      image: imageUrl,
+    });
+
+    const savedCertificate = await newCertificate.save();
+
+    return NextResponse.json(
       {
-        message: "certificate upload successful",
-        success: true,
+        message: "Certificate uploaded successfully!",
+        certificate: savedCertificate,
       },
       { status: 200 }
     );
   } catch (error: any) {
-    console.error(error);
-    return res.json({ error: error.message }, { status: 500 }); // ← add return and status
+    console.error("Certificate upload failed:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
 export async function GET() {
+  await Connect();
   try {
-    await Connect();
     const certificates = await Certificate.find().lean();
-
     return NextResponse.json({ certificates }, { status: 200 });
   } catch (error: any) {
-    console.error("Error fetching certificates:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

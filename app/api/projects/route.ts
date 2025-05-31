@@ -26,13 +26,14 @@ export async function POST(req: NextRequest) {
 
     // Generate unique filename to avoid collisions
     const uniqueFilename = `${randomUUID()}-${image.name}`;
-    const filePath = join(process.cwd(), "public", uniqueFilename);
+    const filePath = join(process.cwd(), "public", "images", uniqueFilename);
 
     // The URL that will be accessible in the browser:
     body.image = `/${uniqueFilename}`;
 
     const { textInputValue, textArea: description, checked } = body;
 
+    
     const {
       projectName: title,
       ProjectHeader: header,

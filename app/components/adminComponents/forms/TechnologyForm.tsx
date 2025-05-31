@@ -78,7 +78,7 @@ export default function TechnologyForm({
           htmlLabelFor="image"
           htmlLabel="Upload logo"
           inputType="file"
-          inputValue={null}
+          inputValue={undefined}
           setValue={handleImage}
         />
       </div>

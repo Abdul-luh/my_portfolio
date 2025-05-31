@@ -5,7 +5,7 @@ interface InputProps {
   inputType: string;
   htmlLabelFor: string;
   htmlLabel: string;
-  inputValue: any;
+  inputValue?: string;
   setValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -37,12 +37,14 @@ function InputComponent({
         onChange={(e) => {
           if (typeof setValue !== "function") {
             console.error("setValue is not a function", setValue);
+            return;
           }
           setValue(e);
         }}
-        {...(isFileInput
-          ? { accept: "image/*" } // for image upload
-          : { value: inputValue })}
+        {...(inputValue !== undefined && !isFileInput
+          ? { value: inputValue }
+          : {})}
+        {...(isFileInput ? { accept: "image/*" } : {})}
         className="border-2 text-black border-gray-300 focus:outline-[#5651e5] rounded-lg p-3"
       />
     </div>
