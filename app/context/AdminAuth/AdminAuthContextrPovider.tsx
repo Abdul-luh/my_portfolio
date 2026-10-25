@@ -14,7 +14,7 @@ export default function AdminAuthContextProvider({
     password: "",
   });
   const [isAuth, setIsAuth] = useState(false);
-  const [err, setErr] = React.useState(null);
+  const [err, setErr] = React.useState<string | null>(null);
   const route = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,28 +23,32 @@ export default function AdminAuthContextProvider({
 
   const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErr(null);
     try {
       const response = await axios.post("/api/login", input);
       const result = await response.data;
 
-      // console.log(result.authenticated);
+      if (result.error) {
+        setErr(result.error);
+        return;
+      }
 
       if (result.authenticated) {
-        // console.log(result, "route to '/admin/home/'");
-        setIsAuth(true); // ✅ Set auth state to true
-        route.push("/admin/home/");
+        setIsAuth(true);
+        route.push("/admin/home");
       }
     } catch (error: any) {
-      console.log(error);
-      setErr(error.message);
+      console.error("Login submission error:", error);
+      const apiError = error.response?.data?.error;
+      setErr(apiError || error.message || "Failed to log in");
     }
   };
 
   const handleLogout = async () => {
     try {
-      await axios.post("/api/logout"); // Call the logout endpoint
-      setIsAuth(false); // Clear client-side auth state
-      route.push("/"); // Redirect to login or home
+      await axios.post("/api/logout");
+      setIsAuth(false);
+      route.push("/");
     } catch (error: any) {
       console.error("Logout failed:", error.message);
     }
@@ -58,6 +62,7 @@ export default function AdminAuthContextProvider({
         setInput,
         handleChange,
         err,
+        setErr,
         isAuth,
         handleLogout,
       }}

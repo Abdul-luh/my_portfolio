@@ -19,7 +19,7 @@ export default function AddTechnology() {
           const res = await axios.get(`/api/technologies/${techId}`);
           const data = res.data.technology;
           setInitialTitle(data.title);
-          setInitialImage(data.img); // ensure your API returns the image URL or base64
+          setInitialImage(data.img);
         } catch (error) {
           console.error("Failed to fetch tech:", error);
         } finally {
@@ -43,18 +43,24 @@ export default function AddTechnology() {
     }
   };
 
-  if (loading) return <p className="text-center">Loading...</p>;
+  if (loading) return <p className="text-center py-10">Loading...</p>;
+
   return (
-    <div
-      id="AddTechnology"
-      className="md:col-span-3 w-full h-auto shadow-xl dark:shadow-gray-700 shadow-gray-400 rounded-xl lg:p-4"
-    >
-      <TechnologyForm
-        initialTitle={initialTitle}
-        initialImage={initialImage}
-        onSubmit={handleSubmit}
-        isEdit={!!techId}
-      />{" "}
+    <div className="w-full flex justify-center items-center py-4">
+      <div
+        id="AddTechnology"
+        className="w-full max-w-xl mx-auto bg-white/60 dark:bg-gray-800/60 backdrop-blur-md shadow-2xl dark:shadow-gray-950/60 shadow-gray-300 rounded-2xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700"
+      >
+        <h2 className="text-2xl font-bold mb-6 text-center tracking-wide">
+          {techId ? "Edit Technology" : "Add New Technology"}
+        </h2>
+        <TechnologyForm
+          initialTitle={initialTitle}
+          initialImage={initialImage}
+          onSubmit={handleSubmit}
+          isEdit={!!techId}
+        />
+      </div>
     </div>
   );
 }

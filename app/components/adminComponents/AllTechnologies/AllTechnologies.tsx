@@ -25,9 +25,9 @@ const AllTechnologies = () => {
   };
 
   return (
-    <section id="AllTechnologies" className="w-full p-4">
-      <div className="max-w-[1240px] mx-auto h-full flex flex-col justify-center items-center">
-        <div className="grid gap-8 w-full">
+    <section id="AllTechnologies" className="w-full py-4">
+      <div className="max-w-[1240px] mx-auto w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">
           {technologies.map((tech) => (
             <Card
               key={tech._id}

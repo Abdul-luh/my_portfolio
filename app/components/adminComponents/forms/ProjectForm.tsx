@@ -5,7 +5,7 @@ import skills from "../../data/skill";
 import Image from "next/image";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
-import { FaTimes } from "react-icons/fa";
+import Toast from "../Toast";
 
 export default function ProjectForm() {
   const [textArea, setTextArea] = useState("");
@@ -212,35 +212,21 @@ export default function ProjectForm() {
       )}
 
       {errMsg && (
-        <div
-          className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
-          onClick={() => setErrMsg("")}
-        >
-          <div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl text-red-700 font-bold">
-            <FaTimes
-              width={25}
-              height={25}
-              className="absolute top-2 right-2"
-            />
-            {errMsg}
-          </div>
-        </div>
+        <Toast
+          type="error"
+          message={errMsg}
+          onClose={() => setErrMsg("")}
+          duration={2000}
+        />
       )}
 
       {msg && (
-        <div
-          className="fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
-          onClick={() => setMsg("")}
-        >
-          <div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xll ">
-            <FaTimes
-              width={25}
-              height={25}
-              className="absolute top-2 right-2"
-            />
-            {msg}
-          </div>
-        </div>
+        <Toast
+          type="success"
+          message={msg}
+          onClose={() => setMsg("")}
+          duration={2000}
+        />
       )}
 
       <button

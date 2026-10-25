@@ -4,7 +4,7 @@ import InputComponent from "../../InputField";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { FaTimes } from "react-icons/fa";
+import Toast from "../Toast";
 
 interface CertificateFormProps {
   initialTitle?: string;
@@ -16,7 +16,7 @@ interface CertificateFormProps {
 export default function CertificateForm({
   initialTitle,
   initialImage,
-  // onSubmit,
+  onSubmit,
   isEdit,
 }: CertificateFormProps) {
   const [textValue, setTextValue] = useState(initialTitle || "");
@@ -35,18 +35,29 @@ export default function CertificateForm({
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!image || !textValue.trim()) {
+    if ((!image && !selectedImg) || !textValue.trim()) {
       return setErrMsg("Please don't leave any field empty.");
     }
 
     const formData = new FormData();
-    formData.append("image", image);
+    if (image) {
+      formData.append("image", image);
+    }
     formData.append("text", textValue);
 
     try {
+      if (isEdit && onSubmit) {
+        await onSubmit(formData, true);
+        setMsg("Certificate updated successfully!");
+        return;
+      }
+
+      if (!image) {
+        return setErrMsg("Please upload a certificate image.");
+      }
+
       const res = await axios.post("/api/certificates", formData);
       const data = res.data;
-      console.log(data);
 
       if (data.error) {
         return setErrMsg(data.error);
@@ -65,8 +76,26 @@ export default function CertificateForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-2">
-      <div className="grid md:grid-cols-2 gap-4 w-full py-2 items-end">
+    <form onSubmit={handleSubmit} className="w-full space-y-6">
+      {errMsg && (
+        <Toast
+          type="error"
+          message={errMsg}
+          onClose={() => setErrMsg("")}
+          duration={2000}
+        />
+      )}
+
+      {msg && (
+        <Toast
+          type="success"
+          message={msg}
+          onClose={() => setMsg("")}
+          duration={2000}
+        />
+      )}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
         <InputComponent
           htmlLabelFor="title"
           inputType="text"
@@ -87,44 +116,25 @@ export default function CertificateForm({
       </div>
 
       {selectedImg && (
-        <Link href={selectedImg}>
-          <Image
-            src={selectedImg}
-            alt="Certificate preview"
-            width={500}
-            height={300}
-            className="mx-auto rounded-xl"
-          />
-        </Link>
-      )}
-
-      {errMsg && (
-        <div
-          className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
-          onClick={() => setErrMsg("")}
-        >
-          <div className="max-w-[750px] relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl text-red-700 ">
-            <FaTimes className="absolute top-2 right-2 text-xl cursor-pointer" />
-            {errMsg}
-          </div>
-        </div>
-      )}
-
-      {msg && (
-        <div
-          className="max-w-[750px] fixed w-full h-full top-0 left-0 flex justify-center items-center py-8 px-6  z-10 "
-          onClick={() => setMsg("")}
-        >
-          <div className="max-w-[750px] h-24 relative bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-center shadow-xl dark:shadow-gray-700 shadow-gray-400 py-8 px-6 rounded-xl uppercase text-green-700 font-bold">
-            <FaTimes className="absolute top-2 right-2 text-2xl cursor-pointer text-white" />
-            {msg}!
-          </div>
+        <div className="flex flex-col items-center justify-center p-4 border border-dashed border-gray-400 dark:border-gray-600 rounded-xl">
+          <p className="text-xs uppercase tracking-wider mb-2 opacity-70">
+            Certificate Preview
+          </p>
+          <Link href={selectedImg} target="_blank">
+            <Image
+              src={selectedImg}
+              alt="Certificate preview"
+              width={400}
+              height={240}
+              className="mx-auto rounded-xl shadow-md object-contain max-h-60"
+            />
+          </Link>
         </div>
       )}
 
       <button
         type="submit"
-        className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg mt-4"
+        className="w-full py-3.5 px-6 font-bold tracking-wider text-white rounded-xl shadow-lg transition-all hover:opacity-90 cursor-pointer"
       >
         {isEdit ? "Update Certificate" : "Upload Certificate"}
       </button>

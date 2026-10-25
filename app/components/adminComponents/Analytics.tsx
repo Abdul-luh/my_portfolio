@@ -57,8 +57,8 @@ export default function AnalyticsDashboard() {
       <h2 className="text-xl font-bold mb-4">Website Analytics</h2>
 
       {/* Date filter input */}
-      <div className="mb-4">
-        <label htmlFor="dateFilter" className="mr-2 font-semibold">
+      <div className="mb-4 flex items-center flex-wrap gap-2">
+        <label htmlFor="dateFilter" className="font-semibold text-sm">
           Filter by Date:
         </label>
         <input
@@ -66,45 +66,45 @@ export default function AnalyticsDashboard() {
           type="date"
           value={searchDate}
           onChange={(e) => setSearchDate(e.target.value)}
-          className="border p-1 rounded"
+          className="border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-2 rounded-lg text-sm"
           max={new Date().toISOString().slice(0, 10)} // disallow future dates
         />
         {searchDate && (
           <button
             onClick={() => setSearchDate("")}
-            className="ml-2 text-red-600 underline"
+            className="text-red-500 hover:text-red-600 text-sm font-semibold !bg-transparent !shadow-none border-0 underline"
           >
             Clear
           </button>
         )}
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse">
-          <thead>
-            <tr className="border-b">
-              <th className="p-2">Page</th>
-              <th className="p-2">IP</th>
-              <th className="p-2">Device</th>
-              <th className="p-2">Referrer</th>
-              <th className="p-2">Date</th>
+      <div className="overflow-x-auto rounded-xl border border-gray-300 dark:border-gray-700 shadow-md">
+        <table className="min-w-full text-left text-sm">
+          <thead className="bg-gray-100 dark:bg-gray-800 border-b border-gray-300 dark:border-gray-700">
+            <tr>
+              <th className="p-3">Page</th>
+              <th className="p-3">IP</th>
+              <th className="p-3">Device</th>
+              <th className="p-3">Referrer</th>
+              <th className="p-3">Date</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
             {currentLogs.map((log, i) => (
-              <tr key={i} className="border-b">
-                <td className="p-2">{log.page}</td>
-                <td className="p-2">{log.ip}</td>
-                <td className="p-2">{log.userAgent}</td>
-                <td className="p-2">{log.referer}</td>
-                <td className="p-2">
+              <tr key={i} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                <td className="p-3 font-medium">{log.page}</td>
+                <td className="p-3 text-xs">{log.ip}</td>
+                <td className="p-3 text-xs max-w-xs truncate" title={log.userAgent}>{log.userAgent}</td>
+                <td className="p-3 text-xs">{log.referer || "Direct"}</td>
+                <td className="p-3 text-xs whitespace-nowrap">
                   {new Date(log.timestamp).toLocaleString()}
                 </td>
               </tr>
             ))}
             {!currentLogs.length && (
               <tr>
-                <td colSpan={5} className="text-center p-4 text-gray-500">
+                <td colSpan={5} className="text-center p-6 text-gray-500">
                   No logs for selected date.
                 </td>
               </tr>

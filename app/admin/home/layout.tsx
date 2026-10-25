@@ -24,41 +24,41 @@ export default function AdminLayout({
     : "/admin/home/view";
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col bg-[var(--bg-light)] dark:bg-[var(--bg-dark)] text-[var(--text-light)] dark:text-[var(--text-dark)]">
       <Navbar />
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 pt-20 w-full">
         <Sidebar />
-        <main className="flex-1 overflow-auto p-4">
-          <div className="w-full h-screen text-white">
-            <div className="max-w-[1200px] h-[0%] pt-20 m-auto">
-              {/* TAB HEADER */}
-              {pathname !== "/admin/home" && (
-                <div className="mx-auto flex justify-between items-center max-w-2xl p-4 gap-4 text-center">
-                  {tabs.map((tab) => {
-                    const href = `${basePath}/${tab.slug}`;
-                    const isActive = pathname === href;
+        <main className="flex-1 min-w-0 p-3 sm:p-6 md:p-8 overflow-y-auto">
+          <div className="max-w-[1200px] w-full mx-auto">
+            {/* TAB HEADER */}
+            {pathname !== "/admin/home" && (
+              <div className="mx-auto flex justify-center items-center flex-wrap max-w-xl p-2 mb-6 gap-3 sm:gap-6 text-center border-b border-gray-300 dark:border-gray-700">
+                {tabs.map((tab) => {
+                  const href = `${basePath}/${tab.slug}`;
+                  const isActive = pathname === href;
 
-                    return (
-                      <Link
-                        key={tab.slug}
-                        href={href}
-                        className={`py-1 border-b-2 ${
-                          isActive ? "border-[#5651e5]" : "border-transparent"
-                        } hover:border-[#5651e5] transition-colors`}
-                      >
-                        {tab.name}
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
+                  return (
+                    <Link
+                      key={tab.slug}
+                      href={href}
+                      className={`py-2 px-3 text-sm sm:text-base font-semibold border-b-2 transition-all ${
+                        isActive
+                          ? "border-[#5651e5] text-[#5651e5]"
+                          : "border-transparent hover:text-[#5651e5] opacity-70 hover:opacity-100"
+                      }`}
+                    >
+                      {tab.name}
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
 
-              {/* MAIN CONTENT */}
-              {children}
-            </div>
+            {/* MAIN CONTENT */}
+            <div className="w-full">{children}</div>
           </div>
         </main>
       </div>
-    </>
+    </div>
   );
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -55,5 +57,21 @@ html {
 	}
 	.logo-span {
 		@apply text-white z-[1] bg-black capitalize;
+	}
+
+	.font-admin,
+	.font-admin input,
+	.font-admin textarea,
+	.font-admin select,
+	.font-admin button,
+	.font-admin h1,
+	.font-admin h2,
+	.font-admin h3,
+	.font-admin h4,
+	.font-admin p,
+	.font-admin span,
+	.font-admin a,
+	.font-admin label {
+		font-family: var(--font-shadows-into-light), "Shadows Into Light", cursive, sans-serif !important;
 	}
 }

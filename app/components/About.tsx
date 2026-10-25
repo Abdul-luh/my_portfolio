@@ -13,7 +13,14 @@ const About = () => {
           <p className="uppercase text-xl tracking-widest text-[#5651e5]">
             About
           </p>
-          <h2 className="py-4">Who I am</h2>
+          <h2 className="py-4">
+            <Link
+              href="/admin/home"
+              className="hover:text-[#5651e5] transition-colors cursor-pointer"
+            >
+              Who I am
+            </Link>
+          </h2>
           <p className="py-2  dark:text-gray-400 text-gray-600">
             I am not your normal developer
           </p>

@@ -26,11 +26,11 @@ const AllProjects = () => {
   };
 
   return (
-    <section id="AllProjects" className="w-full p-4">
-      <div className="max-w-[1240px] mx-auto h-full flex flex-col justify-center items-center">
-        <div className="grid gap-8 w-full ">
-          {loading && <p className="text-white">Loading...</p>}
-          {error && <p className="text-red-500">{error}</p>}
+    <section id="AllProjects" className="w-full py-4">
+      <div className="max-w-[1240px] mx-auto w-full">
+        {loading && <p className="text-center py-6">Loading...</p>}
+        {error && <p className="text-red-500 text-center py-6">{error}</p>}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">
           {projects.map((project) => (
             <Card
               key={project._id}
