@@ -8,6 +8,12 @@ const nextConfig = {
 		};
 		return config;
 	},
+	images: {
+		remotePatterns: [
+			{ protocol: "https", hostname: "**" },
+			{ protocol: "http", hostname: "**" },
+		],
+	},
 	experimental: {
 		esmExternals: "loose", // <-- add this
 		serverComponentsExternalPackages: ["mongoose"], // <-- and this

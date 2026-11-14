@@ -14,22 +14,7 @@ const Page = ({ params }: { params: { id: string } }) => {
   useEffect(() => {
     if (projects.length > 0) {
       const found = projects.find((proj) => proj._id === params.id);
-      if (found) {
-        // Map the found object to the Project interface
-        const mappedProject: Project = {
-          _id: found._id ?? parseInt(found._id) ?? 0,
-          title: found.title,
-          header: found.header,
-          image: found.image,
-          description: found.description,
-          technologies: found.technologies,
-          demoLink: found.demoLink,
-          repoLink: found.repoLink,
-        };
-        setProject(mappedProject);
-      } else {
-        setProject(null);
-      }
+      setProject(found || null);
     }
   }, [projects, params.id]);
 
@@ -43,7 +28,7 @@ const Page = ({ params }: { params: { id: string } }) => {
       <Navbar />
 
       {/* MAPPING THROUGH THE PROJECT LIST  */}
-      {projects.map((project: Project) => {
+      {projects.map((project) => {
         if (params.id == project._id.toString())
           return (
             <div key={project._id} className="w-full overflow-x-hidden">
@@ -51,10 +36,11 @@ const Page = ({ params }: { params: { id: string } }) => {
                 <div className="absolute top-0 left-0 w-full h-[40vh] lg:h-[50vh] bg-black/80 z-10 overflow-y-hidden" />
                 <Image
                   className="absolute z-[-1] object-cover mt-6"
-                  src={project.image}
-                  alt="img"
+                  src={project.image || "/images/portfolio-sample-mobile.png"}
+                  alt={project.title}
                   width={1200}
                   height={500}
+                  unoptimized={typeof project.image === "string" && project.image.startsWith("http")}
                 />
                 <div className="absolute top-[70%] max-w-[1000px] w-full left-[50%] -translate-x-1/2 -translate-y-1/2 text-white z-10 p-2">
                   <h2 className="py-2 uppercase">

@@ -12,4 +12,7 @@ export interface Project {
   repoLink: string;
   demoLink: string;
   technologies: Technology[];
+  featured?: boolean;
+  githubId?: string;
+  repoName?: string;
 }

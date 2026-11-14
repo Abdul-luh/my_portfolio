@@ -19,13 +19,27 @@ const Navbar = () => {
   const pathname = usePathname();
 
   useEffect(() => {
+    // Do not track local dev or admin pages
+    if (typeof window !== "undefined") {
+      const hostname = window.location.hostname;
+      if (
+        hostname === "localhost" ||
+        hostname === "127.0.0.1" ||
+        hostname.endsWith(".local") ||
+        pathname.startsWith("/admin")
+      ) {
+        return;
+      }
+    }
+
     fetch("/api/track", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         page: window.location.pathname,
         screenSize: `${window.innerWidth}x${window.innerHeight}`,
       }),
-    });
+    }).catch(() => {});
   }, [pathname]);
 
   useEffect(() => {
@@ -50,7 +64,7 @@ const Navbar = () => {
           <Link href={"/"}>
             <h4 className="logo-text">
               Abdullah
-              <span className="logo-span">.dev</span>
+              <span className="logo-span">.Odulate</span>
             </h4>
           </Link>
         </div>
@@ -123,7 +137,7 @@ const Navbar = () => {
               <Link href={"/#hero"}>
                 <h4 className="logo-text">
                   Abdullah
-                  <span className="logo-span">.dev</span>
+                  <span className="logo-span">.Odulate</span>
                 </h4>
               </Link>
             </div>

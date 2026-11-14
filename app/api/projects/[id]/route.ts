@@ -4,6 +4,7 @@ import { Connect } from "@/dbConfig/dbconfig"; // adjust to your DB connection u
 import { randomUUID } from "crypto";
 import { join } from "path";
 import { writeFile } from "fs/promises";
+import { invalidateServerCache } from "@/utils/serverCache";
 
 type paramsType = { params: { id: string } };
 
@@ -23,6 +24,9 @@ export async function DELETE(_req: NextRequest, { params }: paramsType) {
         { status: 404 }
       );
     }
+
+    invalidateServerCache("projects");
+    invalidateServerCache("tech");
 
     return NextResponse.json(
       { message: `Project with id ${id} deleted successfully.` },
@@ -69,6 +73,10 @@ export async function PUT(req: NextRequest, { params }: paramsType) {
       })),
     };
 
+    if (projectData.featured !== undefined) {
+      updatedFields.featured = projectData.featured;
+    }
+
     // ✅ Handle image if it's present
     const image: File | null = formData.get("image") as File | null;
     if (image && image.size > 0) {
@@ -93,6 +101,9 @@ export async function PUT(req: NextRequest, { params }: paramsType) {
       );
     }
 
+    invalidateServerCache("projects");
+    invalidateServerCache("tech");
+
     return NextResponse.json(
       {
         message: `Project with id ${id} updated successfully.`,
@@ -102,6 +113,34 @@ export async function PUT(req: NextRequest, { params }: paramsType) {
     );
   } catch (error: any) {
     console.error(error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
+
+// PATCH to toggle featured or partial update
+export async function PATCH(req: NextRequest, { params }: paramsType) {
+  await Connect();
+  try {
+    const { id } = params;
+    const body = await req.json();
+
+    const updated = await Projects.findByIdAndUpdate(id, body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!updated) {
+      return NextResponse.json({ error: "Project not found" }, { status: 404 });
+    }
+
+    invalidateServerCache("projects");
+    invalidateServerCache("tech");
+
+    return NextResponse.json(
+      { message: "Project updated successfully", project: updated },
+      { status: 200 }
+    );
+  } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
