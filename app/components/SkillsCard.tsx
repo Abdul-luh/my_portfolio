@@ -15,6 +15,11 @@ export default function SkillsCard({
   projectCount,
 }: SkillsCardProps) {
   const [imgSrc, setImgSrc] = useState<string | StaticImageData>(imgProp);
+
+  React.useEffect(() => {
+    setImgSrc(imgProp);
+  }, [imgProp]);
+
   const isSvg = typeof imgSrc === "string" && imgSrc.endsWith(".svg");
 
   return (

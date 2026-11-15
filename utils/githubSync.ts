@@ -110,13 +110,20 @@ export function extractDescriptionFromReadme(markdown?: string, fallbackDesc?: s
 }
 
 export function generateScreenshotUrl(demoLink?: string, owner?: string, repoName?: string): string {
-  // Use GitHub's official high-res OpenGraph dynamic card - fast, CDN-cached, unique per repository
+  // If hosted live web application, provide real web page screenshot like Vercel displays
+  if (demoLink && demoLink.startsWith("http") && !demoLink.includes("github.com/")) {
+    const safeName = (repoName || demoLink.replace(/^https?:\/\//, "").replace(/\.vercel\.app.*$/, ""))
+      .replace(/[^a-zA-Z0-9_-]/g, "_")
+      .toLowerCase();
+    
+    // Check if we already have the screenshot cached locally
+    const localRel = `/images/screenshots/${safeName}.png`;
+    return localRel;
+  }
+
+  // Backend / CLI repository without web demo: use GitHub OpenGraph repository card
   if (owner && repoName) {
     return `https://opengraph.githubassets.com/1/${owner}/${repoName}`;
-  }
-  if (demoLink && demoLink.startsWith("http")) {
-    const cleanName = demoLink.replace(/^https?:\/\//, "").replace(/\.vercel\.app.*$/, "").replace(/[^a-zA-Z0-9-_]/g, "");
-    return `https://opengraph.githubassets.com/1/Abdul-luh/${cleanName}`;
   }
   return `https://opengraph.githubassets.com/1/Abdul-luh/my_portfolio`;
 }
