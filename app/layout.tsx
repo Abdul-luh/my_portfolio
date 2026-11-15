@@ -1,12 +1,9 @@
 import AdminAuthContextProvider from "./context/AdminAuth/AdminAuthContextrPovider";
 import "./globals.css";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Abdullah_Portfolio",
-  description: "Odulate Abdullah's Portfolio",
+  title: "Abdullah Odulate | Frontend & Full-Stack Developer",
+  description: "Portfolio of Abdullah Odulate - Modern Web Applications, React, Next.js, and Full-Stack Engineering.",
 };
 
 export default function RootLayout({
@@ -16,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="font-sans antialiased">
         <AdminAuthContextProvider>{children}</AdminAuthContextProvider>
       </body>
     </html>
